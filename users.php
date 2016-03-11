@@ -14,9 +14,13 @@ include_once("adb.php");
 		* @param [all attributes needed to create a user]
 		* @returns boolean showing success or failure
 		*/
-		function addNewUser(/* parameters needed to create new user*/)
-		{
-
+		function addNewUser($username,$firstname,$lastname,$password){
+			$strQuery="insert into userinfo set
+							username='$username',
+							firstname='$firstname',
+							lastname='$lastname',
+							password=MD5('$password')";
+			return $this->query($strQuery);
 		}
 
 		/*
@@ -50,13 +54,31 @@ include_once("adb.php");
 		}
 
 		/*
+		* gets user information
+		* @param username,password of user's table
+		* @return row of user's attributes
+		*/
+		function VerifyUser($userName,$password)
+		{
+			$strQuery = "Select * from userinfo where username = '$userName' and password = MD5('$password')";
+			return $this->query($strQuery);
+		}
+
+		/*
 		* logs the user in, given accurate credentials
 		* @param: user's login credentials
 		* @return: boolean based on success or failure
 		*/
-		function login(/*user's login credentials */)
+		function login($userName,$password)
 		{
-
+			$check=true;
+			$data=$this->VerifyUser($userName,$password);
+			$result=$this->fetch();
+			if($result=="")
+			{
+				$check=false;
+			}
+			return $check;
 		}
 
 		/*
