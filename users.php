@@ -28,9 +28,10 @@ include_once("adb.php");
 		* @param primary key of user's table
 		* @return boolean representing success or failure
 		*/
-		function deleteUser(/* primary key of user table*/)
+		function deleteUser($usercode)
 		{
-			
+			$strQuery = "DELETE FROM users where usercode = $usercode";
+			return this->query($strQuery);
 		}
 		
 		/*
@@ -38,9 +39,10 @@ include_once("adb.php");
 		* @param primary key of user's table
 		* @return row of user's attributes
 		*/
-		function getUser(/*primary key of users table*/)
+		function getUser($filter="")
 		{
-			
+			$strQuery = "SELECT * from users".$filter;
+			return $this->query($strQuery);
 		}
 		
 		/*

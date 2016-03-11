@@ -1,14 +1,16 @@
 <?php
-	include_once("settings.php");
+	//include_once("settings.php");
+	class adb{
 	
-	$conn= null;//the connection to the database
-	$data= null;
+	var $conn= null;//the connection to the database
+	var $data= null;
 	/*
 	* connects to database
 	*/
 	function connect()
 	{
-		
+		$this->conn = new mysqli('localhost', 'root', '', 'clinic_project');
+		return $this->conn;
 	}
 	
 	/*
@@ -20,7 +22,11 @@
 	*/
 	function query($strQuery)
 	{
-		
+		echo $strQuery; echo " <br>";
+		if($this->conn==null){
+			$this->connect();
+		}
+		$this->data = $this->conn->query($strQuery);
 	}
 	
 	/*
@@ -28,7 +34,14 @@
 	*/
 	function fetch()
 	{
-		
+		if ($this->data!=null)
+		{
+			return $this->data->fetch_assoc();
+		}else
+		{
+			return false;
+		}
+	}
 	}
 	
 ?>

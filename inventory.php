@@ -1,8 +1,9 @@
 <?php
-	include_once("adb.php");
 	
+	include_once("adb.php");
 	class inventory extends adb
 	{
+		
 		/*
 		* constructor
 		*/
@@ -27,6 +28,24 @@
 		function editInventory( /*the primary key of the inventory*/)
 		{
 			
+		}
+		
+		/*
+		* comments here
+		*/
+		function deleteInventory( $primaryKey/*the primary key of the inventory*/)
+		{
+			$sql = "Delete from drugs where inventoryID = $primaryKey";
+			return $this->query($sql);
+		}
+		
+		/*
+		* comments here
+		*/
+		function getAllInventory()
+		{
+			$sql = "select * from drugs";
+			return $this->query($sql);
 		}
 	}
 	
