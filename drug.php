@@ -10,7 +10,7 @@ include_once("inventory.php");
       //             drugType enum ('Tablet','Syrup'), foreign key(supplierId) references Suppliers(suppliersId)) 
 	 function addDrug($InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory){
 		$result =  $this->addNewInventory( $InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory);
-		echo $result;
+		
 	
 	}
 	 
