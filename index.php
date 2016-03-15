@@ -34,7 +34,7 @@
 						<td>DRUG ID</td>
 						<td>DRUG NAME</td>
 						<td> QUANTITY</td>
-						<td> SUPPLIER ID</td>
+						<td> SUPPLIER</td>
 						<td> DRUG TYPE</td>
 						<td> EDIT</td>
 						<td> DELETE</td>
