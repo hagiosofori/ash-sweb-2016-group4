@@ -7,15 +7,26 @@
 	<body>
 		<!-- this is the navigation bar at the top. comprising the ashesi logo, home button, and any other actions you want the user to easily reach-->
 		<div id = "nav"><img src = ""/><a>Home</a></div>
-		<form action = "homepage.php" method = "GET">
+		<form action = "index.php" method = "GET">
 		<!-- search box, and search button-->
-		<input type= "text" name = "txtSearch" value = "<?php ?>"><input type ="submit" name= "search" value = "Search"> <br><br>
+		<input type= "text" name = "txtSearch" value = "<?php echo $_REQUEST['txtSearch']?>"><input type ="submit" name= "search" value = "Search"> <br><br>
 			<?php
-			include_once("inventory.php");
+			include_once("drugs.php");
 			
-			$drugs = new inventory();
-			$result = $drugs->getAllInventory();
+			
+			$drugs = new drugs();
+			
+			
+			if(isset($_REQUEST['txtSearch'])){
+				echo "There's a search term <br><br>";
+				echo  $_REQUEST['txtSearch'];echo "<br>";
+				$str = $_REQUEST['txtSearch'];
+				$result = $drugs->searchDrugs($str);
+			}else{
+				$result = $drugs->getDrugs();
+			}
 			$row = $drugs->fetch();	
+				if($row!=false){
 				echo "Drugs<br><br>
 				
 				<table>
@@ -28,6 +39,9 @@
 						<td> EDIT</td>
 						<td> DELETE</td>
 					</tr>";
+				}else{
+					echo "No drugs match your search";
+				}	
 				while($row!=false){
 					//print_r($row);
 					echo "<tr>
@@ -60,6 +74,7 @@
 				$tools->getTools();
 			}
 			$row = $tools->fetch();
+				if($row!=false){
 				echo "Tools<br><br>";
 				echo "
 				<table>
@@ -72,7 +87,9 @@
 						<td> EDIT</td>
 						<td> DELETE</td>
 					</tr>";
-				
+				}else{
+					echo "No tools match your search";
+				}
 				while($row!=false){
 					//print_r($row);
 					echo "<tr>
@@ -95,8 +112,14 @@
 			include_once("suppliers.php");
 			
 			$suppliers = new Suppliers();
-			$suppliers->getSuppliers();
+			if(isset($_REQUEST['txtSearch'])){
+				$str = $_REQUEST['txtSearch'];
+				$result = $suppliers->searchSuppliers($str);
+			}else{
+				$suppliers->getSuppliers();
+			}
 			$row = $suppliers->fetch();	
+				if($row!=false){
 				echo "Suppliers<br><br>";
 				echo "
 				<table>
@@ -107,9 +130,11 @@
 						<td> EDIT</td>
 						<td> DELETE</td>
 					</tr>";
-				
+				}else{
+					echo "No suppliers match your search";
+				}
 				while($row!=false){
-					print_r($row);
+					//print_r($row);
 					echo "<tr>
 							<td>{$row['suppliersId']}</td>
 							<td>{$row['supplierName']}</td>

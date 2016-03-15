@@ -1,7 +1,8 @@
 <?php
-
-	class drugs{
-		include_once("adb.php");
+include_once("adb.php");
+		
+	class drugs extends adb{
+		
 		
 		function __constructor()
 		{
@@ -30,6 +31,14 @@
 			return $this->query($sql);
 		}
 		
+		function searchDrugs($text = false){
+			$filter = "";
+			if($text!=false){
+				$filter = " where drugName like '%$text%'";
+				
+			}
+			return $this->getDrugs($filter);
+		}
 	}
 
 ?>

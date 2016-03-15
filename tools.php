@@ -21,10 +21,12 @@ include_once("adb.php");
 		}
 		
 		function searchTools($text = false){
-			if(text!=false){
-				$filter = "WHERE toolid like '%$text%' or toolname like '%$text%'";
-				return getTools($filter);
+			$filter = "";
+			if($text!=false){
+				$filter = " WHERE toolId like '%$text%' or toolName like '%$text%'";
+				
 			}
+			return $this->getTools($filter);
 		}
 	}
 
