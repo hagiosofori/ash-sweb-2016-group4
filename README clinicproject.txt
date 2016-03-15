@@ -24,3 +24,5 @@ Tools Class
 OTHERS
 * Please see the specifications document for how the UI should look like. Additional info about this should also come out soon
 
+copyright KAER.
+
