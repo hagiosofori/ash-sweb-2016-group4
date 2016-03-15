@@ -8,9 +8,11 @@ include_once("adb.php");
 		* @param [all attributes needed to create a user]
 		* @returns boolean showing success or failure
 		*/
-		function addNewUser(/* parameters needed to create new user*/)
+		function addNewUser( $username,$password, $firstname, $lastname, $verification)
 		{
-			
+			$query="insert into userinfo set username = '$username' ,
+			password=MD5('$password'), firstname='$firstname', lastname = '$lastname', verification =$verification";
+		$this->query($query);
 		}
 		
 		/*
@@ -18,9 +20,11 @@ include_once("adb.php");
 		* @param [all attributes of a user]
 		* @return boolean repersenting success or failure
 		*/
-		function editUser(/*same parameters as above */)
+		function editUser($userID,$username,$password, $firstname, $lastname, $verification)
 		{
-			
+			$query="update userinfo set username = '$username' ,
+			password=MD5('$password'), firstname='$firstname', lastname = '$lastname', verification =$verification where userID = $userID";
+		$this->query($query);
 		}
 		
 		/*
@@ -31,7 +35,7 @@ include_once("adb.php");
 		function deleteUser($usercode)
 		{
 			$strQuery = "DELETE FROM users where usercode = $usercode";
-			return this->query($strQuery);
+			return $this->query($strQuery);
 		}
 		
 		/*

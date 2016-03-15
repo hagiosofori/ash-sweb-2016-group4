@@ -27,6 +27,7 @@
 			$this->connect();
 		}
 		$this->data = $this->conn->query($strQuery);
+		return $this->data;
 	}
 	
 	/*
