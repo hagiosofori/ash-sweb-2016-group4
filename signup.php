@@ -15,15 +15,23 @@ include_once("users.php");
 $user = new users();
 
 	if(!isset($_REQUEST['username'])){
-		exit();		//if no data, exit
+		exit();
 	}
-	//print_r($_REQUEST);
+
 	$username=$_REQUEST['username'];
 	$firstname=$_REQUEST['firstname'];
 	$lastname=$_REQUEST['lastname'];
 	$password=$_REQUEST['password'];
 
-  $user->addNewUser($username,$firstname,$lastname,$password);
+  $verify = $user->addNewUser($username,$firstname,$lastname,$password);
+
+  if($verify==true){
+    echo "user added";
+  
+  }
+  else{
+    echo "User was not created";
+  }
 ?>
 </form>
 </body>
