@@ -5,7 +5,11 @@ include_once("adb.php");
 		function __constructor(){
 			
 		}
+		function addSuppliers($supplierName , $supplierLocation){
+		$strQuery = "insert into Suppliers set supplierName='$supplierName', supplierLocation = '$supplierLocation'";	
+		return $this->query($strQuery);
 		
+		}
 		function getSuppliers($filter=false){
 			$strQuery = "SELECT * from suppliers";
 			if($filter!=false){
@@ -14,7 +18,9 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 		
-		function editSuppliers(){
+		function editSuppliers($supplierid,$supplierName,$supplierLocation){
+		$strQuery = "update Suppliers set supplierName='$supplierName', supplierLocation = '$supplierLocation' where suppliersid = $supplierid" ;	
+		return $this->query($strQuery);	
 		
 		}
 		

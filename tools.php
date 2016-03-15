@@ -1,31 +1,27 @@
 <?php
-include_once("adb.php");
-	class Tools extends adb{
+include_once("inventory.php");
+	class Tools extends inventory{
+		
+		 function _constructor(){
+		 return $this->inventory();
+	 }
+	 
+	 
+	 function addTool($InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory){
+		 $this->addNewInventory($InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory);
+	 }
+	 
+	 function editTool($primarykey,$InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory){
+		 $this->editInventory($primarykey,$InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory);
+	 }
+	 
+	 function deleteTool(){}
+	 
+	 function searchTool(){}
+	 
+ }
 		
 		
-		function __constructor(){
-			
-		}
-		
-		function getTools($filter=false){
-			$strQuery = "Select * from tools";
-			if($filter!=false){
-				$strQuery = $strQuery.$filter;
-				
-			}
-			return $this->query($strQuery);
-		}
-		
-		function deleteTool($toolid){
-			$strQuery = "Delete from tools where toolid = $toolid";
-		}
-		
-		function searchTools($text = false){
-			if(text!=false){
-				$filter = "WHERE toolid like '%$text%' or toolname like '%$text%'";
-				return getTools($filter);
-			}
-		}
-	}
+	
 
 ?>
