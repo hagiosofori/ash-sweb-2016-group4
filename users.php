@@ -53,16 +53,6 @@ include_once("adb.php");
 
 		}
 
-		/*
-		* gets user information
-		* @param username,password of user's table
-		* @return row of user's attributes
-		*/
-		function VerifyUser($userName,$password)
-		{
-			$strQuery = "Select * from userinfo where username = '$userName' and password = MD5('$password')";
-			return $this->query($strQuery);
-		}
 
 		/*
 		* logs the user in, given accurate credentials
@@ -72,7 +62,8 @@ include_once("adb.php");
 		function login($userName,$password)
 		{
 			$check=true;
-			$data=$this->VerifyUser($userName,$password);
+			$strQuery = "Select * from userinfo where username = '$userName' and password = MD5('$password')";
+			$data = $this->query($strQuery);
 			$result=$this->fetch();
 			if($result=="")
 			{
