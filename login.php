@@ -15,7 +15,7 @@ $user = new users();
 if(!isset($_REQUEST['username'])){
   exit();		//if no data, exit
 }
-//print_r($_REQUEST);
+
 $username=$_REQUEST['username'];
 $password=$_REQUEST['password'];
 
