@@ -22,12 +22,11 @@
 			if(strcasecmp($InventoryCategory,"Tools")==0||(strpos($InventoryCategory, "Tool")!==false)){
 			$query= "insert into Tools set toolName ='$InventoryName', toolType='$InventoryType', quantity=$Quantity,supplierID =$supplierID
 			";
-			echo $query;
+			
 			}
 			else if(strcasecmp($InventoryCategory,"Drugs")==0||(strpos($InventoryCategory, "Drug")!==false)){
 			$query= "insert into drugs set drugName ='$InventoryName', drugType='$InventoryType', quantity=$Quantity,supplierID =$supplierID
 			";
-			echo $query;
 			}
 			else{
 				//does nothing
@@ -56,7 +55,7 @@
 			else{
 				//does nothing
 			}
-			echo $query;
+			
 			if($query!==null){
 				$this->query($query);	
 			}
