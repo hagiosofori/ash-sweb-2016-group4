@@ -7,7 +7,7 @@ include_once("adb.php");
 		}
 		
 		function getSuppliers($filter=false){
-			$strQuery = "SELECT * from suppliers";
+			$strQuery = "SELECT suppliersId, supplierName, supplierLocation from suppliers";
 			if($filter!=false){
 				$strQuery = $strQuery.$filter;
 			}
@@ -18,10 +18,19 @@ include_once("adb.php");
 		
 		}
 		
-		function deleteSuppliers($supplierid){
-			$strQuery = "DELETE from suppliers where supplierid = $supplierid";
+		function deleteSupplier($supplierid){
+			$strQuery = "DELETE from suppliers where supplierId = $supplierid";
 			
 			return $this->query($strQuery);
+		}
+		
+		function searchSuppliers($text=false){
+			$filter = "";
+			if($text!=false){
+				$filter = " where supplierName like '%$text%' or supplierLocation like '%$text%'";
+				
+			}
+			return $this->getSuppliers($filter);
 		}
 	}
 ?>
