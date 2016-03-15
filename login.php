@@ -23,8 +23,7 @@ $verify=$user->login($username,$password);
 
 if($verify==true){
   echo "verified";
-  header("Location:signup.php");
-  exit();
+
 }
 else{
   echo "User does not exist";
