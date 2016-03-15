@@ -14,7 +14,7 @@ include_once("adb.php");
 		*/
 		function deleteDrug( $primaryKey/*the primary key of the inventory*/)
 		{
-			$sql = "Delete from drugs where inventoryID = $primaryKey";
+			$sql = "Delete from drugs where drugId = $primaryKey";
 			return $this->query($sql);
 		}
 		
@@ -23,7 +23,7 @@ include_once("adb.php");
 		*/
 		function getDrugs($filter=false)
 		{
-			$sql = "select * from drugs";
+			$sql = "select drugId, drugName, quantity, supplierName, drugType from drugs, suppliers where suppliers.suppliersId = drugs.supplierId";
 			
 			if($filter!=false){
 				$sql = $sql.$filter;
@@ -34,7 +34,7 @@ include_once("adb.php");
 		function searchDrugs($text = false){
 			$filter = "";
 			if($text!=false){
-				$filter = " where drugName like '%$text%'";
+				$filter = " and (drugName like '%$text%' or suppliers.supplierName like '%$text%')";
 				
 			}
 			return $this->getDrugs($filter);

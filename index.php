@@ -48,10 +48,10 @@
 							<td>{$row['drugId']}</td>
 							<td>{$row['drugName']}</td>
 							<td>{$row['quantity']}</td>
-							<td>{$row['supplierID']}</td>
+							<td>{$row['supplierName']}</td>
 							<td>{$row['drugType']}</td>
 							<td> <a href = ''> Edit</a></td>
-							<td><a href = ''> Delete</a></td>
+							<td><a href = 'delete.php?id={$row['drugId']}&item=drug'> Delete</a></td>
 						</tr>";
 						
 					$row = $drugs->fetch();	
@@ -91,15 +91,16 @@
 					echo "No tools match your search";
 				}
 				while($row!=false){
-					//print_r($row);
+					print_r($row);
 					echo "<tr>
 							<td>{$row['toolId']}</td>
 							<td>{$row['toolName']}</td>
-							<td>{$row['quantity']}</td>
-							<td>{$row['supplierId']}</td>
 							<td>{$row['toolType']}</td>
+							<td>{$row['quantity']}</td>
+							<td>{$row['supplierName']}</td>
+							
 							<td> <a href = ''> Edit</a></td>
-							<td><a href = ''> Delete</a></td>
+				<td><a href = 'delete.php?id={$row['toolId']}&item=tool'> Delete</a></td>
 						</tr>";
 						
 						$row = $tools->fetch();
@@ -140,7 +141,7 @@
 							<td>{$row['supplierName']}</td>
 							<td>{$row['supplierLocation']}</td>
 							<td> <a href = ''> Edit</a></td>
-							<td><a href = ''> Delete</a></td>
+							<td><a href = 'delete.php?id={$row['suppliersId']}'&item=supplier'> Delete</a></td>
 						</tr>";
 						
 					$row= $suppliers->fetch();

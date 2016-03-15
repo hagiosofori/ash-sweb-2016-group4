@@ -8,7 +8,7 @@ include_once("adb.php");
 		}
 		
 		function getTools($filter=false){
-			$strQuery = "Select * from tools";
+			$strQuery = "Select toolId, toolName, quantity, toolType, suppliers.supplierName from tools, suppliers where suppliers.suppliersId = tools.supplierId ";
 			if($filter!=false){
 				$strQuery = $strQuery.$filter;
 				
@@ -17,13 +17,13 @@ include_once("adb.php");
 		}
 		
 		function deleteTool($toolid){
-			$strQuery = "Delete from tools where toolid = $toolid";
+			$strQuery = "Delete from tools where toolId = $toolid";
 		}
 		
 		function searchTools($text = false){
 			$filter = "";
 			if($text!=false){
-				$filter = " WHERE toolId like '%$text%' or toolName like '%$text%'";
+				$filter = " and (toolId like '%$text%' or toolName like '%$text%' or suppliers.supplierName like '%$text%')";
 				
 			}
 			return $this->getTools($filter);

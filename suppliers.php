@@ -18,8 +18,8 @@ include_once("adb.php");
 		
 		}
 		
-		function deleteSuppliers($supplierid){
-			$strQuery = "DELETE from suppliers where supplierid = $supplierid";
+		function deleteSupplier($supplierid){
+			$strQuery = "DELETE from suppliers where supplierId = $supplierid";
 			
 			return $this->query($strQuery);
 		}
