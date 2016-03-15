@@ -25,6 +25,8 @@
 						<td> QUANTITY</td>
 						<td> SUPPLIER ID</td>
 						<td> DRUG TYPE</td>
+						<td> EDIT</td>
+						<td> DELETE</td>
 					</tr>";
 				while($row!=false){
 					//print_r($row);
@@ -34,6 +36,8 @@
 							<td>{$row['quantity']}</td>
 							<td>{$row['supplierID']}</td>
 							<td>{$row['drugType']}</td>
+							<td> <a href = ''> Edit</a></td>
+							<td><a href = ''> Delete</a></td>
 						</tr>";
 						
 					$row = $drugs->fetch();	
@@ -65,17 +69,20 @@
 						<td> TOOL TYPE</td>
 						<td> QUANTITY</td>
 						<td> SUPPLIER</td>
-						
+						<td> EDIT</td>
+						<td> DELETE</td>
 					</tr>";
 				
 				while($row!=false){
-					print_r($row);
+					//print_r($row);
 					echo "<tr>
 							<td>{$row['toolId']}</td>
 							<td>{$row['toolName']}</td>
 							<td>{$row['quantity']}</td>
 							<td>{$row['supplierId']}</td>
 							<td>{$row['toolType']}</td>
+							<td> <a href = ''> Edit</a></td>
+							<td><a href = ''> Delete</a></td>
 						</tr>";
 						
 						$row = $tools->fetch();
@@ -97,7 +104,8 @@
 						<td>SUPPLIER ID</td>
 						<td>SUPPLIER NAME</td>
 						<td> LOCATION</td>
-						
+						<td> EDIT</td>
+						<td> DELETE</td>
 					</tr>";
 				
 				while($row!=false){
@@ -106,6 +114,8 @@
 							<td>{$row['suppliersId']}</td>
 							<td>{$row['supplierName']}</td>
 							<td>{$row['supplierLocation']}</td>
+							<td> <a href = ''> Edit</a></td>
+							<td><a href = ''> Delete</a></td>
 						</tr>";
 						
 					$row= $suppliers->fetch();
