@@ -7,7 +7,7 @@ include_once("adb.php");
 		}
 		
 		function getSuppliers($filter=false){
-			$strQuery = "SELECT * from suppliers";
+			$strQuery = "SELECT suppliersId, supplierName, supplierLocation from suppliers";
 			if($filter!=false){
 				$strQuery = $strQuery.$filter;
 			}
