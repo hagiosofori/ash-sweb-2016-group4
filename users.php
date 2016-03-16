@@ -40,7 +40,7 @@ include_once("adb.php");
 		*/
 		function deleteUser($usercode){
 
-			$strQuery ="Delete from userinfo where USERCODE = $usercode";
+			$strQuery ="Delete from userinfo where userID = $usercode";
 			return $this->query($strQuery);
 
 		}
@@ -49,9 +49,10 @@ include_once("adb.php");
 		* @param primary key of user's table
 		* @return row of user's attributes
 		*/
-		function getUser(/*primary key of users table*/)
+		function getUser($usercode)
 		{
-
+			$strQuery ="Select * from userinfo where userID = $usercode ";
+			return $this->query($strQuery);
 		}
 
 
