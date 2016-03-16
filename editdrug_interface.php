@@ -9,6 +9,7 @@
 	$drugType='';
 
 	 include("drug.php");
+	 //interface printed whenever the user wants to edit
 	if(isset($_REQUEST['id'])){
 		$drug = new drug();
 		$id = $_REQUEST['id'];
@@ -29,7 +30,7 @@
 		
 		
 	}
-
+   //interface printed after submission
 	if(isset($_REQUEST['submit'])){
 		
 		if(isset($_REQUEST['drugId'])){$drugId = $_REQUEST['drugId'];}
