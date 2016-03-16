@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 ?> -->
 
 
-<html>
+<!-- <html>
 <?php
   function runMyFunction(){
     $myFile = fopen("testfile.txt", "w");
@@ -45,4 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
  Hello There!
 
  <a href ='reportgenerate.php?hello=true'>Generate</a>
-</html>
+</html> -->
+
+
+
+
+?>
