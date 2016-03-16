@@ -4,7 +4,18 @@
 
 
 
+function drugReport(){
+$r = $obj->getDrugs();
+if(!$r){
+  echo "error getting users";
+}
 
+$myfile = fopen("report.txt", "w") or die("Unable to open file!");
+
+while($row=$obj->fetch()){
+  $drug = "{$row['drugID']}"+"{$row['drugName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['drugType']}";
+  }
+}
 
 
 //might be redundant
