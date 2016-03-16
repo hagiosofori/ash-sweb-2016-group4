@@ -1,20 +1,37 @@
 
 <html>
 <?php
-
+$myfile = fopen("report.txt", "w") or die("Unable to open file!");
 
 
 function drugReport(){
 $r = $obj->getDrugs();
 if(!$r){
-  echo "error getting users";
+  echo "error getting drugs";
 }
 
-$myfile = fopen("report.txt", "w") or die("Unable to open file!");
+$myfile = fopen("report.txt", "a") or die("Unable to open file!");
 
 while($row=$obj->fetch()){
   $drug = "{$row['drugID']}"+"{$row['drugName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['drugType']}";
+  fwrite($myfile, $drug);
   }
+  fclose($myfile)
+}
+
+function toolReport(){
+$r = $obj->getTools();
+if(!$r){
+  echo "error getting tools";
+}
+
+$myfile = fopen("report.txt", "a") or die("Unable to open file!");
+
+while($row=$obj->fetch()){
+  $tool = "{$row['toolID']}"+"{$row['toolName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['toolType']}";
+  fwrite($myfile, $tool);
+  }
+  fclose($myfile)
 }
 
 
