@@ -4,10 +4,9 @@
 $myfile = fopen("report.txt", "w") or die("Unable to open file!");
 
 if(isset($_GET['hello'])){
-  runMyFunction();
+  nurseInfoFunction();
 }
-
-if(isset($_GET['drug'])){
+else if(isset($_GET['drug'])){
   drugReport();
 }
 else if (isset($_GET['tool'])){
@@ -47,12 +46,12 @@ while($row=$obj->fetch()){
 
 
 //might be redundant
-if(isset($_GET['hello'])){
-  runMyFunction();
-}
+// if(isset($_GET['hello'])){
+//   runMyFunction();
+// }
 
 
-function runMyFunction(){
+function nurseInfoFunction(){
   $myfile = fopen("report.txt", "w") or die("Unable to open file!");
   $txt = "John Doe\n";
   fwrite($myfile, $txt);
