@@ -1,7 +1,15 @@
 
 <html>
 <?php
-$myfile = fopen("report.txt", "w") or die("Unable to open file!");
+//$myfile = fopen("report.txt", "w") or die("Unable to open file!");
+
+
+if(isset($_GET['drug'])){
+  drugReport();
+}
+else if (isset($_GET['tool'])){
+  toolReport();
+}
 
 
 function drugReport(){
@@ -10,7 +18,7 @@ if(!$r){
   echo "error getting drugs";
 }
 
-$myfile = fopen("report.txt", "a") or die("Unable to open file!");
+$myfile = fopen("report.txt", "w") or die("Unable to open file!");
 
 while($row=$obj->fetch()){
   $drug = "{$row['drugID']}"+"{$row['drugName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['drugType']}";
@@ -25,7 +33,7 @@ if(!$r){
   echo "error getting tools";
 }
 
-$myfile = fopen("report.txt", "a") or die("Unable to open file!");
+$myfile = fopen("report.txt", "w") or die("Unable to open file!");
 
 while($row=$obj->fetch()){
   $tool = "{$row['toolID']}"+"{$row['toolName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['toolType']}";
@@ -84,5 +92,6 @@ function runMyFunction(){
   }
 
 
- <a href ='report.php?hello=true'>Generate</a>
+ <a href ='report.php?drug=true'>Drug Generate</a>
+ <a href ='report.php?tool=true'>Tool Generate</a>
 </html>
