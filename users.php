@@ -14,12 +14,13 @@ include_once("adb.php");
 		* @param [all attributes needed to create a user]
 		* @returns boolean showing success or failure
 		*/
-		function addNewUser($username,$firstname,$lastname,$password){
+		function addNewUser($username,$firstname,$lastname,$password,$type){
 			$strQuery="insert into userinfo set
 							username='$username',
 							firstname='$firstname',
 							lastname='$lastname',
-							password=MD5('$password')";
+							password=MD5('$password'),
+							userType = '$type'";
 			return $this->query($strQuery);
 		}
 
