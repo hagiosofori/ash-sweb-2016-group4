@@ -1,8 +1,11 @@
 
 <html>
 <?php
-//$myfile = fopen("report.txt", "w") or die("Unable to open file!");
+$myfile = fopen("report.txt", "w") or die("Unable to open file!");
 
+if(isset($_GET['hello'])){
+  runMyFunction();
+}
 
 if(isset($_GET['drug'])){
   drugReport();
@@ -24,7 +27,7 @@ while($row=$obj->fetch()){
   $drug = "{$row['drugID']}"+"{$row['drugName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['drugType']}";
   fwrite($myfile, $drug);
   }
-  fclose($myfile)
+  fclose($myfile);
 }
 
 function toolReport(){
@@ -39,7 +42,7 @@ while($row=$obj->fetch()){
   $tool = "{$row['toolID']}"+"{$row['toolName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['toolType']}";
   fwrite($myfile, $tool);
   }
-  fclose($myfile)
+  fclose($myfile);
 }
 
 
@@ -90,8 +93,11 @@ function runMyFunction(){
     }
     return $this->query($strQuery);
   }
+ ?>
+
+  <div><a href ='report.php?hello=true'>Nurse Generate</a></div>
+ <div><a href='report.php?drug=true'>Drug Generate</a></div>
+ <div><a href ='report.php?tool=true'>Tool Generate</a></div>
 
 
- <a href ='report.php?drug=true'>Drug Generate</a>
- <a href ='report.php?tool=true'>Tool Generate</a>
 </html>
