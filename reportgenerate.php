@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 $contents = "<table><tr><td>A</td><td>B</td></tr><tr><td>One</td><td>Two</td></tr><tr><td>Three</td><td>Four</td></tr></table>"; // Put here the source code of your table.
 
@@ -28,26 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     echo $_POST['contents'];
 }
 
-?> -->
-
-
-<!-- <html>
-<?php
-  function runMyFunction(){
-    $myFile = fopen("testfile.txt", "w");
-  }
-
-  if(isset($_GET['hello'])){
-    runMyFunction();
-  }
- ?>
-
- Hello There!
-
- <a href ='reportgenerate.php?hello=true'>Generate</a>
-</html> -->
-
-
+?>
 
 
 ?>

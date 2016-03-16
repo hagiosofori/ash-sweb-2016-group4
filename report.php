@@ -1,47 +1,47 @@
 
-<html>
-<?php
-$myfile = fopen("report.txt", "w") or die("Unable to open file!");
+<!-- <html> -->
+//php tag shuold open here
+// $myfile = fopen("report.txt", "w") or die("Unable to open file!");
 
-if(isset($_GET['hello'])){
-  nurseInfoFunction();
-}
-else if(isset($_GET['drug'])){
-  drugReport();
-}
-else if (isset($_GET['tool'])){
-  toolReport();
-}
-
-
-function drugReport(){
-$r = $obj->getDrugs();
-if(!$r){
-  echo "error getting drugs";
-}
-
-$myfile = fopen("report.txt", "w") or die("Unable to open file!");
-
-while($row=$obj->fetch()){
-  $drug = "{$row['drugID']}"+"{$row['drugName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['drugType']}";
-  fwrite($myfile, $drug);
-  }
-  fclose($myfile);
-}
-
-function toolReport(){
-$r = $obj->getTools();
-if(!$r){
-  echo "error getting tools";
-}
-
-$myfile = fopen("report.txt", "w") or die("Unable to open file!");
-
-while($row=$obj->fetch()){
-  $tool = "{$row['toolID']}"+"{$row['toolName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['toolType']}";
-  fwrite($myfile, $tool);
-  }
-  fclose($myfile);
+// if(isset($_GET['hello'])){
+//   nurseInfoFunction();
+// }
+// else if(isset($_GET['drug'])){
+//   drugReport();
+// }
+// else if (isset($_GET['tool'])){
+//   toolReport();
+// }
+//
+//
+// function drugReport(){
+// $r = $obj->getDrugs();
+// if(!$r){
+//   echo "error getting drugs";
+// }
+//
+// $myfile = fopen("report.txt", "w") or die("Unable to open file!");
+//
+// while($row=$obj->fetch()){
+//   $drug = "{$row['drugID']}"+"{$row['drugName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['drugType']}";
+//   fwrite($myfile, $drug);
+//   }
+//   fclose($myfile);
+// }
+//
+// function toolReport(){
+// $r = $obj->getTools();
+// if(!$r){
+//   echo "error getting tools";
+// }
+//
+// $myfile = fopen("report.txt", "w") or die("Unable to open file!");
+//
+// while($row=$obj->fetch()){
+//   $tool = "{$row['toolID']}"+"{$row['toolName']}"+"{$row['quantity']}"+"{$row['supplierID']}"+"{$row['toolType']}";
+//   fwrite($myfile, $tool);
+//   }
+//   fclose($myfile);
 }
 
 
@@ -50,6 +50,12 @@ while($row=$obj->fetch()){
 //   runMyFunction();
 // }
 
+//php tag should close here
+
+<?php
+include_once("adb.php");
+
+class report extends adb {
 
 function nurseInfoFunction(){
   $myfile = fopen("report.txt", "w") or die("Unable to open file!");
@@ -59,8 +65,6 @@ function nurseInfoFunction(){
   fwrite($myfile, $txt);
   fclose($myfile);
 }
-
-
 
 
   function getDrugs($filter=false){
@@ -92,11 +96,6 @@ function nurseInfoFunction(){
     }
     return $this->query($strQuery);
   }
+
+}
  ?>
-
-  <div><a href ='report.php?hello=true'>Nurse Generate</a></div>
- <div><a href='report.php?drug=true'>Drug Generate</a></div>
- <div><a href ='report.php?tool=true'>Tool Generate</a></div>
-
-
-</html>

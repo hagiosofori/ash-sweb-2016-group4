@@ -1,7 +1,7 @@
 <?php
 	//include_once("settings.php");
 	class adb{
-	
+
 	var $conn= null;//the connection to the database
 	var $data= null;
 	/*
@@ -9,10 +9,10 @@
 	*/
 	function connect()
 	{
-		$this->conn = new mysqli('localhost', 'root', '', 'clinic_project');
+		$this->conn = new mysqli('localhost', 'root', '', 'project');
 		return $this->conn;
 	}
-	
+
 	/*
 	* queries the database
 	* checks if the connection variable is not null first...
@@ -28,7 +28,7 @@
 		}
 		$this->data = $this->conn->query($strQuery);
 	}
-	
+
 	/*
 	* @return one row of the results of the query
 	*/
@@ -43,5 +43,5 @@
 		}
 	}
 	}
-	
+
 ?>
