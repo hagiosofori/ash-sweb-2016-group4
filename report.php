@@ -46,5 +46,15 @@ function runMyFunction(){
   }
 
 
+  function getAvailability($filter=false){
+    $strQuery="select available from userinfo";
+      // $strQuery="select * from users";
+    if($filter!=false){
+      $strQuery=$strQuery . " where $filter";
+    }
+    return $this->query($strQuery);
+  }
+
+
  <a href ='report.php?hello=true'>Generate</a>
 </html>
