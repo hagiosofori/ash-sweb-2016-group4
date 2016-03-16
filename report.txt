@@ -1,0 +1,9 @@
+<table border = '1'>
+
+<tr>
+  <td style='background-color:#332266  ; color:white'><b>USERNAME</b></td>
+  <td style='background-color:#332266  ; color:white'><b>FIRSTNAME</b></td>
+  <td style='background-color:#332266  ; color:white'><b>LASTNAME</b></td>
+  <td style='background-color:#332266  ; color:white'><b>USERGROUP</b></td>
+  <td style='background-color:#332266  ; color:white'><b>STATUS</b></td>
+</tr>Jane Doe

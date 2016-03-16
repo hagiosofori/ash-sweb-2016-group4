@@ -1,26 +1,40 @@
+
 <html>
-<head>
-</head>
-<body>
+<?php
 
 
 
-  <?php
 
-  function generateReport(){
-    $File = "Report.txt";
-    $Handle = fopen($File, 'a');
-    $Data = "Drug Master\n";
-    fwrite($Handle, $Data);
-    $Data = "Tool Master\n";
-    fwrite($Handle, $Data);
-    print "Data Added";
-    fclose($Handle);
-  }
 
-  ?>
 
-  <input type="submit" value=generateReport()>
+//might be redundant
+if(isset($_GET['hello'])){
+  runMyFunction();
+}
 
-</body>
+
+function runMyFunction(){
+  $myfile = fopen("report.txt", "w") or die("Unable to open file!");
+  $txt = "John Doe\n";
+  fwrite($myfile, $txt);
+  $txt = "Jane Doe\n";
+  fwrite($myfile, $txt);
+  fclose($myfile);
+}
+
+
+
+
+  function getDrugs($filter=false){
+		$strQuery="select drugID, drugName, quantity, supplierID, drugType from drugs ";
+			// $strQuery="select * from users";
+		if($filter!=false){
+			$strQuery=$strQuery . " where $filter";
+		}
+		return $this->query($strQuery);
+	}
+
+
+
+ <a href ='report.php?hello=true'>Generate</a>
 </html>
