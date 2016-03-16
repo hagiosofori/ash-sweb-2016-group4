@@ -11,9 +11,9 @@
 		<!-- search box, and search button-->
 		<input type= "text" name = "txtSearch" value = "<?php ?>"><input type ="submit" name= "search" value = "Search"> <br><br>
 			<?php
-			include_once("inventory.php");
+			include_once("drug.php");
 			
-			$drugs = new inventory();
+			$drugs = new drug();
 			$result = $drugs->getAllInventory();
 			$row = $drugs->fetch();	
 				echo "Drugs<br><br>
