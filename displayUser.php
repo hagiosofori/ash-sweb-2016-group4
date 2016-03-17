@@ -2,6 +2,10 @@
 <head></head>
 <body>
   <?php
+  $Admin = false;
+  if ($_REQUEST['userType']==1){
+    $Admin = true;
+  }
   include_once("users.php");
   $user = new users();
   $row = $user->getUser();
@@ -15,18 +19,30 @@
             <td>OPTIONS</td>
   				</tr>";
 	while($row=$user->fetch()){
-        echo"  <tr>
-  					<td>{$row['username']}</td>
-  					<td>{$row['firstname']}</td>
-  					<td>{$row['lastname']}</td>
-  					<td>{$row['userType']}</td>
-  					<td><a href='userDel.php?usercode={$row["userID"]}'>
-  					Delete</a>
-            <a href='editUser.php?usercode={$row["userID"]}'>
-  					Edit</a>
-  					</td>
+    if($Admin==true){
+      echo"  <tr>
+          <td>{$row['username']}</td>
+          <td>{$row['firstname']}</td>
+          <td>{$row['lastname']}</td>
+          <td>{$row['userType']}</td>
+          <td><a href='userDel.php?userID={$row["userID"]}'>
+          Delete</a>
+          <a href='editUser.php?userID={$row["userID"]}'>
+          Edit</a>
+          </td>
 
-  			</tr>";
+      </tr>";
+    }
+    else{
+      echo"<tr>
+          <td>{$row['username']}</td>
+          <td>{$row['firstname']}</td>
+          <td>{$row['lastname']}</td>
+          <td>{$row['userType']}</td>
+          <td>Delete, Edit</td>
+      </tr>";
+    }
+
   }
   echo"</table>";
   ?>
