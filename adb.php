@@ -27,11 +27,15 @@
 			$this->connect();
 		}
 		$this->data = $this->conn->query($strQuery);
-		return $this->data;
+		 if($this->data!==null){
+			return true; 
+		 }else{
+			 return false;
+		 }
 	}
 	
 	/*
-	* @return one row of the results of the query
+	* @return boolean one row of the results of the query
 	*/
 	function fetch()
 	{
