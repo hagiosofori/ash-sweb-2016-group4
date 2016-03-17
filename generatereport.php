@@ -75,7 +75,48 @@ if($id = $_GET['preference']){
     echo "</table>";
   }
 
-  
+
+  if($id==3){
+
+    $r = $obj->getAvailability();
+
+     echo "<table width = 50% border = '1'>
+
+    <tr>
+      <td style='background-color:#332266  ; color:white'><b>AVAILABILITY/b></td>
+      <td style='background-color:#332266  ; color:white'><b>USER ID</b></td>
+      <td style='background-color:#332266  ; color:white'><b>FIRSTNAME</b></td>
+      <td style='background-color:#332266  ; color:white'><b>LASTNAME</b></td>
+
+    </tr>";
+
+
+  //  echo "<table width = 50% border='2'>";
+    while($row=$obj->fetch()){
+    // $row=$obj->fetch();
+
+    if ($row['availability'] == "0"){
+      $available = "In the Clinic";
+    }
+    else {
+      $available = "Not in the Clinic";
+    }
+
+
+    echo"<tr>
+
+        <td>$available</td>
+        <td>{$row['userID']}</td>
+        <td>{$row['firstname']}</td>
+        <td>{$row['lastname']}</td>
+
+        </tr>";
+
+    }
+
+  //  echo "</table>";
+  }
+
 
 }
 else if(!$r){

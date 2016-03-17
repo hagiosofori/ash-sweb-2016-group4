@@ -35,7 +35,7 @@ function nurseInfoFunction(){
 
 
   function getAvailability($filter=false){
-    $strQuery="select available from userinfo";
+    $strQuery="select userID, firstname, lastname, availability from userinfo";
       // $strQuery="select * from users";
     if($filter!=false){
       $strQuery=$strQuery . " where $filter";
