@@ -20,7 +20,7 @@ include_once("adb.php");
 							firstname='$firstname',
 							lastname='$lastname',
 							password=MD5('$password'),
-							userType = '$type'";
+							userType = '$type' ";
 			return $this->query($strQuery);
 		}
 
@@ -29,11 +29,16 @@ include_once("adb.php");
 		* @param [all attributes of a user]
 		* @return boolean repersenting success or failure
 		*/
-		function editUser(/*same parameters as above */)
-		{
-
+		function editUser($userID,$username,$firstname,$lastname,$password,$userType){
+			$strQuery= "update userinfo set
+								username='$username',
+								firstname='$firstname',
+								lastname='$lastname',
+								password=MD5('$password'),
+								userType='$userType'
+							where userID='$userID' ";
+			return $this->query($strQuery);
 		}
-
 		/*
 		* delete user from database
 		* @param primary key of user's table
@@ -50,9 +55,15 @@ include_once("adb.php");
 		* @param primary key of user's table
 		* @return row of user's attributes
 		*/
-		function getUser($usercode)
+		function getUser($usercode=false)
 		{
-			$strQuery ="Select * from userinfo where userID = $usercode ";
+			if($usercode==false){
+				$strQuery ="Select * from userinfo";
+			}
+			else{
+				$strQuery ="Select * from userinfo where userID = $usercode ";
+			}
+
 			return $this->query($strQuery);
 		}
 
@@ -64,15 +75,14 @@ include_once("adb.php");
 		*/
 		function login($userName,$password)
 		{
-			$check=true;
 			$strQuery = "Select * from userinfo where username = '$userName' and password = MD5('$password')";
 			$data = $this->query($strQuery);
 			$result=$this->fetch();
 			if($result=="")
 			{
-				$check=false;
+				$result=false;
 			}
-			return $check;
+			return $result;
 		}
 
 		/*
