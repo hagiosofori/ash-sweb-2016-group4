@@ -9,7 +9,7 @@
 		<div id = "nav"><img src = ""/><a>Home</a></div>
 		<form action = "index.php" method = "GET">
 		<!-- search box, and search button-->
-		<input type= "text" name = "txtSearch" value = "<?php if(isset($_REQUEST['txtSearch'])){echo $_REQUEST['txtSearch'];}else{echo "Type search term here";}?>"><input type ="submit" name= "search" value = "Search"> <br><br>
+		<input type= "text" name = "txtSearch" value = "<?php if(isset($_REQUEST['txtSearch'])){echo $_REQUEST['txtSearch'];}else{echo "";}?>"><input type ="submit" name= "search" value = "Search"> <br><br>
 			<?php
 			include_once("drugs.php");
 			
