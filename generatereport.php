@@ -75,10 +75,20 @@ if($id = $_GET['preference']){
     echo "</table>";
   }
 
+  
+
 }
 else if(!$r){
   echo "error getting data";
 }
+
+// if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    header('Content-type: text/txt');
+    header('Content-Disposition: attachment; filename="report.txt"');
+
+    //echo $_POST['contents'];
+// }
+
 
 ?>
 </table>
