@@ -4,7 +4,7 @@
 	
 	var $conn= null;//the connection to the database
 	var $data= null;
-	/*
+	/**
 	* connects to database
 	*/
 	function connect()
@@ -13,7 +13,7 @@
 		return $this->conn;
 	}
 	
-	/*
+	/**
 	* queries the database
 	* checks if the connection variable is not null first...
 	* results of the query are stored in the data variable
@@ -22,15 +22,19 @@
 	*/
 	function query($strQuery)
 	{
-		echo $strQuery; echo " <br>";
+		 echo " <br>";
 		if($this->conn==null){
 			$this->connect();
 		}
 		$this->data = $this->conn->query($strQuery);
-		return $this->data;
+		if($this->data!=null){
+		return true;	
+		} else{
+			return false;
+		}
 	}
 	
-	/*
+	/**
 	* @return one row of the results of the query
 	*/
 	function fetch()

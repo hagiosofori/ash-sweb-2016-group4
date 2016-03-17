@@ -1,9 +1,11 @@
 <?php
+
 $toolName ='';
 $Quantity='';
 $supplierId='';
 $toolType='';
-//checks for inputs transmitted to browser from the result page
+
+//checks the url to get values from it in order to let the values remain in the text fields
 if(isset($_REQUEST['toolName'])){ 
 
 $toolName=$_REQUEST['toolName'];
@@ -23,7 +25,9 @@ echo"<div>Quantity<input type=\"text\" name=\"quantity\"  value= $Quantity  ></d
 echo"<div>supplierId<input type=\"text\" name=\"supplierId\" value =$supplierId  ></div>";
 echo"<div>toolType<input type=\"text\" name=\"toolType\" value= $toolType ></div>";
 echo"<input type=\"submit\" name=\"submit\" value=\"ClicktoAdd\"></div>";
-//after submitting the form, new item is added to the database
+
+//proceeds to  add new item in the database when the button is clicked
+
  if(isset($_REQUEST['submit'])){
 	 
 	 $toolname = $_REQUEST['toolName'];
