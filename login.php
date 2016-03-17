@@ -21,12 +21,13 @@ $password=$_REQUEST['password'];
 
 $verify=$user->login($username,$password);
 
-if($verify==true){
-  echo "verified";
-
+if($verify==false){
+  echo"user does not exist";
 }
 else{
-  echo "User does not exist";
+  echo "verified";
+  header("Location:check.php?userType={$verify["userType"]}");
+  exit();
 }
 ?>
 </form>
