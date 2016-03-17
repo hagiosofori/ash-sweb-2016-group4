@@ -26,8 +26,8 @@ if($verify==false){
 }
 else{
   echo "verified";
-  header("Location:check.php?userType={$verify["userType"]}");
-  exit();
+/*  header("Location:check.php?userType={$verify["userType"]}");
+  exit();*/
 }
 ?>
 </form>
