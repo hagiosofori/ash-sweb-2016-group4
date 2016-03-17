@@ -90,9 +90,17 @@ include_once("adb.php");
 		* @param: user's id, or other unique identifier
 		* @return: the new availability of the user
 		*/
-		function toggleAvailability(/*primary identifier of user */){
+		function toggleAvailability($userID){
+			$result = $this->getUser($userID);
+			$result = $this->fetch();
+			if($result['availability']==0){
+				$available = 1;
+			}
+			else{$available = 0;}
 
+			$strQuery="update userinfo set availability ='$available' where userID='$userID' ";
+			return $this->query($strQuery);
 		}
-	}
 
+	}
 ?>
