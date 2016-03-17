@@ -27,9 +27,9 @@ function nurseInfoFunction(){
   function getTools($filter=false){
     $strQuery='select toolId, toolName, quantity, supplierId, toolType from Tools';
       // $strQuery="select * from users";
-    if($filter!=false){
-      $strQuery=$strQuery . " where $filter";
-    }
+    //if($filter!=false){
+    //  $strQuery=$strQuery . " where $filter";
+  //  }
     return $this->query($strQuery);
   }
 

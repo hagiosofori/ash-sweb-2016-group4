@@ -22,7 +22,7 @@
 	*/
 	function query($strQuery)
 	{
-		echo $strQuery; echo " <br>";
+	//	echo $strQuery; echo " <br>";
 		if($this->conn==null){
 			$this->connect();
 		}

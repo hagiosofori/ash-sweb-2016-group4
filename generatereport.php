@@ -2,6 +2,7 @@
 <head>
 </head>
 <body>
+  <table>
 <?php
 
 include_once("report.php");
@@ -12,8 +13,17 @@ if($id = $_GET['preference']){
   if($id==1){
     $r = $obj->getDrugs();
 
+    echo "<table width = 50% border = '1'>
 
-    echo "<table width = 30% border='1'>";
+    <tr>
+      <td style='background-color:#332266  ; color:white'><b>DRUG ID</b></td>
+      <td style='background-color:#332266  ; color:white'><b>DRUG NAME</b></td>
+      <td style='background-color:#332266  ; color:white'><b>DRUG QUANTITY</b></td>
+      <td style='background-color:#332266  ; color:white'><b>DRUG SUPPLIER ID</b></td>
+      <td style='background-color:#332266  ; color:white'><b>DRUG TYPE</b></td>
+    </tr>";
+
+  //  echo "<table width = 50% border='1'>";
     while($row=$obj->fetch()){
     // $row=$obj->fetch();
 
@@ -33,10 +43,21 @@ if($id = $_GET['preference']){
   }
 
   if($id==2){
+
     $r = $obj->getTools();
 
+      echo "<table width = 50% border = '1'>
 
-    echo "<table width = 30% border='1'>";
+    <tr>
+      <td style='background-color:#332266  ; color:white'><b>TOOL ID</b></td>
+      <td style='background-color:#332266  ; color:white'><b>TOOL NAME</b></td>
+      <td style='background-color:#332266  ; color:white'><b>TOOL QUANTITY</b></td>
+      <td style='background-color:#332266  ; color:white'><b>TOOL SUPPLIER</b></td>
+      <td style='background-color:#332266  ; color:white'><b>TOOL TYPE</b></td>
+    </tr>";
+
+
+  //  echo "<table width = 50% border='2'>";
     while($row=$obj->fetch()){
     // $row=$obj->fetch();
 
@@ -60,5 +81,6 @@ else if(!$r){
 }
 
 ?>
+</table>
 </body>
 </html>
