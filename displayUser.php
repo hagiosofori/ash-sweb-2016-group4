@@ -11,7 +11,7 @@
     $Admin = false;
   }
 
-  
+
   include_once("users.php");
   $user = new users();
   $row = $user->getUser();
@@ -23,8 +23,13 @@
   					<td>LASTNAME</td>
   					<td>USER TYPE</td>
             <td>OPTIONS</td>
+            <td>Availability</td>
   				</tr>";
 	while($row=$user->fetch()){
+    if($row['availability']==0){
+      $available = "Available";
+    }
+    else{$available="Not available";}
     if($Admin==true){
       echo"  <tr>
           <td>{$row['username']}</td>
@@ -36,7 +41,7 @@
           <a href='editUser.php?userID={$row["userID"]}'>
           Edit</a>
           </td>
-
+          <td>$available</td>
       </tr>";
     }
     else{
@@ -46,6 +51,7 @@
           <td>{$row['lastname']}</td>
           <td>{$row['userType']}</td>
           <td>Delete, Edit</td>
+          <td>$available</td>
       </tr>";
     }
 
