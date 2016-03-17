@@ -22,12 +22,20 @@
 			if(strcasecmp($InventoryCategory,"Tools")==0||(strpos($InventoryCategory, "Tool")!==false)){
 			$query= "insert into Tools set toolName ='$InventoryName', toolType='$InventoryType', quantity=$Quantity,supplierID =$supplierID
 			";
+<<<<<<< HEAD
 			
+=======
+			echo $query;
+>>>>>>> 7999d73e636d91b7e98d98621b8fc0e9e9e4a5e2
 			}
 			else if(strcasecmp($InventoryCategory,"Drugs")==0||(strpos($InventoryCategory, "Drug")!==false)){
 			$query= "insert into drugs set drugName ='$InventoryName', drugType='$InventoryType', quantity=$Quantity,supplierID =$supplierID
 			";
+<<<<<<< HEAD
 			
+=======
+			echo $query;
+>>>>>>> 7999d73e636d91b7e98d98621b8fc0e9e9e4a5e2
 			}
 			else{
 				//does nothing
@@ -56,13 +64,16 @@
 			else{
 				//does nothing
 			}
+<<<<<<< HEAD
 			
+=======
+			echo $query;
+>>>>>>> 7999d73e636d91b7e98d98621b8fc0e9e9e4a5e2
 			if($query!==null){
 				$this->query($query);	
 			}
 			
 		}
-		
 		/*
 		* comments here
 		*/
