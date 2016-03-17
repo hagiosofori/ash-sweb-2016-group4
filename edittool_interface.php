@@ -8,7 +8,7 @@
 	$quantity ='' ;
 	$suppliers ='' ;
 	$toolType ='';
-
+//interface printed after submission
 	if(isset($_REQUEST['submit'])){
 	$toolId = $_REQUEST['toolId'];
 	$toolname = $_REQUEST['toolName'];	
@@ -28,7 +28,7 @@
 	echo"<div><input type=\"text\" name=\"toolType\" value=  ></div>";
 	echo"<div><input type=\"submit\" name=\"submit\" value=\"ClicktoEdit\">";	
 	}
-
+//interface printed whenever the user wants to edit
 	if(isset($_REQUEST['id'])){
 		$tool = new Tools();
 		$id = $_REQUEST['id'];
