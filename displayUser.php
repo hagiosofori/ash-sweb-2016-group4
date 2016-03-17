@@ -2,10 +2,16 @@
 <head></head>
 <body>
   <?php
-  $Admin = false;
+  $Admin ="";
   if ($_REQUEST['userType']==1){
     $Admin = true;
   }
+  else if($_REQUEST['userType']==0){
+
+    $Admin = false;
+  }
+
+  
   include_once("users.php");
   $user = new users();
   $row = $user->getUser();
