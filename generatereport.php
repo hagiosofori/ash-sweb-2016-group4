@@ -5,8 +5,18 @@
   <table>
 <?php
 
+/**
+ *
+ * @author  Ryan Moujaled <ryjaled@gmail.com>
+ */
+
+
 include_once("report.php");
 $obj = new report();
+
+if(!isset($_REQUEST['preference'])){
+  echo "You need to choose a preference";
+}
 
 if($id = $_GET['preference']){
 
@@ -83,7 +93,7 @@ if($id = $_GET['preference']){
      echo "<table width = 50% border = '1'>
 
     <tr>
-      <td style='background-color:#332266  ; color:white'><b>AVAILABILITY/b></td>
+      <td style='background-color:#332266  ; color:white'><b>AVAILABILITY</b></td>
       <td style='background-color:#332266  ; color:white'><b>USER ID</b></td>
       <td style='background-color:#332266  ; color:white'><b>FIRSTNAME</b></td>
       <td style='background-color:#332266  ; color:white'><b>LASTNAME</b></td>

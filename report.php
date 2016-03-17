@@ -1,45 +1,51 @@
 <?php
+
+/**
+ *
+ * @author  Ryan Moujaled <ryjaled@gmail.com>
+ */
+
 include_once("adb.php");
 
+/**
+ * The report class
+ * The class is used to populate the reports that are automatically downloaded to the users download folder
+ */
 class report extends adb {
 
-function nurseInfoFunction(){
-  $myfile = fopen("report.txt", "w") or die("Unable to open file!");
-  $txt = "John Doe\n";
-  fwrite($myfile, $txt);
-  $txt = "Jane Doe\n";
-  fwrite($myfile, $txt);
-  fclose($myfile);
-}
 
-
-  function getDrugs($filter=false){
+/**
+* Holds a query to retrieve drugs information from the database
+* queries the database
+* @return database query
+*/
+  function getDrugs(){
 		$strQuery='select drugID, drugName, quantity, supplierID, drugType from drugs';
-			// $strQuery="select * from users";
-		if($filter!=false){
-			$strQuery=$strQuery . " where $filter";
-		}
+
+
 		return $this->query($strQuery);
 	}
 
 
-  //He has this as a capital leter TOOLS which is different form drugs verify this.
-  function getTools($filter=false){
+  /**
+  * Holds a query to retrieve tools information from the database
+  * queries the database
+  * @return database query
+  */
+  function getTools(){
     $strQuery='select toolId, toolName, quantity, supplierId, toolType from Tools';
-      // $strQuery="select * from users";
-    //if($filter!=false){
-    //  $strQuery=$strQuery . " where $filter";
-  //  }
+
     return $this->query($strQuery);
   }
 
-
-  function getAvailability($filter=false){
+  /**
+  * Holds a query to retrieve availability information from the database
+  * queries the database
+  * @return database query
+  */
+  function getAvailability(){
     $strQuery="select userID, firstname, lastname, availability from userinfo";
-      // $strQuery="select * from users";
-    if($filter!=false){
-      $strQuery=$strQuery . " where $filter";
-    }
+
     return $this->query($strQuery);
   }
 
