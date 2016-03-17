@@ -22,8 +22,7 @@
   					<td>{$row['userType']}</td>
   					<td><a href='userDel.php?usercode={$row["userID"]}'>
   					Delete</a>
-            </td>
-  					<td><a href='usersedit.php?usercode={$row["userID"]}'>
+            <a href='editUser.php?usercode={$row["userID"]}'>
   					Edit</a>
   					</td>
 
