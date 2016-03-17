@@ -6,7 +6,7 @@ include_once("users.php");
 	$result=$delUser->deleteUser($_REQUEST['userID']);
 }
 
-header("Location:displayUser.php");
+header("Location:displayUser.php?userType=1");
 exit();
 
 ?>
