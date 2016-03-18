@@ -20,7 +20,7 @@ class report extends adb {
 * @return database query
 */
   function getDrugs(){
-		$strQuery='select drugID, drugName, quantity, supplierID, drugType from drugs';
+		$strQuery='select drugId,drugName, quantity, supplierID, drugType from drugs';
 
 
 		return $this->query($strQuery);

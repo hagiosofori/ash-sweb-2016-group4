@@ -13,10 +13,14 @@
 	/**
 	* This function is for connecting to the database
 	*/
-	function connect()
+	public function connect()
 	{
-		$this->conn = new mysqli('localhost', 'root', '', 'project');
-		return $this->conn;
+		$this->conn=new mysqli("127.0.0.1","root","","project");
+		if($this->conn->connect_errno){
+			//no connection, exit
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -33,6 +37,11 @@
 			$this->connect();
 		}
 		$this->data = $this->conn->query($strQuery);
+		if($this->data!=null){
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**

@@ -1,9 +1,7 @@
-<html>
+ <html>
 <head>
 </head>
 <body>
-
-
   <table>
 <?php
 
