@@ -1,20 +1,24 @@
 <html>
-<head>
-<title>Edit User</title>
+	<head>
+		<title>Edit User</title>
+	</head>
 
-</head>
-<body>
-	<?php
-	include_once("users.php");
-	if(isset($_REQUEST['userID']))
-	{
-		$user = new users();
-		$code=$_REQUEST['userID'];
-		$info = $user->getUser($code);
-		$info = $user->fetch();
-	}
-	?>
+	<body>
+		<?php
+			//Include users class
+			include_once("users.php");
 
+			//Obtains the user's ID
+			if(isset($_REQUEST['userID']))
+			{
+				$user = new users();
+				$code=$_REQUEST['userID'];
+				$info = $user->getUser($code);
+				$info = $user->fetch();
+			}
+		?>
+
+	<!--Form displays user information of a specific user-->
 	<form action="updateUser.php" method="GET" onsubmit='validate()'>
 	<input type="hidden" name="userID" value="<?php echo $info['userID']?>">
   <div>Username: <input type="text" name="username" value="<?php echo $info['username']?>"/></div>
@@ -26,6 +30,8 @@
 	<?php
 		$check1="";
 		$check2="";
+
+		//Ticks the option selected
 		if($info['userType']==1){
 			$check1="checked";
 		}
