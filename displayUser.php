@@ -12,10 +12,17 @@
   }
 
 
-  include_once("users.php");
-  $user = new users();
-  $row = $user->getUser();
 
+   //Included users class
+    include_once("users.php");
+
+    //Created a user object
+    $user = new users();
+
+    //Obtains all users from the database
+    $row = $user->getUser();
+
+    //Displays all users
   	echo"<table border=1>
   				<tr>
   					<td>USERNAME</td>
