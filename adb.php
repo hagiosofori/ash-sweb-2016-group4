@@ -4,16 +4,16 @@
 	
 	var $conn= null;//the connection to the database
 	var $data= null;
-	/**
+	/*
 	* connects to database
 	*/
 	function connect()
 	{
-		$this->conn = new mysqli('localhost', 'root', '', 'clinic_project');
+		$this->conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD,DB_NAME);
 		return $this->conn;
 	}
 	
-	/**
+	/*
 	* queries the database
 	* checks if the connection variable is not null first...
 	* results of the query are stored in the data variable
@@ -27,14 +27,10 @@
 			$this->connect();
 		}
 		$this->data = $this->conn->query($strQuery);
-		if($this->data!=null){
-		return true;	
-		} else{
-			return false;
-		}
+		return $this->data;
 	}
 	
-	/**
+	/*
 	* @return one row of the results of the query
 	*/
 	function fetch()
