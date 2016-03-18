@@ -3,16 +3,16 @@ include_once("adb.php");
 
 	class users extends adb
 	{
-		/*
+		/**
 		* Creates a new constructor of the class
 		*/
 		function users(){
 
 		}
-		/*
+		/**
 		* adds new user to the database
 		* @param [all attributes needed to create a user]
-		* @returns boolean showing success or failure
+		* @return boolean showing success or failure
 		*/
 		function addNewUser($username,$firstname,$lastname,$password,$type){
 			$strQuery="insert into userinfo set
@@ -24,7 +24,7 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 
-		/*
+		/**
 		* edits existing user in the database
 		* @param [all attributes of a user]
 		* @return boolean repersenting success or failure
@@ -39,7 +39,7 @@ include_once("adb.php");
 							where userID='$userID' ";
 			return $this->query($strQuery);
 		}
-		/*
+		/**
 		* delete user from database
 		* @param primary key of user's table
 		* @return boolean representing success or failure
@@ -50,7 +50,7 @@ include_once("adb.php");
 			return $this->query($strQuery);
 
 		}
-		/*
+		/**
 		* get user, with primary key
 		* @param primary key of user's table
 		* @return row of user's attributes
@@ -68,7 +68,7 @@ include_once("adb.php");
 		}
 
 
-		/*
+		/**
 		* logs the user in, given accurate credentials
 		* @param: user's login credentials
 		* @return: boolean based on success or failure
@@ -85,7 +85,7 @@ include_once("adb.php");
 			return $result;
 		}
 
-		/*
+		/**
 		* toggles the availability of the user whose id is passed as parameter
 		* @param: user's id, or other unique identifier
 		* @return: the new availability of the user
