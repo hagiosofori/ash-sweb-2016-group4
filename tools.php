@@ -39,9 +39,7 @@ include_once("inventory.php");
 		  }
 	 }
 	 
-	 function deleteTool(){}
 	 
-	 function searchTool(){}
 	 
  }
 		
