@@ -9,7 +9,7 @@
 	*/
 	function connect()
 	{
-		$this->conn = new mysqli('localhost', 'root', '', 'clinic_project');
+		$this->conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD,DB_NAME);
 		return $this->conn;
 	}
 	
@@ -27,15 +27,11 @@
 			$this->connect();
 		}
 		$this->data = $this->conn->query($strQuery);
-		 if($this->data!==null){
-			return true; 
-		 }else{
-			 return false;
-		 }
+		return $this->data;
 	}
 	
 	/*
-	* @return boolean one row of the results of the query
+	* @return one row of the results of the query
 	*/
 	function fetch()
 	{
