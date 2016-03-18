@@ -1,5 +1,5 @@
 <?php
-	//include_once("settings.php");
+	include_once("settings.php");
 	class adb{
 	
 	var $conn= null;//the connection to the database
