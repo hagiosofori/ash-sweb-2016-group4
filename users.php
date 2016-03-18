@@ -39,6 +39,7 @@ include_once("adb.php");
 							where userID='$userID' ";
 			return $this->query($strQuery);
 		}
+
 		/**
 		* delete user from database
 		* @param primary key of user's table
@@ -50,6 +51,7 @@ include_once("adb.php");
 			return $this->query($strQuery);
 
 		}
+
 		/**
 		* get user, with primary key
 		* @param primary key of user's table
