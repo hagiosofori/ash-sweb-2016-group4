@@ -24,9 +24,15 @@
         $user = new users();
 
         //Checks if username variable is available
-	      if(!isset($_REQUEST['username'])){
+        if(!isset($_REQUEST['username'])){
 	         exit();
 	      }
+        else{
+          if($_REQUEST['username']==""){
+            echo"Please input data";
+            exit();
+          }
+        }
 
         //Stores the basic user information
         $username=$_REQUEST['username'];
@@ -35,12 +41,23 @@
 	      $password=$_REQUEST['password'];
         $type=$_REQUEST['userType'];
 
-        //Calls the addNewUser method
-        $verify = $user->addNewUser($username,$firstname,$lastname,$password,$type);
+        $passwordReg="/[a-zA-Z0-9]{6,}/";
+
+        if(preg_match($passwordReg,$password)){
+          //Calls the addNewUser method
+          echo preg_match($passwordReg,$password);
+          $verify = $user->addNewUser($username,$firstname,$lastname,$password,$type);
+        }
+        else {
+          $verify=false;
+          echo'<span style="color:red;text-align:center;font-size:10pt;">
+          <br>Password must be greater than 6 characters<br>
+          It should contain only letters and numbers<br></span>';
+        }
 
         //Displays verfication message based on result
         if($verify==true){
-          echo "user added";
+          echo "User added";
           /*header("Location:index.php?userType=$type");
           exit();*/
         }
