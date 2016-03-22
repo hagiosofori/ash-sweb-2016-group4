@@ -3,14 +3,18 @@ include_once("adb.php");
 		
 	class drugs extends adb{
 		
-		
+		/**
+		* constructor
+		*/
 		function __constructor()
 		{
 			
 		}
 		
-		/*
-		* comments here
+		/**
+		* method to delete row from drug table with specified id
+		* @param primaryKey			: the id of the row which should be deleted
+		* @return 					: number of rows deleted
 		*/
 		function deleteDrug( $primaryKey/*the primary key of the inventory*/)
 		{
@@ -18,8 +22,10 @@ include_once("adb.php");
 			return $this->query($sql);
 		}
 		
-		/*
-		* comments here
+		/**
+		* method to fetch all rows of the drugs table which satisfy the filter
+		* @param filter				: string containing criteria which the returned rows must satisfy
+		* @return 					: dataset of rows that satisfy the filter, or false if no rows satisfy the criteria
 		*/
 		function getDrugs($filter=false)
 		{
@@ -31,6 +37,11 @@ include_once("adb.php");
 			return $this->query($sql);
 		}
 		
+		/**
+		* method to return rows in drug table that satisfy search term
+		* @param text		: search term which returned rows must satisfy
+		* @return 			: dataset of rows that satisfy the search term, or false if no rows satisfy the search term
+		*/
 		function searchDrugs($text = false){
 			$filter = "";
 			if($text!=false){

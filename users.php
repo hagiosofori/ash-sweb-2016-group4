@@ -3,7 +3,24 @@ include_once("adb.php");
 
 	class users extends adb
 	{
-		/*
+		//tests for methods in this class
+		//test deleteUser
+		if($this->deleteUser(2)==false){
+			echo "deleteUser() not working";
+		}else{
+			echo "deleteUser() working";
+		}
+		
+		//test getUser
+		
+		$result = $this->getUser(1);
+		if($result==0){
+			echo "getUser() not working";
+		}else{
+			echo "getUser() working";
+		}
+		
+		/**
 		* adds new user to the database
 		* @param [all attributes needed to create a user]
 		* @returns boolean showing success or failure
@@ -13,7 +30,7 @@ include_once("adb.php");
 			
 		}
 		
-		/*
+		/**
 		* edits existing user in the database
 		* @param [all attributes of a user]
 		* @return boolean repersenting success or failure
@@ -23,7 +40,7 @@ include_once("adb.php");
 			
 		}
 		
-		/*
+		/**
 		* delete user from database
 		* @param primary key of user's table
 		* @return boolean representing success or failure
@@ -34,7 +51,7 @@ include_once("adb.php");
 			return this->query($strQuery);
 		}
 		
-		/*
+		/**
 		* get user, with primary key 
 		* @param primary key of user's table
 		* @return row of user's attributes
@@ -45,7 +62,7 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 		
-		/*
+		/**
 		* logs the user in, given accurate credentials
 		* @param: user's login credentials
 		* @return: boolean based on success or failure
@@ -55,7 +72,7 @@ include_once("adb.php");
 			
 		}
 		
-		/*
+		/**
 		* toggles the availability of the user whose id is passed as parameter
 		* @param: user's id, or other unique identifier
 		* @return: the new availability of the user
@@ -63,6 +80,8 @@ include_once("adb.php");
 		function toggleAvailability(/*primary identifier of user */){
 			
 		}
+		
+		
 	}
 
 ?>
