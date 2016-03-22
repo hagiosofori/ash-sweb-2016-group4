@@ -21,56 +21,47 @@ class adb{
 		$this->db=new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
 		if($this->db->connect_errno){
 			//no connection, exit
+				return false;
+			}
+			return true;
+
+		}
+	/**
+	* queries the database
+	* checks if the connection variable is not null first...
+	* results of the query are stored in the data variable
+	* @param string query
+	* @return boolean indicating whether the query was successful or not
+	*/
+	function query($strQuery)
+	{
+	//	echo $strQuery; echo " <br>";
+		if($this->conn==null){
+			$this->connect();
+		}
+		$this->data = $this->conn->query($strQuery);
+		if($this->data!=null){
+			return true;
+		} else {
 			return false;
 		}
-		return true;
 	}
 
 	/**
-	*Query the database
-	*@param string $strQuery sql string to execute
+	* @return one row of the results of the query
 	*/
-	function query($strQuery){
-		if(!$this->connect()){
+	function fetch()
+	{
+		if ($this->data!=null)
+		{
+			return $this->data->fetch_assoc();
+		}else
+		{
 			return false;
 		}
-		if($this->db==null){
-			return false;
-		}
-		$this->result=$this->db->query($strQuery);
-		if($this->result==false){
-			return false;
-		}
-		return true;
+	}
+
 	}
 
 
-	/*
-	* Fetch from the current data set and return
-	*@return array one record
-	*/
-	function fetch(){
-		//Complete this funtion to fetch from the $this->result
-		if($this->result==null){
-			return false;
-		}
-
-		if($this->result==false){
-			return false;
-		}
-
-		return $this->result->fetch_assoc();
-	}
-
-}
-/*
-This is a test code
-$obj=new adb();
-if(!$obj->query("select * from users"))
-{
-	echo "error";
-	exit();
-}
-print_r($obj->fetch());
-*/
 ?>
