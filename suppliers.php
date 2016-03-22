@@ -30,22 +30,28 @@ include_once("adb.php");
 		
 		}
 		
+<<<<<<< HEAD
 		/**
 		* method to delete rows from the supplier table, which have the specified supplier id.
 		* @param suppleirid		 : the id of the row(s) which should be deleted
 		* @return 				 : number of rows deleted
 		*/
+=======
+>>>>>>> search
 		function deleteSupplier($supplierid){
 			$strQuery = "DELETE from suppliers where supplierId = $supplierid";
 			
 			return $this->query($strQuery);
 		}
 		
+<<<<<<< HEAD
 		/**
 		* method to search supplier table and return rows that have the specified search term
 		* @param text			 : the search term which will be used to filter the rows of the supplier table
 		* @return 				 : dataset of rows that satisfy the search term, or false if no data is returned
 		*/
+=======
+>>>>>>> search
 		function searchSuppliers($text=false){
 			$filter = "";
 			if($text!=false){

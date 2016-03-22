@@ -9,24 +9,38 @@
 		<div id = "nav"><img src = ""/><a>Home</a></div>
 		<form action = "index.php" method = "GET">
 		<!-- search box, and search button-->
+<<<<<<< HEAD:homepage.php
 		<input type= "text" name = "txtSearch" value = "<?php if(isset($_REQUEST['txtSearch'])){echo $_REQUEST['txtSearch'];}else{echo "";}?>"><input type ="submit" name= "search" value = "Search"> <br><br>
+=======
+		<input type= "text" name = "txtSearch" value = "<?php if(isset($_REQUEST['txtSearch'])){echo $_REQUEST['txtSearch'];}else{echo "Type search term here";}?>"><input type ="submit" name= "search" value = "Search"> <br><br>
+>>>>>>> search:index.php
 			<?php
 			include_once("drugs.php");
 			
 			
 			$drugs = new drugs();
 			
+<<<<<<< HEAD:homepage.php
 			//checking if search term has been entered. this determines if the data to be returned will be filtered or not.
 			if(isset($_REQUEST['txtSearch'])){
 				//echo "There's a search term <br><br>";
 				//echo  $_REQUEST['txtSearch'];echo "<br>";
+=======
+			
+			if(isset($_REQUEST['txtSearch'])){
+				echo "There's a search term <br><br>";
+				echo  $_REQUEST['txtSearch'];echo "<br>";
+>>>>>>> search:index.php
 				$str = $_REQUEST['txtSearch'];
 				$result = $drugs->searchDrugs($str);
 			}else{
 				$result = $drugs->getDrugs();
 			}
+<<<<<<< HEAD:homepage.php
 			//displaying returned rows in a tabular format
 			//for drugs
+=======
+>>>>>>> search:index.php
 			$row = $drugs->fetch();	
 				if($row!=false){
 				echo "Drugs<br><br>

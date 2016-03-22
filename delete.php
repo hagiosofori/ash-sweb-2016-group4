@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
 * main file responsible for all deleting in the database
 */
@@ -18,12 +19,25 @@
 	}
 	
 	//determining which table the delete query should be run on
+=======
+	
+	//take the item id, and the itemtype, and delete accordingly
+	
+	if(isset($_REQUEST['id'])){
+		$id = $_REQUEST['id'];
+		$type = $_REQUEST['item'];
+	}
+	
+>>>>>>> search
 	if($type=='drug'){
 		$drug = new drugs();
 		$drug->deleteDrug($id);
 		
 	}else if($type=='tool'){
+<<<<<<< HEAD
 		echo "<br>deleting tool";
+=======
+>>>>>>> search
 		$tool = new tools();
 		$tool->deleteTool($id);
 		
@@ -33,7 +47,11 @@
 		
 	}
 	
+<<<<<<< HEAD
 	//returning to home page
 	header("Location:index.php");
+=======
+	//header("Location:index.php");
+>>>>>>> search
 	
 ?>
