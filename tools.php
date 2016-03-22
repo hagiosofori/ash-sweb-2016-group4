@@ -35,7 +35,10 @@ include_once("adb.php");
 		
 		function deleteTool($toolid){
 			$strQuery = "Delete from tools where toolId = $toolid";
+<<<<<<< HEAD
 			return $this->query($strQuery);
+=======
+>>>>>>> delete
 		}
 		
 		/**
