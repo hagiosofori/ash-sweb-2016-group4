@@ -60,8 +60,8 @@
         //Displays verfication message based on result
         if($verify==true){
           echo "User added";
-          /*header("Location:index.php?userType=$type");
-          exit();*/
+          header("Location:homepage.php?userType=$type");
+          exit();
         }
         else{
           echo "User was not created";
