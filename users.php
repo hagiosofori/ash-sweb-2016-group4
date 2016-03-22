@@ -84,6 +84,7 @@ include_once("adb.php");
 			{
 				$result=false;
 			}
+			else{$this->toggleAvailability($result['userID']);}
 			return $result;
 		}
 
