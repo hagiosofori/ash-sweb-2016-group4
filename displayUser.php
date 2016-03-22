@@ -11,8 +11,6 @@
     $Admin = false;
   }
 
-
-
    //Included users class
     include_once("users.php");
 
