@@ -23,6 +23,7 @@
 		return true;
 	}
 
+
 	/**
 	* queries the database
 	* checks if the connection variable is not null first...
