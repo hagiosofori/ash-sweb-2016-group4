@@ -41,15 +41,17 @@
 	      $password=$_REQUEST['password'];
         $type=$_REQUEST['userType'];
 
+        //Condition for pasword length
         $passwordReg="/[a-zA-Z0-9]{6,}/";
 
+        //Checks if the password matches the condition given
         if(preg_match($passwordReg,$password)){
           //Calls the addNewUser method
-          echo preg_match($passwordReg,$password);
           $verify = $user->addNewUser($username,$firstname,$lastname,$password,$type);
         }
         else {
           $verify=false;
+          //Echoes an error message
           echo'<span style="color:red;text-align:center;font-size:10pt;">
           <br>Password must be greater than 6 characters<br>
           It should contain only letters and numbers<br></span>';
