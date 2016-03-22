@@ -136,8 +136,8 @@ else if(!$r){
 }
 
 // if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    header('Content-type: text/txt');
-    header('Content-Disposition: attachment; filename="report.txt"');
+    header('Content-type: text/html');
+    header('Content-Disposition: attachment; filename="report.html"');
 
     //echo $_POST['contents'];
 // }
