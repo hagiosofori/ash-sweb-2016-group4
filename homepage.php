@@ -3,7 +3,7 @@
 	<head>
 		<title>Home Page | Ashesi Clinic App</title>
 	</head>
-	
+
 	<body>
 		<!-- this is the navigation bar at the top. comprising the ashesi logo, home button, and any other actions you want the user to easily reach-->
 		<div id = "nav"><img src = ""/><a>Home</a></div>
@@ -16,19 +16,22 @@
            	<br><a href = "adddrug_interface.php">Add New Inventory for drugs</a></br>
 			<br><a href = "addtool_interface.php">Add New Inventory for tools</a></br>
 			<br><a href = "addsupplier_interface.php">Add New suppliers</a></br>
+			<br><a href = "generatereport.php?preference=1">Drugs Report</a></br>
+			<br><a href = "generatereport.php?preference=2">Tools Report</a></br>
+			<br><a href = "generatereport.php?preference=3">Nurse Availability</a></br>
 			<?php
 			include_once("drugs.php");
-			
-			
+
+
 			$drugs = new drugs();
-			
+
 
 			//checking if search term has been entered. this determines if the data to be returned will be filtered or not.
 			//if(isset($_REQUEST['txtSearch'])){
 				//echo "There's a search term <br><br>";
 				//echo  $_REQUEST['txtSearch'];echo "<br>";
 
-			
+
 			if(isset($_REQUEST['txtSearch'])){
 				echo "There's a search term <br><br>";
 				echo  $_REQUEST['txtSearch'];echo "<br>";
@@ -43,10 +46,10 @@
 			//for drugs
 
 
-			$row = $drugs->fetch();	
+			$row = $drugs->fetch();
 				if($row!=false){
 				echo "Drugs<br><br>
-				
+
 				<table>
 					<tr>
 						<td>DRUG ID</td>
@@ -59,9 +62,9 @@
 					</tr>";
 				}else{
 					echo "No drugs match your search";
-				}	
+				}
 				while($row!=false){
-					
+
 					echo "<tr>
 							<td>{$row['drugId']}</td>
 							<td>{$row['drugName']}</td>
@@ -71,22 +74,22 @@
 							<td> <a href = 'editdrug_interface.php?id={$row['drugId']}'> Edit</a></td>
 							<td><a href = 'delete.php?id={$row['drugId']}&item=drug'> Delete</a></td>
 						</tr>";
-						
-					$row = $drugs->fetch();	
+
+					$row = $drugs->fetch();
 				}
-				
+
 				echo "</table><br><br>";
-				
+
 			?>
-			
+
 			<?php
-			
+
 			//for tools
 			include_once("tools.php");
-			
+
 			$tools = new Tools();
-			
-						
+
+
 			if(isset($_REQUEST['txtSearch'])){
 				$filter = $_REQUEST['txtSearch'];
 				$tools->searchTools($filter);
@@ -111,29 +114,29 @@
 					echo "No tools match your search";
 				}
 				while($row!=false){
-					
+
 					echo "<tr>
 							<td>{$row['toolId']}</td>
 							<td>{$row['toolName']}</td>
 							<td>{$row['toolType']}</td>
 							<td>{$row['quantity']}</td>
 							<td>{$row['supplierName']}</td>
-							
+
 							<td> <a href = 'edittool_interface.php?id={$row['toolId']}'> Edit</a></td>
 				<td><a href = 'delete.php?id={$row['toolId']}&item=tool'> Delete</a></td>
 						</tr>";
-						
+
 						$row = $tools->fetch();
 				}
 				echo "</table><br><br>";
-				
+
 			?>
-			
+
 			<?php
-			
+
 			//for suppliers
 			include_once("suppliers.php");
-			
+
 			$suppliers = new Suppliers();
 			if(isset($_REQUEST['txtSearch'])){
 				$str = $_REQUEST['txtSearch'];
@@ -141,7 +144,7 @@
 			}else{
 				$suppliers->getSuppliers();
 			}
-			$row = $suppliers->fetch();	
+			$row = $suppliers->fetch();
 				if($row!=false){
 				echo "Suppliers<br><br>";
 				echo "
@@ -165,13 +168,13 @@
 							<td> <a href = 'editsupplier_interface.php?id={$row['suppliersId']}'> Edit</a></td>
 							<td><a href = 'delete.php?id={$row['suppliersId']}&item=supplier'> Delete</a></td>
 						</tr>";
-						
+
 					$row= $suppliers->fetch();
 				}
-				
+
 				echo "</table>";
 			?>
-		
+
 			</form>
 	</body>
 
