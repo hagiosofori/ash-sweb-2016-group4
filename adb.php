@@ -1,7 +1,5 @@
 <?php
-/**
-*Database connection helper
-*/
+
 include_once("settings.php");
 /**
 * Database connection helper class
@@ -47,7 +45,7 @@ class adb{
 
 	/*
 	* Fetch from the current data set and return
-	*@return array one record
+	* @return one row of the results of the query
 	*/
 	function fetch(){
 		//Complete this funtion to fetch from the $this->result

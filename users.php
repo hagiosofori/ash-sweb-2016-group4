@@ -3,17 +3,20 @@ include_once("adb.php");
 
 	class users extends adb
 	{
+
 		/**
 		* Creates a new constructor of the class
 		*/
 		function users(){
 
 		}
+
 		/**
 		* adds new user to the database
 		* @param [all attributes needed to create a user]
 		* @return boolean showing success or failure
 		*/
+
 		function addNewUser($username,$firstname,$lastname,$password,$type){
 			$strQuery="insert into userinfo set
 							username='$username',
@@ -24,11 +27,13 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 
+
 		/**
 		* edits existing user in the database
 		* @param [all attributes of a user]
 		* @return boolean repersenting success or failure
 		*/
+
 		function editUser($userID,$username,$firstname,$lastname,$password,$userType){
 			$strQuery= "update userinfo set
 								username='$username',
@@ -69,7 +74,6 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 
-
 		/**
 		* logs the user in, given accurate credentials
 		* @param: user's login credentials
@@ -104,6 +108,7 @@ include_once("adb.php");
 			$strQuery="update userinfo set availability ='$available' where userID='$userID' ";
 			return $this->query($strQuery);
 		}
+
 
 	}
 ?>
