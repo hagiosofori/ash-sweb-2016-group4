@@ -16,15 +16,15 @@
 	$supplierId =$_REQUEST['supplierId'];}
 
 	if(isset($_REQUEST['drugType'])){
-	$toolType=$_REQUEST['drugType'];
+	$drugType=$_REQUEST['drugType'];
 	}
 	echo"<form action=\"adddrug_interface.php\" method=\"GET\"></div>";
 	echo"<div>drugName<input type=\"text\" name=\"drugName\" value = $drugName ></div>";
 	echo"<div>Quantity<input type=\"text\" name=\"quantity\"  value = $Quantity  ></div>";
 	echo"<div>supplierId<input type=\"text\" name=\"supplierId\" value = $supplierId></div>";
 	echo"<div>drugType<input type=\"text\" name=\"drugType\" value = $drugType ></div>";
-	echo"<input type=\"submit\" name=\"submit\" value=\"ClicktoAdd\"></div>";
-	
+	echo"<input type=\"submit\" name=\"submit\" value=\"Add\"></div>";
+	echo "<div><a href=\"homepage.php\">Return to homepage<a/></div>";
 	//proceeds to  add new item in the database when the button is clicked
 	
 	if(isset($_REQUEST['submit'])){
@@ -32,8 +32,8 @@
 		 $drugQuantity = $_REQUEST['quantity'];
 		 $drugSupplier=$_REQUEST['supplierId'];
 		 $drugType = $_REQUEST['drugType'];
-		 include "drug.php";
-		 $drug= new drug();
+		 include "drugs.php";
+		 $drug= new drugs();
 		$drug->addDrug($drugname,$drugQuantity,$drugSupplier,$drugType,"Drugs");
 	 }
 

@@ -24,7 +24,8 @@ echo"<div>toolName<input type=\"text\" name=\"toolName\" value=$toolName ></div>
 echo"<div>Quantity<input type=\"text\" name=\"quantity\"  value= $Quantity  ></div>";
 echo"<div>supplierId<input type=\"text\" name=\"supplierId\" value =$supplierId  ></div>";
 echo"<div>toolType<input type=\"text\" name=\"toolType\" value= $toolType ></div>";
-echo"<input type=\"submit\" name=\"submit\" value=\"ClicktoAdd\"></div>";
+echo"<input type=\"submit\" name=\"submit\" value=\"Add\"></div>";
+echo "<div><a href=\"homepage.php\">Return to homepage<a/></div>";
 
 //proceeds to  add new item in the database when the button is clicked
 

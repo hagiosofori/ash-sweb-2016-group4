@@ -19,7 +19,7 @@ $supplierName ='';
 	echo"<div>supplierLocation<input type=\"text\" name=\"supplierLocation\"  value = $supplierLocation  ></div>";
 	
 	echo"<input type=\"submit\" name=\"submit\" value=\"Add\"></div>";
-	
+	echo "<div><a href=\"homepage.php\">Return to homepage<a/></div>";
 	//proceeds to  add new item in the database when the button is clicked
 	
 	if(isset($_REQUEST['submit'])){

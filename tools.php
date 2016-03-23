@@ -1,10 +1,11 @@
 <?php
 include_once("adb.php");
+include_once("inventory.php");
 /**
 * class representing tools
 
 */
-	class Tools extends adb{
+	class Tools extends inventory{
 		
 		/**
 		* constructor
@@ -12,14 +13,44 @@ include_once("adb.php");
 		function __constructor(){
 			
 		}
-		
+		/**
+		* adds new tool to the database
+		* @param [all attributes needed to create a new tool]
+		* @returns boolean showing success or failure
+		*/
+	 
+	 function addTool($InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory){
+		$result = $this->addNewInventory($InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory);
+		   if($result)
+		  {
+			  return true;
+		  }else{
+			  return false;
+		  }
+	 }
+	 /**
+		* edits tool in the database
+		* @param [all attributes needed to edit a tool]
+		* @returns boolean showing success or failure
+		*/
+	 
+	 function editTool($primarykey,$InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory){
+		$result = $this->editInventory($primarykey,$InventoryName,$Quantity,$supplierID,$InventoryType,$InventoryCategory);
+		   if($result)
+		  {
+			  return true;
+		  }else{
+			  return false;
+		  }
+	 }
+	 
 		/**
 		* method to get all tools in the database which satisfy the filter criteria
 		* @param filter		: the criteria which all returned terms must fulfill.
 		* @return 			: result of the query; either false, or the dataset from the database
 		*/
 		function getTools($filter=false){
-			$strQuery = "Select toolId, toolName, quantity, toolType, suppliers.supplierName from tools, suppliers where suppliers.suppliersId = tools.supplierId ";
+			$strQuery = "Select toolId, toolName, quantity, toolType, suppliers.supplierName ,supplierId from tools, suppliers where suppliers.suppliersId = tools.supplierId ";
 			if($filter!=false){
 				$strQuery = $strQuery.$filter;
 				
@@ -35,13 +66,9 @@ include_once("adb.php");
 		
 		function deleteTool($toolid){
 			$strQuery = "Delete from tools where toolId = $toolid";
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 			return $this->query($strQuery);
-=======
->>>>>>> delete
-=======
->>>>>>> search
+
 		}
 		
 		/**

@@ -32,13 +32,13 @@ include_once("adb.php");
 		$this->query($query);
 		}
 		
-<<<<<<< HEAD
+
 		/*
 		* edits existing user in the database                                                             
-=======
+
 		/**
 		* edits existing user in the database
->>>>>>> 28261975226aaf43309cf0c6453d7c979785962b
+
 		* @param [all attributes of a user]
 		* @return boolean repersenting success or failure
 		*/
@@ -49,9 +49,7 @@ include_once("adb.php");
 		$this->query($query);
 		}
 		
-<<<<<<< HEAD
-		
-=======
+
 		/**
 		* delete user from database
 		* @param primary key of user's table
@@ -94,7 +92,7 @@ include_once("adb.php");
 		}
 		
 		
->>>>>>> 28261975226aaf43309cf0c6453d7c979785962b
+
 	}
 
 ?>
