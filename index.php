@@ -34,8 +34,8 @@
         }
         else{
           echo "verified";
-        /* header("Location:check.php?userType={$verify["userType"]}");
-        exit();*/
+        header("Location:homepage.php?userType={$verify["userType"]}");
+        exit();
         }
       ?>
     </form>
