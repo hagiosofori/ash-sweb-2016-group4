@@ -41,7 +41,7 @@ if($id = $_GET['preference']){
 
 
     echo"<tr>
-        <td>{$row['drugID']}</td>
+        <td>{$row['drugId']}</td>
         <td>{$row['drugName']}</td>
         <td>{$row['quantity']}</td>
         <td>{$row['supplierID']}</td>
