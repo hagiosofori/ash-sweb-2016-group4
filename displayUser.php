@@ -3,24 +3,36 @@
 <body>
   <?php
   $Admin ="";
+
+ /**
+  *This aspect has been included for testing on the remote Server
+  *This would be removed when final implementation occurs.
+  */
+  if(!isset($_REQUEST['userType'])){
+      $Admin =true;
+  }
+
+
   if ($_REQUEST['userType']==1){
     $Admin = true;
+    $userType=1;
   }
   else if($_REQUEST['userType']==0){
-
+    $userType = 0;
     $Admin = false;
   }
 
-   //Included users class
-    include_once("users.php");
 
-    //Created a user object
-    $user = new users();
+ //Included users class
+  include_once("users.php");
 
-    //Obtains all users from the database
-    $row = $user->getUser();
+  //Created a user object
+  $user = new users();
 
-    //Displays all users
+  //Obtains all users from the database
+  $row = $user->getUser();
+
+  //Displays all users
   	echo"<table border=1>
   				<tr>
   					<td>USERNAME</td>
@@ -62,6 +74,8 @@
 
   }
   echo"</table>";
+  echo"<div><a href='homepage.php?userType=$userType'>Return to homepage</a></div>";
   ?>
+
 </body>
 </html>
