@@ -109,8 +109,8 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 
-		function verifyData($username){
-			$strQuery="Select * from userinfo where username = '$username'";
+		function getType($username){
+			$strQuery="Select userType from userinfo where username = '$username'";
 			return $this->query($strQuery);
 		}
 
