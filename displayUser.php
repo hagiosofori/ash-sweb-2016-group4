@@ -74,7 +74,7 @@
 
   }
   echo"</table>";
-  echo"<div><a href='homepage.php?userType=$userType'>Return to homepage</a></div>";
+  echo"<div><a href='homepage.php'>Return to homepage</a></div>";
   ?>
 
 </body>
