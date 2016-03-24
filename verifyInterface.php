@@ -24,7 +24,7 @@
         $username=$_REQUEST['username'];
 
         //Calls the login methods
-        $verify=$user->verifyData($username);
+        $verify=$user->getType($username);
         $verify=$user->fetch();
 
         //Displays the whether user exists or not
