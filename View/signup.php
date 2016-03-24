@@ -60,7 +60,7 @@
         //Displays verfication message based on result
         if($verify==true){
           echo "User added";
-          header("Location:homepage.php?userType=$type");
+          header("Location:homepage.php");
           exit();
         }
         else{
