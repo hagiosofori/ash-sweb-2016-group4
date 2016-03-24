@@ -13,12 +13,21 @@
 		<input type= "text" name = "txtSearch" value = "<?php if(isset($_REQUEST['txtSearch'])){echo $_REQUEST['txtSearch'];}else{echo "";}?>"><input type ="submit" name= "search" value = "Search"> <br><br>
 
 	<!--	<input type= "text" name = "txtSearch" value = "<?php if(isset($_REQUEST['txtSearch'])){echo $_REQUEST['txtSearch'];}else{echo "Type search term here";}?>"><input type ="submit" name= "search" value = "Search"> <br><br>-->
-           	<br><a href = "adddrug_interface.php">Add New Inventory for drugs</a></br>
+			<?php
+			if(!isset($_REQUEST['userType'])){
+
+			}else{
+				$userType=$_REQUEST['userType'];
+			}
+			echo "<br><a href ='displayUser.php?userType=$userType'>All Users</a></br>";
+			?>
+			<br><a href = "adddrug_interface.php">Add New Inventory for drugs</a></br>
 			<br><a href = "addtool_interface.php">Add New Inventory for tools</a></br>
 			<br><a href = "addsupplier_interface.php">Add New suppliers</a></br>
 			<br><a href = "generatereport.php?preference=1">Drugs Report</a></br>
 			<br><a href = "generatereport.php?preference=2">Tools Report</a></br>
 			<br><a href = "generatereport.php?preference=3">Nurse Availability</a></br>
+
 			<?php
 			include_once("drugs.php");
 
