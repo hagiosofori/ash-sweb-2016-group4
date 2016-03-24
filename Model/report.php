@@ -33,7 +33,7 @@ class report extends adb {
   * @return database query
   */
   function getTools(){
-    $strQuery='select toolId, toolName, quantity, supplierId, toolType from Tools';
+    $strQuery='select toolId, toolName, quantity, supplierId from tools';
 
     return $this->query($strQuery);
   }

@@ -18,7 +18,7 @@
 
       <?php
        //Included users class
-        include_once("users.php");
+        include_once("../Model/users.php");
 
         //Created instance of user object
         $user = new users();

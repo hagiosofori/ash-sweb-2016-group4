@@ -1,6 +1,6 @@
 <?php
 //Included the users class
-include_once("users.php");
+include_once("../Model/users.php");
 
 //Stores the user's ID
  if(isset($_REQUEST['userID'])){
@@ -9,7 +9,7 @@ include_once("users.php");
 }
 
 //Relocates to the display user page
-header("Location:displayUser.php?userType=1");
+header("Location:../View/displayUser.php?userType=1");
 exit();
 
 ?>

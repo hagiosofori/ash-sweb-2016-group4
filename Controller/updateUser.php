@@ -1,7 +1,7 @@
 <?php
 
 //Includes the user's class
-include_once("users.php");
+include_once("../Model/users.php");
 
 //Creates a user object
 $user = new users();
@@ -25,6 +25,6 @@ $result=$user->editUser($userID,$username,$firstname,$lastname,$pword,$userType)
 }
 
 //redirects to the displayUser page
-header("Location:displayUser.php?userType=1");
+header("Location:../View/displayUser.php?userType=1");
 exit();
 ?>

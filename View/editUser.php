@@ -6,7 +6,7 @@
 	<body>
 		<?php
 			//Include users class
-			include_once("users.php");
+			include_once("../Model/users.php");
 
 			//Obtains the user's ID
 			if(isset($_REQUEST['userID']))
@@ -19,7 +19,7 @@
 		?>
 
 	<!--Form displays user information of a specific user-->
-	<form action="updateUser.php" method="GET" onsubmit='validate()'>
+	<form action="../Controller/updateUser.php" method="GET" onsubmit='validate()'>
 	<input type="hidden" name="userID" value="<?php echo $info['userID']?>">
   <div>Username: <input type="text" name="username" value="<?php echo $info['username']?>"/></div>
   <div>Firstname: <input type="text" name="firstname" value="<?php echo $info['firstname']?>"/></div>

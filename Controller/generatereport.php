@@ -13,7 +13,7 @@
  */
 
 
-include_once("report.php");
+include_once("../Model/report.php");
 $obj = new report();
 
 if(!isset($_REQUEST['preference'])){
@@ -65,7 +65,6 @@ if($id = $_GET['preference']){
       <td style='background-color:#332266  ; color:white'><b>TOOL NAME</b></td>
       <td style='background-color:#332266  ; color:white'><b>TOOL QUANTITY</b></td>
       <td style='background-color:#332266  ; color:white'><b>TOOL SUPPLIER</b></td>
-      <td style='background-color:#332266  ; color:white'><b>TOOL TYPE</b></td>
     </tr>";
 
 
@@ -79,7 +78,6 @@ if($id = $_GET['preference']){
         <td>{$row['toolName']}</td>
         <td>{$row['quantity']}</td>
         <td>{$row['supplierId']}</td>
-        <td>{$row['toolType']}</td>
         </tr>";
 
     }

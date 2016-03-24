@@ -18,12 +18,12 @@
 			<br><a href = "adddrug_interface.php">Add New Inventory for drugs</a></br>
 			<br><a href = "addtool_interface.php">Add New Inventory for tools</a></br>
 			<br><a href = "addsupplier_interface.php">Add New suppliers</a></br>
-			<br><a href = "generatereport.php?preference=1">Drugs Report</a></br>
-			<br><a href = "generatereport.php?preference=2">Tools Report</a></br>
-			<br><a href = "generatereport.php?preference=3">Nurse Availability</a></br>
+			<br><a href = "../Controller/generatereport.php?preference=1">Drugs Report</a></br>
+			<br><a href = "../Controller/generatereport.php?preference=2">Tools Report</a></br>
+			<br><a href = "../Controller/generatereport.php?preference=3">Nurse Availability</a></br>
 
 			<?php
-			include_once("drugs.php");
+			include_once("../Model/drugs.php");
 
 
 			$drugs = new drugs();
@@ -88,7 +88,7 @@
 			<?php
 
 			//for tools
-			include_once("tools.php");
+			include_once("../Model/tools.php");
 
 			$tools = new Tools();
 
@@ -107,7 +107,6 @@
 					<tr>
 						<td>TOOL ID</td>
 						<td>TOOL NAME</td>
-						<td> TOOL TYPE</td>
 						<td> QUANTITY</td>
 						<td> SUPPLIER</td>
 						<td> EDIT</td>
@@ -121,7 +120,6 @@
 					echo "<tr>
 							<td>{$row['toolId']}</td>
 							<td>{$row['toolName']}</td>
-							<td>{$row['toolType']}</td>
 							<td>{$row['quantity']}</td>
 							<td>{$row['supplierName']}</td>
 
@@ -138,7 +136,7 @@
 			<?php
 
 			//for suppliers
-			include_once("suppliers.php");
+			include_once("../Model/suppliers.php");
 
 			$suppliers = new Suppliers();
 			if(isset($_REQUEST['txtSearch'])){

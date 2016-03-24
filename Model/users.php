@@ -60,7 +60,7 @@ include_once("adb.php");
 		/**
 		* get user, with primary key
 		* @param primary key of user's table
-		* @return row of user's attributes
+		* @return row(s) of user's attributes
 		*/
 		function getUser($usercode=false)
 		{
@@ -109,6 +109,10 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 
+		/**
+		* returns the user Type of a specific user
+		* @return: an array containing a person's user type
+		*/
 		function getType($username){
 			$strQuery="Select userType from userinfo where username = '$username'";
 			return $this->query($strQuery);

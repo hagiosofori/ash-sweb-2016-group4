@@ -24,7 +24,7 @@
 
 
  //Included users class
-  include_once("users.php");
+  include_once("../Model/users.php");
 
   //Created a user object
   $user = new users();
@@ -53,7 +53,7 @@
           <td>{$row['firstname']}</td>
           <td>{$row['lastname']}</td>
           <td>{$row['userType']}</td>
-          <td><a href='userDel.php?userID={$row["userID"]}'>
+          <td><a href='../Controller/userDel.php?userID={$row["userID"]}'>
           Delete</a>
           <a href='editUser.php?userID={$row["userID"]}'>
           Edit</a>

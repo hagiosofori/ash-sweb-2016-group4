@@ -4,9 +4,9 @@
 	$Quantity='';
 	$supplierId='';
 	$drugType='';
-	
+
 	//checks the url to get values from it in order to let the values remain in the text fields
-	if(isset($_REQUEST['drugName'])){ 
+	if(isset($_REQUEST['drugName'])){
 
 	$drugName=$_REQUEST['drugName'];
 	}
@@ -26,13 +26,13 @@
 	echo"<input type=\"submit\" name=\"submit\" value=\"Add\"></div>";
 	echo "<div><a href=\"homepage.php\">Return to homepage<a/></div>";
 	//proceeds to  add new item in the database when the button is clicked
-	
+
 	if(isset($_REQUEST['submit'])){
 		 $drugname = $_REQUEST['drugName'];
 		 $drugQuantity = $_REQUEST['quantity'];
 		 $drugSupplier=$_REQUEST['supplierId'];
 		 $drugType = $_REQUEST['drugType'];
-		 include "drugs.php";
+		 include "../Model/drugs.php";
 		 $drug= new drugs();
 		$drug->addDrug($drugname,$drugQuantity,$drugSupplier,$drugType,"Drugs");
 	 }

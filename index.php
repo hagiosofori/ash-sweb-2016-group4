@@ -12,7 +12,7 @@
 
       <?php
       //Included the user class
-        include_once("users.php");
+        include_once("Model/users.php");
 
       //Created a user object
         $user = new users();
@@ -34,7 +34,7 @@
         }
         else{
           echo "verified";
-        header("Location:homepage.php");
+        header("Location:View/homepage.php");
         exit();
         }
       ?>
