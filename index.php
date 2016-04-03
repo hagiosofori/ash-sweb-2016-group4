@@ -16,8 +16,6 @@
       <div class="password">Password:<input type="password" name="password" value=""/></div>
       <input type="submit" name="Login" id="submit" value="Log  In">
 
-      <a href = "">Forgot your password?</a>
-
       <?php
       //Included the user class
         include_once("Model/users.php");
@@ -36,16 +34,24 @@
         //Calls the login methods
         $verify=$user->login($username,$password);
 
+        $email = $user->getEmail($username);
+        $email = $user->fetch();
+
+
         //Displays the whether user exists or not
         if($verify==false){
-          echo"user does not exist";
+          echo"User does not exist";
         }
         else{
-          echo "verified";
+        echo "verified";
         header("Location:View/homepage.php");
         exit();
         }
+        echo"<br><a href ='Controller/email.php?email={$email['email']}'>
+          Forgot your password?</a></br>";
       ?>
+
+
     </form>
   </body>
 </html>
