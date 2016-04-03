@@ -10,6 +10,7 @@
       <div>Firstname: <input type="text" name="firstname" value=""/></div>
       <div>Lastname: <input type="text" name="lastname" value=""/></div>
       <div>Password: <input type="password" name="password" value=""/></div>
+      <div>Email: <input type="text" name="email" value=""/></div>
       <div>
         User Type: <input type="radio" name="userType" value="1"> Admin
         <input type="radio" name="userType" value="0"> User
@@ -39,6 +40,7 @@
 	      $firstname=$_REQUEST['firstname'];
 	      $lastname=$_REQUEST['lastname'];
 	      $password=$_REQUEST['password'];
+        $email=$_REQUEST['email'];
         $type=$_REQUEST['userType'];
 
         //Condition for pasword length
@@ -47,7 +49,7 @@
         //Checks if the password matches the condition given
         if(preg_match($passwordReg,$password)){
           //Calls the addNewUser method
-          $verify = $user->addNewUser($username,$firstname,$lastname,$password,$type);
+          $verify = $user->addNewUser($username,$firstname,$lastname,$password,$email,$type);
         }
         else {
           $verify=false;

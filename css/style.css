@@ -1,0 +1,90 @@
+.username{
+  margin-bottom: 15px;
+}
+
+.password{
+  margin-bottom: 15px;
+}
+
+#nameContent{
+  display:none;
+  color:red;
+}
+
+#passwordContent{
+  display:none;
+  color:red;
+}
+
+.username:hover #nameContent {
+  display: block;
+}
+
+.password:hover #passwordContent{
+  display: block;
+}
+
+a{
+  margin-left: 140px;
+}
+
+h1{
+  font-family: Calibri light;
+  font-size:60px;
+  text-align: center;
+}
+
+h3{
+  font-family: Calibri light;
+  text-align:center;
+  margin-top: -20px;
+}
+
+body{
+  background-image:url("../Scope.jpg");
+  background-position: center;
+}
+
+form{
+  margin: 8% 35%;
+
+}
+
+input{
+  font-size: 100%;
+  color: #5a5854;
+  background-color: #f2f2f2;
+  border-radius: 6px;
+  padding: 5px 5px 5px 5px;
+}
+
+input#submit{
+  font-family: Calibri light;
+  color: #444444;
+  border-bottom: 2px solid #b2b2b2;
+  background-color: #b9e4e3;
+}
+
+input#submit:hover{
+  color: #333333;
+  border: 1px solid #a4a4a4;
+  border-top: 2px solid #b2b2b2;
+  background-color: #a0dbc4;
+}
+
+fieldset{
+  font-family: Calibri light;
+  width: 400px;
+  border: 1px solid #dcdcdc;
+  border-radius: 15px;
+  padding: 25px 5px 10px 0px;
+  text-align: center;
+}
+
+legend {
+  background-color: #efefef;
+  border: 1px solid #dcdcdc;
+  border-radius: 15px;
+  padding: 10px 20px;
+  text-align: center;
+}

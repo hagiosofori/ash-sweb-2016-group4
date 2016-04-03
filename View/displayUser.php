@@ -40,6 +40,7 @@
   					<td>LASTNAME</td>
   					<td>USER TYPE</td>
             <td>OPTIONS</td>
+            <td>EMAIL</td>
             <td>Availability</td>
   				</tr>";
 	while($row=$user->fetch()){
@@ -58,6 +59,7 @@
           <a href='editUser.php?userID={$row["userID"]}'>
           Edit</a>
           </td>
+          <td>{$row['email']}</td>
           <td>$available</td>
       </tr>";
     }

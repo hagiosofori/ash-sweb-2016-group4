@@ -1,14 +1,22 @@
 <html>
+<!--Author: Kwabena Boohene-->
   <head>
-    <title>login</title>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="materialize/css/materialize.css">
   </head>
 
   <body>
+
     <!--Form to collect information to login-->
     <form action="" method="GET" onsubmit='validate()'>
-      <div>Username: <input type="text" name="username" value=""/></div>
-      <div>Password: <input type="password" name="password" value=""/></div>
-      <input type="submit" name="Login">
+      <h1>Ashesi Clinic</h1>
+      <h3>Inventory Management System</h3>
+
+      <div class="username">Username: <input type="text" name="username" value=""/>  </div>
+      <div class="password">Password:<input type="password" name="password" value=""/></div>
+      <input type="submit" name="Login" id="submit" value="Log  In">
+
+      <a href = "">Forgot your password?</a>
 
       <?php
       //Included the user class
@@ -39,6 +47,5 @@
         }
       ?>
     </form>
-
   </body>
 </html>

@@ -17,12 +17,13 @@ include_once("adb.php");
 		* @return boolean showing success or failure
 		*/
 
-		function addNewUser($username,$firstname,$lastname,$password,$type){
+		function addNewUser($username,$firstname,$lastname,$password,$email,$type){
 			$strQuery="insert into userinfo set
 							username='$username',
 							firstname='$firstname',
 							lastname='$lastname',
 							password=MD5('$password'),
+							email='$email',
 							userType = '$type' ";
 			return $this->query($strQuery);
 		}
@@ -34,12 +35,13 @@ include_once("adb.php");
 		* @return boolean repersenting success or failure
 		*/
 
-		function editUser($userID,$username,$firstname,$lastname,$password,$userType){
+		function editUser($userID,$username,$firstname,$lastname,$password,$email,$userType){
 			$strQuery= "update userinfo set
 								username='$username',
 								firstname='$firstname',
 								lastname='$lastname',
 								password=MD5('$password'),
+								email='$email',
 								userType='$userType'
 							where userID='$userID' ";
 			return $this->query($strQuery);
