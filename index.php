@@ -19,10 +19,7 @@
             <form action="" method="GET" onsubmit='validate()'>
               <div class="username">Username: <input type="text" name="username" value=""/>  </div>
               <div class="password">Password:<input type="password" name="password" value=""/></div>
-              <button class="btn waves-effect waves-light" type="submit" name="Login">Submit
-
-              </button>
-
+              <button class="btn waves-effect waves-light" type="submit" name="Login">Log In</button>
 
               <?php
                 //Included the user class
