@@ -45,7 +45,7 @@
                 $email = $user->fetch();
 
                 echo"<button class='btn waves-effect waves-light' type='submit' name='Password'>
-                  <a href ='Controller/email.php?email={$email['email']}'>
+                  <a class='bt' href ='Controller/email.php?email={$email['email']}'>
                   Forgot your password?</a>
                 </button>";
 
