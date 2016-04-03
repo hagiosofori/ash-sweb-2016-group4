@@ -5,13 +5,13 @@
   //Email information
   $admin_email = "kwabena.boohene@ashesi.edu.gh";
   $email = $_REQUEST['email'];
-  $subject = $_REQUEST['subject'];
-  $comment = $_REQUEST['comment'];
+  $subject = "Forgotten Password";
+  $comment = "Good day admin, please I have forgotten my password";
 
   //send email
   mail($admin_email, "$subject", $comment, "From:" . $email);
 
-  //Email response
-  echo "Thank you for contacting us!";
+  header("Location:../index.php");
+  exit();
   }
   ?>
