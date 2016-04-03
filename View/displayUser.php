@@ -74,16 +74,17 @@
                           <td>{$row['lastname']}</td>
                           <td>{$row['userType']}</td>
                           <td>Delete, Edit</td>
+                          <td>{$row['email']}</td>
                           <td>$available</td>
                       </tr>";
                     }
 
                   }
                   echo"</table>";
+                  echo"<div><a href='homepage.php'>Return to homepage</a></div>";
                   if($Admin==true){
-                    echo"<div><a href='homepage.php'>Return to homepage</a></div>";
+                    echo"<div><a href='signup.php'>Add new user</a></div>";
                   }
-
 
             ?>
           </div>
