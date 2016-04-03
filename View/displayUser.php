@@ -80,8 +80,11 @@
 
                   }
                   echo"</table>";
-                  echo"<div><a href='homepage.php'>Return to homepage</a></div>";
-                  echo"<div><a href='signup.php'>Add new user</a></div>";
+                  if($Admin==true){
+                    echo"<div><a href='homepage.php'>Return to homepage</a></div>";
+                  }
+
+
             ?>
           </div>
         </div>
