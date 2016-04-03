@@ -13,7 +13,9 @@
         <h5>Inventory Management System</h5>
 
         <div class="card  cyan darken-3 z-depth-3">
+
           <div class="card-content white-text">
+          <span class="card-title">Log In</span>
 
             <!--Form to collect information to login-->
             <form action="" method="GET" onsubmit='validate()'>
