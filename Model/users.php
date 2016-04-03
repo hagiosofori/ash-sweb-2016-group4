@@ -120,6 +120,17 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 
+		/**
+		* get user email, with primary key
+		* @param user's name
+		* @return user's email
+		*/
+		function getEmail($userName)
+		{
+				$strQuery ="Select email from userinfo where username = '$userName' ";
+			return $this->query($strQuery);
+		}
+
 
 	}
 ?>
