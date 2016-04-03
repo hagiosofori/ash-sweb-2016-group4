@@ -20,9 +20,9 @@
             <div>Email: <input type="text" name="email" value=""/></div>
 
             <div class="input_options">
-              User Type: <input class="with-gap" type="radio" name="group1" value="1" id="test1">
+              User Type: <input class="with-gap" type="radio" name="userType" value="1" id="test1">
               <label for="test1">Admin</label>
-              <input class="with-gap" type="radio" name="group1" value="0" id="test2">
+              <input class="with-gap" type="radio" name="userType" value="0" id="test2">
               <label for="test2">User</label>
             </div>
 
