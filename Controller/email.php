@@ -6,7 +6,7 @@
   $admin_email = "kwabena.boohene@ashesi.edu.gh";
   $email = $_REQUEST['email'];
   $subject = "Forgotten Password";
-  $comment = "Good day admin, please I have forgotten my password";
+  $comment = "Good day Administrator, please I have forgotten my password";
 
   //send email
   mail($admin_email, "$subject", $comment, "From:" . $email);
