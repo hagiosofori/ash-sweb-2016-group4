@@ -6,7 +6,7 @@
   <body>
     <!--Form to collect information to login-->
     <form action="" method="GET" onsubmit='validate()'>
-      <div>Username: <input type="text" name="username" value=""/></div>
+      <div>Password: <input type="password" name="password" value=""/></div>
       <input type="submit" name="Verify" value="Verify">
 
       <?php
@@ -16,15 +16,15 @@
       //Created a user object
         $user = new users();
 
-        if(!isset($_REQUEST['username'])){
+        if(!isset($_REQUEST['password'])){
           exit();		//if no data, exit
         }
 
         //Stores the users information
-        $username=$_REQUEST['username'];
+        $password=$_REQUEST['password'];
 
         //Calls the login methods
-        $verify=$user->getType($username);
+        $verify=$user->getType($password);
         $verify=$user->fetch();
 
         //Displays the whether user exists or not
