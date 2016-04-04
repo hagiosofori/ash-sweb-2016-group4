@@ -75,7 +75,7 @@
 							<td>{$row['supplierName']}</td>
 							<td>{$row['drugType']}</td>
 							<td> <a href = 'editdrug_interface.php?id={$row['drugId']}'> Edit</a></td>
-							<td><a href = 'delete.php?id={$row['drugId']}&item=drug'> Delete</a></td>
+							<td><a href = '../Controller/delete.php?id={$row['drugId']}&item=drug'> Delete</a></td>
 						</tr>";
 
 					$row = $drugs->fetch();
@@ -124,7 +124,7 @@
 							<td>{$row['supplierName']}</td>
 
 							<td> <a href = 'edittool_interface.php?id={$row['toolId']}'> Edit</a></td>
-				<td><a href = 'delete.php?id={$row['toolId']}&item=tool'> Delete</a></td>
+				<td><a href = '../Controller/delete.php?id={$row['toolId']}&item=tool'> Delete</a></td>
 						</tr>";
 
 						$row = $tools->fetch();
@@ -167,7 +167,7 @@
 							<td>{$row['supplierName']}</td>
 							<td>{$row['supplierLocation']}</td>
 							<td> <a href = 'editsupplier_interface.php?id={$row['suppliersId']}'> Edit</a></td>
-							<td><a href = 'delete.php?id={$row['suppliersId']}&item=supplier'> Delete</a></td>
+							<td><a href = '../Controller/delete.php?id={$row['suppliersId']}&item=supplier'> Delete</a></td>
 						</tr>";
 
 					$row= $suppliers->fetch();
