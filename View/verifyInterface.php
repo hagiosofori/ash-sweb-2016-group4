@@ -29,7 +29,7 @@
 
         //Displays the whether user exists or not
         if($verify==false){
-          echo"user does not exist";
+          echo"Wrong information";
         }
         else{
           echo "verified";
