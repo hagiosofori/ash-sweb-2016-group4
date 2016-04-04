@@ -49,7 +49,7 @@
 
 
 	//returning to home page
-	header("Location:homepage.php");
+	header("Location:../View/homepage.php");
 
 	//header("Location:index.php");
 
