@@ -175,6 +175,7 @@
 
 				echo "</table>";
 			?>
+			<a href="../index.php">Log Out</a>
 
 			</form>
 	</body>
