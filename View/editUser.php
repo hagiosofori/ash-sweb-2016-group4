@@ -1,8 +1,7 @@
 <html>
 	<head>
 		<title>Edit User</title>
-		<link rel="stylesheet" type="text/css" href="../css/materialize/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
 	</head>
 
 	<body>
@@ -19,11 +18,6 @@
 				$info = $user->fetch();
 			}
 		?>
-
-		<div class="row">
-			<div class="col s4 offset-s4 ">
-				<div class="card  z-depth-3">
-					<div class="card-content">
 
 						<!--Form displays user information of a specific user-->
 						<form action="../Controller/updateUser.php" method="GET" onsubmit='validate()'>
@@ -60,9 +54,6 @@
 	  				  <button class="btn waves-effect waves-light" type="submit" name="signUp">Edit User</button>
 
 						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+
 	</body>
 </html>

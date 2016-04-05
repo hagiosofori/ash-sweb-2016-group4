@@ -1,15 +1,10 @@
 <html>
   <head>
     <title>Users</title>
-    <link rel="stylesheet" type="text/css" href="../css/materialize/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
   </head>
 
   <body>
-    <div class="row">
-      <div class="col s10 offset-s1 ">
-        <div class="card   z-depth-3">
-          <div class="card-content">
+
            <?php
             $Admin ="";
 
@@ -93,9 +88,6 @@
                   }
 
             ?>
-          </div>
-        </div>
-      </div>
-    </div>
+          
   </body>
 </html>

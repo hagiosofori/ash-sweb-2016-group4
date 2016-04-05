@@ -2,26 +2,17 @@
 <!--Author: Kwabena Boohene-->
   <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/materialize/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
 
   <body>
-    <div class="row">
-      <div class="col s4 offset-s4 ">
-        <h1>Ashesi Clinic</h1>
+        <h2>Ashesi Clinic</h2>
         <h5>Inventory Management System</h5>
-
-        <div class="card  cyan darken-3 z-depth-3">
-
-          <div class="card-content white-text">
-          <span class="card-title">Log In</span>
-
-            <!--Form to collect information to login-->
+          <!--Form to collect information to login-->
             <form action="" method="GET" onsubmit='validate()'>
               <div class="username">Username: <input type="text" name="username" value=""/>  </div>
               <div class="password">Password:<input type="password" name="password" value=""/></div>
               <button class="btn waves-effect waves-light" type="submit" name="Login">Log In</button>
+
 
               <?php
                 //Included the user class
@@ -61,9 +52,5 @@
 
                 ?>
               </form>
-            </div>
-          </div>
-        </div>
-      </div>
   </body>
 </html>

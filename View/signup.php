@@ -1,16 +1,9 @@
 <html>
   <head>
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="../css/materialize/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
   </head>
 
   <body>
-
-    <div class="row">
-      <div class="col s4 offset-s4 ">
-        <div class="card  z-depth-3">
-          <div class="card-content">
           <!-- Form used to collect information about the user-->
           <form action="" method="GET" onsubmit='validate()'>
             <div>Username: <input type="text" name="username" value=""/></div>
@@ -82,9 +75,5 @@
             else{echo'User not added';}
             ?>
           </form>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
