@@ -56,7 +56,6 @@ class adb{
 		if($this->result==false){
 			return false;
 		}
-
 		return $this->result->fetch_assoc();
 	}
 
