@@ -26,6 +26,7 @@
         //Calls the login methods
         $verify=$user->getType($password);
         $verify=$user->fetch();
+        $user->toggleAvailability($verify['userID'],true);
 
         //Displays the whether user exists or not
         if($verify==false){
@@ -33,7 +34,7 @@
         }
         else{
           echo "verified";
-        header("Location:displayUser.php?userType={$verify["userType"]}");
+        header("Location:displayUser.php?permission={$verify["userType"]}&adminID={$verify["userID"]}");
         exit();
         }
       ?>

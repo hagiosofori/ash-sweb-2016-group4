@@ -13,25 +13,27 @@
            <?php
             $Admin ="";
 
-            if(!isset($_REQUEST['userType'])){
+            if(!isset($_REQUEST['permission'])){
               $Admin =true;
             }
 
-            if ($_REQUEST['userType']==1){
+            if ($_REQUEST['permission']==1){
               $Admin = true;
               $userType=1;
             }
-            else if($_REQUEST['userType']==0){
+            else if($_REQUEST['permission']==0){
               $userType = 0;
               $Admin = false;
             }
 
+            $adminID=$_REQUEST['adminID'];
 
             //Included users class
             include_once("../Model/users.php");
 
             //Created a user object
             $user = new users();
+            $temp= new users();
 
             //Obtains all users from the database
             $row = $user->getUser();
@@ -48,24 +50,28 @@
                       <td>Availability</td>
             				</tr>";
                 	while($row=$user->fetch()){
-                    if($row['availability']==0){
+                    if($adminID==$row['userID']){
                       $available = "Available";
                     }
-                    else{$available="Not available";}
+                    else{
+                      $available="Not available";
+                      $temp->toggleAvailability($row['userID']);
+                    }
                     if($Admin==true){
                       echo"  <tr>
                           <td>{$row['username']}</td>
                           <td>{$row['firstname']}</td>
                           <td>{$row['lastname']}</td>
                           <td>{$row['userType']}</td>
-                          <td><a href='../Controller/userDel.php?userID={$row["userID"]}'>
+                          <td><a href='../Controller/userDel.php?userID={$row["userID"]}&adminID=$adminID'>
                           Delete</a>
-                          <a href='editUser.php?userID={$row["userID"]}'>
+                          <a href='editUser.php?userID={$row["userID"]}&adminID=$adminID'>
                           Edit</a>
                           </td>
                           <td>{$row['email']}</td>
                           <td>$available</td>
                       </tr>";
+
                     }
                     else{
                       echo"<tr>
@@ -83,7 +89,7 @@
                   echo"</table>";
                   echo"<div><a href='homepage.php'>Return to homepage</a></div>";
                   if($Admin==true){
-                    echo"<div><a href='signup.php'>Add new user</a></div>";
+                    echo"<div><a href='signup.php?adminID=$adminID'>Add new user</a></div>";
                   }
 
             ?>

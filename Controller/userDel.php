@@ -2,6 +2,8 @@
 //Included the users class
 include_once("../Model/users.php");
 
+$adminID=$_REQUEST['adminID'];
+
 //Stores the user's ID
  if(isset($_REQUEST['userID'])){
 	$delUser = new users();
@@ -9,7 +11,7 @@ include_once("../Model/users.php");
 }
 
 //Relocates to the display user page
-header("Location:../View/displayUser.php?userType=1");
+header("Location:../View/displayUser.php?permission=1&adminID=$adminID");
 exit();
 
 ?>

@@ -18,6 +18,10 @@
             <div>Lastname: <input type="text" name="lastname" value=""/></div>
             <div>Password: <input type="password" name="password" value=""/></div>
             <div>Email: <input type="text" name="email" value=""/></div>
+            <?php
+              $adminID=$_REQUEST['adminID'];
+              echo"<input type='hidden' name='adminID' value='$adminID'>";
+            ?>
 
             <div class="input_options">
               User Type: <input class="with-gap" type="radio" name="userType" value="1" id="test1">
@@ -25,12 +29,12 @@
               <input class="with-gap" type="radio" name="userType" value="0" id="test2">
               <label for="test2">User</label>
             </div>
-
             <button class="btn waves-effect waves-light" type="submit" name="signUp">Add User</button>
 
             <?php
             //Included users class
             include_once("../Model/users.php");
+
 
             //Created instance of user object
             $user = new users();
@@ -53,6 +57,7 @@
 	          $password=$_REQUEST['password'];
             $email=$_REQUEST['email'];
             $type=$_REQUEST['userType'];
+            $ID=$_REQUEST['adminID'];
 
             //Condition for pasword length
             $passwordReg="/[a-zA-Z0-9]{6,}/";
@@ -69,16 +74,12 @@
               <br>Password must be greater than 6 characters<br>
               It should contain only letters and numbers<br></span>';
             }
-
-            //Displays verfication message based on result
-            if($verify==true){
-              echo "User added";
-              header("Location:displayUser.php?userType=1");
-              exit();
+            if($verify!=false)
+            {
+              header("Location:displayUser.php?permission=1&adminID=".urlencode($ID));
+              exit;
             }
-            else{
-              echo "User was not created";
-            }
+            else{echo'User not added';}
             ?>
           </form>
           </div>

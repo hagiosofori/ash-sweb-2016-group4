@@ -3,6 +3,7 @@
 //Includes the user's class
 include_once("../Model/users.php");
 
+$adminID=$_REQUEST['adminID'];
 //Creates a user object
 $user = new users();
 
@@ -26,6 +27,6 @@ $result=$user->editUser($userID,$username,$firstname,$lastname,$pword,$email,$us
 }
 
 //redirects to the displayUser page
-header("Location:../View/displayUser.php?userType=1");
+header("Location:../View/displayUser.php?permission=1&adminID=$adminID");
 exit();
 ?>

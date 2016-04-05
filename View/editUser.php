@@ -53,6 +53,10 @@
 								<input class="with-gap" type="radio" name="userType" value="0" id="test2"<?php echo "$check2"?>>
 								<label for="test2">User</label>
 							</div>
+							<?php
+								$adminID=$_REQUEST['adminID'];
+								echo"<input type='hidden' name='adminID' value='$adminID'>";
+							?>
 	  				  <button class="btn waves-effect waves-light" type="submit" name="signUp">Edit User</button>
 
 						</form>
