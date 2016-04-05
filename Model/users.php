@@ -100,16 +100,12 @@ include_once("adb.php");
 		* @return: the new availability of the user
 		*/
 		function toggleAvailability($userID,$login=false){
-			$result = $this->getUser($userID);
-			$result = $this->fetch();
 			if($login==false){
-				if($result['availability']==0){
-					$available = 1;
-				}
-				else{$available = 0;}
+				$available = 1;
 			}
-			else{$available = 0;}
-
+			else{
+				$available = 0;
+			}
 			$strQuery="update userinfo set availability ='$available' where userID='$userID' ";
 			return $this->query($strQuery);
 		}
@@ -119,7 +115,7 @@ include_once("adb.php");
 		* @return: an array containing a person's user type
 		*/
 		function getType($password){
-			$strQuery="Select userType from userinfo where password = MD5('$password')";
+			$strQuery="Select userType,userID from userinfo where password = MD5('$password')";
 			return $this->query($strQuery);
 		}
 
@@ -133,6 +129,7 @@ include_once("adb.php");
 				$strQuery ="Select email from userinfo where username = '$userName' ";
 			return $this->query($strQuery);
 		}
+		
 
 
 	}
