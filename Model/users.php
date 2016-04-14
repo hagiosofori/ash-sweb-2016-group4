@@ -47,14 +47,19 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 
+
+		function editUserName($username,$userID){
+			$strQuery= "update userinfo set username='$username' where userID='$userID' ";
+			return $this->query($strQuery);
+		}
+
 		/**
 		* delete user from database
 		* @param primary key of user's table
 		* @return boolean representing success or failure
 		*/
 		function deleteUser($usercode){
-
-			$strQuery ="Delete from userinfo where userID = $usercode";
+			$strQuery ="Delete from userinfo where userID = '$usercode'";
 			return $this->query($strQuery);
 
 		}
@@ -129,7 +134,7 @@ include_once("adb.php");
 				$strQuery ="Select email from userinfo where username = '$userName' ";
 			return $this->query($strQuery);
 		}
-		
+
 
 
 	}
