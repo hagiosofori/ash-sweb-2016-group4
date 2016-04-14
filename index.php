@@ -2,19 +2,20 @@
 <!--Author: Kwabena Boohene-->
   <head>
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
 
-  <body>
-        <h2>Ashesi Clinic</h2>
-        <h5>Inventory Management System</h5>
+  <body class="Home">
+      <div class="col-3 col-offset-6">
           <!--Form to collect information to login-->
-            <form action="" method="GET" onsubmit='validate()'>
-              <div class="username">Username: <input type="text" name="username" value=""/>  </div>
-              <div class="password">Password:<input type="password" name="password" value=""/></div>
-              <button class="btn waves-effect waves-light" type="submit" name="Login">Log In</button>
-
+            <form class="login" style="margin-top:30%;height:58%" action="" method="GET" onsubmit='validate()'>
+              <img src="logo.png" style="margin-left:30%;">
+              <input type="text" name="username" placeholder="Username"/>
+              <input type="password" name="password" placeholder="Password"/>
+              <button type="submit" name="Login">Log In</button>
 
               <?php
+
                 //Included the user class
                 include_once("Model/users.php");
 
@@ -35,10 +36,10 @@
                 $email = $user->getEmail($username);
                 $email = $user->fetch();
 
-                echo"<button class='btn waves-effect waves-light' type='submit' name='Password'>
-                  <a class='bt' href ='Controller/email.php?email={$email['email']}'>
-                  Forgot your password?</a>
-                </button>";
+                echo"
+                  <br> <a class='forgot' href ='Controller/email.php?email={$email['email']}'>
+                  Forgot your password?</a><br>
+                ";
 
                 //Displays the whether user exists or not
                 if($verify==false){
@@ -52,5 +53,7 @@
 
                 ?>
               </form>
+
+            </div>
   </body>
 </html>
