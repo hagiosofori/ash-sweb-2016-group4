@@ -1,10 +1,10 @@
 <html>
 	<head>
 		<title>Edit User</title>
-
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
 
-	<body>
+	<body class="formpage">
 		<?php
 			//Include users class
 			include_once("../Model/users.php");
@@ -18,15 +18,17 @@
 				$info = $user->fetch();
 			}
 		?>
-
+<div style="background-color:#4C4C4C; height:25%; width:100%"><p>Helo</p></div>
+	<div><h1 class="instruction">Edit User Info</h1></div>
+				<div class="form_back">
 						<!--Form displays user information of a specific user-->
-						<form action="../Controller/updateUser.php" method="GET" onsubmit='validate()'>
+						<form action="../Controller/updateUser.php"class="information" method="GET" onsubmit='validate()'>
 							<input type="hidden" name="userID" value="<?php echo $info['userID']?>">
-  						<div>Username: <input type="text" name="username" value="<?php echo $info['username']?>"/></div>
-  						<div>Firstname: <input type="text" name="firstname" value="<?php echo $info['firstname']?>"/></div>
-  						<div>Lastname: <input type="text" name="lastname" value="<?php echo $info['lastname']?>"/></div>
-  						<div>Password: <input type="password" name="password" value="<?php echo $info['password']?>"/></div>
-							<div>Email:<input type="text" name="email" value="<?php echo $info['email']?>"/></div>
+							<input style="width:56%" type="text" name="username" placeholder="Username" value="<?php echo $info['username']?>"/>
+	            <input style="width:45%" type="text" name="firstname" placeholder="Firstname" value="<?php echo $info['firstname']?>"/>
+	            <input style="width:40%" type="text" name="lastname" placeholder="Lastname" value="<?php echo $info['lastname']?>"/>
+	            <input style="width:48%" type="password" name="password" placeholder="Password" value="<?php echo $info['password']?>"/>
+	            <input style="width:48%" type="text" name="email" placeholder="Email" value="<?php echo $info['email']?>"/>
 
 							<?php
 								$check1="";
@@ -42,18 +44,22 @@
 							?>
 
 							<div class="input_options">
-								User Type: <input class="with-gap" type="radio" name="userType" value="1" id="test1" <?php echo "$check1"?>>
-								<label for="test1">Admin</label>
-								<input class="with-gap" type="radio" name="userType" value="0" id="test2"<?php echo "$check2"?>>
-								<label for="test2">User</label>
+								User Type: <input type="radio" name="userType" value="1" <?php echo "$check1"?>>
+								<label >Admin</label>
+								<input type="radio" name="userType" value="0" <?php echo "$check2"?>>
+								<label >User</label>
 							</div>
 							<?php
 								$adminID=$_REQUEST['adminID'];
 								echo"<input type='hidden' name='adminID' value='$adminID'>";
 							?>
-	  				  <button class="btn waves-effect waves-light" type="submit" name="signUp">Edit User</button>
+
+	  				  <button class="buttonAdd" type="submit" name="signUp">Edit User</button>
+							<?php
+	              echo"<a class='button' href='displayUser.php?permission=1&adminID=$adminID'>Return to Users</a>";
+	            ?>
 
 						</form>
-
+					</div>
 	</body>
 </html>

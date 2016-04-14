@@ -1,28 +1,58 @@
 <html>
   <head>
     <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
   </head>
 
-  <body>
+  <body class="formpage">
+      <div id="wrapper">
+  			<div id='logo'><a href='#logo'><img src='../logo.png'/></a></div>
+  			<ul>
+  				<li><a href='#'>Home</a></li>
+  				<li><a href='#'>Person</a></li>
+  				<li><a href='#'>People</a></li>
+  			</ul>
+
+        <div class="form_back">
           <!-- Form used to collect information about the user-->
-          <form action="" method="GET" onsubmit='validate()'>
-            <div>Username: <input type="text" name="username" value=""/></div>
-            <div>Firstname: <input type="text" name="firstname" value=""/></div>
-            <div>Lastname: <input type="text" name="lastname" value=""/></div>
-            <div>Password: <input type="password" name="password" value=""/></div>
-            <div>Email: <input type="text" name="email" value=""/></div>
+          <form class="information"  action="" method="GET" onsubmit='validate()'>
+            <input style="width:56%" type="text" name="username" placeholder="Username"/>
+            <input style="width:45%" type="text" name="firstname" placeholder="Firstname"/>
+            <input style="width:40%" type="text" name="lastname" placeholder="Lastname"/>
+            <input style="width:48%" type="password" name="password" placeholder="Password"/>
+            <input style="width:48%" type="text" name="email" placeholder="Email"/>
             <?php
               $adminID=$_REQUEST['adminID'];
               echo"<input type='hidden' name='adminID' value='$adminID'>";
             ?>
 
             <div class="input_options">
-              User Type: <input class="with-gap" type="radio" name="userType" value="1" id="test1">
-              <label for="test1">Admin</label>
-              <input class="with-gap" type="radio" name="userType" value="0" id="test2">
-              <label for="test2">User</label>
+              User Type: <input type="radio" name="userType" value="1" >
+              <label >Admin</label>
+              <input  type="radio" name="userType" value="0" >
+              <label >User</label>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="signUp">Add User</button>
+            <button class="buttonAdd" type="submit" name="signUp">Add User</button>
+            <?php
+              $adminID=$_REQUEST['adminID'];
+              echo"<a class='button' href='displayUser.php?permission=1&adminID=$adminID'>Return to Users</a>";
+            ?>
+          </form>
+        </div>
+        <div class="push"></div>
+      </div>
+
+      <div class ="footer">
+       <span style="float:left;margin-top:2%"><img id="imageshape" src="../logo.png"/></span>
+       <span style=" "><p style="padding-top:2%;">Contact us</p>
+         <p>Phone number:(00233)34-456-00-99</p> <p>Email: info@ashesiclinic.com </p>
+       </span>
+       <div id="footertext" style="padding-left:2% float:right;">
+            &copy; 2016 Copyright Clinic Tool</span>
+          <span style="color:#515151;padding-left:2%;">All rights reserved<span>
+       </div>
+      </div>
 
             <?php
             //Included users class
@@ -74,6 +104,7 @@
             }
             else{echo'User not added';}
             ?>
-          </form>
+
+
   </body>
 </html>

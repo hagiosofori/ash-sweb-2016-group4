@@ -1,3 +1,12 @@
+<html>
+<head>
+	<title>Edit Supplier</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body class="formpage">
+	<div class="header"><p>Helo</p></div>
+	<div><h1 class="instruction">Edit Supplier Info</h1></div>
+	<div class="form_backV2">
 <?php
 	$supplierName ='';
 	$supplierLocation = '';
@@ -18,13 +27,12 @@
 	    $supplierLocation=$row['supplierLocation'];
 
 
-	echo"<form action=\"editsupplier_interface.php\" method=\"GET\"></div>";
-	echo"<div><input type=\"hidden\" name=\"supplierId\" value = $supplierId ></div>";
-	echo"<div>supplierName<input type=\"text\" name=\"supplierName\" value= '$supplierName'></div>";
-	echo"<div>supplierLocation<input type=\"text\" name=\"supplierLocation\" value= '$supplierLocation' ></div>";
-
-	echo"<input type=\"submit\" name=\"submit\" value=\"Edit\"></div>";
-	echo"<div><a href=\"homepage.php\">Return to homepage</a></div>";
+	echo"<form class=\"information-supplier\"action=\"editsupplier_interface.php\" method=\"GET\">
+	<input type=\"hidden\" name=\"supplierId\" value = $supplierId >
+	<input style='width:50%' type=\"text\" name=\"supplierName\" placeholder=\"Supplier Name\" value = $supplierName >
+	<input style='width:50%' type=\"text\" name=\"supplierLocation\" placeholder=\"Location\" value = $supplierLocation  >
+	<button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Edit Supplier</button>
+	<a class='button' href='homepage.php'>Return to homepage</a>";
 
 	}
 //edits the value the drug with new content when the button is pressed
@@ -38,12 +46,15 @@
 
 	$supplier->editSuppliers($supplierId,$supplierName,$supplierLocation);
 
-	echo"<form action=\"editsupplier_interface.php\" method=\"GET\"></div>";
-	echo"<div><input type=\"hidden\" name=\"supplierId\" value = $supplierId ></div>";
-	echo"<div>supplierName<input type=\"text\" name=\"supplierName\" value= '$supplierName' ></div>";
-	echo"<div>supplierLocation<input type=\"text\" name=\"supplierLocation\" value= $supplierLocation ></div>";
-	echo"<input type=\"submit\" name=\"submit\" value=\"Edit\"></div>";
-	echo"<div><a href=\"homepage.php\">Return to homepage</a></div>";
+	echo"<form class=\"information-supplier\"action=\"editsupplier_interface.php\" method=\"GET\">
+	<input type=\"hidden\" name=\"supplierId\" value = $supplierId >
+	<input style='width:50%' type=\"text\" name=\"supplierName\" placeholder=\"Supplier Name\" value = $supplierName >
+	<input style='width:50%' type=\"text\" name=\"supplierLocation\" placeholder=\"Location\" value = $supplierLocation  >
+	<button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Edit Supplier</button>
+	<a class='button' href='homepage.php'>Return to homepage</a>";
 	}
 
 	?>
+</div>
+</body>
+</html>

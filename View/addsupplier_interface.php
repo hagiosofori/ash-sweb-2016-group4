@@ -1,3 +1,12 @@
+<html>
+<head>
+	<title>Add Supplier</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body class="formpage">
+	<div class="header"><p>Helo</p></div>
+	<div><h1 class="instruction">Add a new supplier</h1></div>
+	<div class="form_backV2">
 <?php
 
 $supplierName ='';
@@ -14,12 +23,11 @@ $supplierName ='';
 
 
 
-	echo"<form action=\"addsupplier_interface.php\" method=\"GET\"></div>";
-	echo"<div>suplierName<input type=\"text\" name=\"supplierName\" value = $supplierName ></div>";
-	echo"<div>supplierLocation<input type=\"text\" name=\"supplierLocation\"  value = $supplierLocation  ></div>";
-
-	echo"<input type=\"submit\" name=\"submit\" value=\"Add\"></div>";
-	echo "<div><a href=\"homepage.php\">Return to homepage<a/></div>";
+	echo"<form class=\"information-supplier\"action=\"addsupplier_interface.php\" method=\"GET\">
+	<input style='width:50%' type=\"text\" name=\"supplierName\" placeholder=\"Supplier Name\" value = $supplierName >
+	<input style='width:50%' type=\"text\" name=\"supplierLocation\" placeholder=\"Location\" value = $supplierLocation  >
+	<button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Supplier</button>
+		<a class='button' href='homepage.php'>Return to homepage</a>";
 	//proceeds to  add new item in the database when the button is clicked
 
 	if(isset($_REQUEST['submit'])){
@@ -32,3 +40,6 @@ $supplierName ='';
 	 }
 
 ?>
+</div>
+</body>
+</html>

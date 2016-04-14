@@ -1,6 +1,12 @@
-
-
-
+<html>
+<head>
+	<title>Edit drug</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body class="formpage">
+	<div class="header"><p>Helo</p></div>
+	<div><h1 class="instruction">Edit Drug Info</h1></div>
+	<div class="form_back">
 
 	<?php
 	$drugName ='';
@@ -20,15 +26,13 @@
 	$drugId=$_REQUEST['id'];
 	$drugType=$row['drugType'];
 	$supplierId =$row['supplierID'];
-		echo"<form action=\"editdrug_interface.php\" method=\"GET\"></div>";
-	echo"<div><input type=\"hidden\" name=\"drugId\" value = $drugId ></div>";
-	echo"<div>drugName<input type=\"text\" name=\"drugName\" value= '$drugName' ></div>";
-	echo"<div>Quantity<input type=\"text\" name=\"quantity\" value= $Quantity ></div>";
-	echo"<div>supplierId<input type=\"text\" name=\"supplierId\" value= $supplierId ></div>";
-	echo"<div>drugType<input type=\"text\" name=\"drugType\" value= $drugType ></div>";
-	echo"<input type=\"submit\" name=\"submit\" value=\"Edit\">";
-	echo"<div><a href=\"homepage.php\">Return to homepage</a></div>";
-
+	echo"<form class=\"information-drug\" action=\"editdrug_interface.php\" method=\"GET\">
+	<input style='width:60%' type=\"text\" name=\"drugName\" placeholder=\"Drug Name\" value = $drugName >
+	<input style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
+	<input style='width:60%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
+	<input style='width:20%'type=\"text\" name=\"drugType\" placeholder=\"Drug Type\" value = $drugType >
+	<button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Edit Drug</button>
+		<a class='button' href='homepage.php'>Return to homepage</a>";
 	}
    //interface printed after submission
 	if(isset($_REQUEST['submit'])){
@@ -43,14 +47,16 @@
 
 	$drug->editDrug($drugId,$drugName,$Quantity,$supplierId,$drugType,"Drugs");
 
-	echo"<form action=\"editdrug_interface.php\" method=\"GET\"></div>";
-	echo"<div><input type=\"hidden\" name=\"drugId\"  ></div>";
-	echo"<div>drugName<input type=\"text\" name=\"drugName\" value= '$drugName' ></div>";
-	echo"<div>Quantity<input type=\"text\" name=\"quantity\" value= $Quantity ></div>";
-	echo"<div>supplierId<input type=\"text\" name=\"supplierId\" value= $supplierId ></div>";
-	echo"<div>drugType<input type=\"text\" name=\"drugType\" value= $drugType ></div>";
-	echo"<input type=\"submit\" name=\"submit\" value=\"Edit\"></div>";
-	echo"<div><a href=\"homepage.php\">Return to homepage</a></div>";
+	echo"<form class=\"information-drug\" action=\"editdrug_interface.php\" method=\"GET\">
+	<input style='width:60%' type=\"text\" name=\"drugName\" placeholder=\"Drug Name\" value = $drugName >
+	<input style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
+	<input style='width:60%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
+	<input style='width:20%'type=\"text\" name=\"drugType\" placeholder=\"Drug Type\" value = $drugType >
+	<button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Edit Drug</button>
+		<a class='button' href='homepage.php'>Return to homepage</a>";
 	}
 
 	?>
+</div>
+</body>
+</html>

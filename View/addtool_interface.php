@@ -1,3 +1,12 @@
+<html>
+<head>
+	<title>Add Tool</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body class="formpage">
+	<div class="header"><p>Helo</p></div>
+	<div><h1 class="instruction">Add a new tool</h1></div>
+	<div class="form_back">
 <?php
 
 $toolName ='';
@@ -16,15 +25,12 @@ if(isset($_REQUEST['supplierId'])){
 $supplierId =$_REQUEST['supplierId'];}
 
 
-echo"<form action=\"addtool_interface.php\" method=\"GET\"></div>";
-
-echo"<div>toolName<input type=\"text\" name=\"toolName\" value=$toolName ></div>";
-echo"<div>Quantity<input type=\"text\" name=\"quantity\"  value= $Quantity  ></div>";
-echo"<div>supplierId<input type=\"text\" name=\"supplierId\" value =$supplierId  ></div>";
-
-echo"<input type=\"submit\" name=\"submit\" value=\"Add\"></div>";
-echo "<div><a href=\"homepage.php\">Return to homepage<a/></div>";
-
+echo"<form class=\"information-tools\"action=\"addtool_interface.php\" method=\"GET\">
+  <input style='width:50%' type=\"text\" name=\"toolName\" placeholder=\"Tool Name\" value = $toolName >
+  <input style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
+  <input style='width:55%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
+  <button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Tool</button>
+  	<a class='button' href='homepage.php'>Return to homepage</a>";
 //proceeds to  add new item in the database when the button is clicked
 
  if(isset($_REQUEST['submit'])){
@@ -41,3 +47,6 @@ echo "<div><a href=\"homepage.php\">Return to homepage<a/></div>";
  }
 
 ?>
+</div>
+</body>
+</html>
