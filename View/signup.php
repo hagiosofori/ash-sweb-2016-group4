@@ -3,11 +3,12 @@
     <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <?php session_start(); ?>
   </head>
 
   <body class="formpage">
       <div id="wrapper">
-  			<div id='logo'><a href='#logo'><img src='../logo.png'/></a></div>
+  			<div id='logo'><a href='#logo'><img src='../img/logo.png'/></a></div>
   			<ul>
   				<li><a href='#'>Home</a></li>
   				<li><a href='#'>Person</a></li>
@@ -22,11 +23,6 @@
             <input style="width:40%" type="text" name="lastname" placeholder="Lastname"/>
             <input style="width:48%" type="password" name="password" placeholder="Password"/>
             <input style="width:48%" type="text" name="email" placeholder="Email"/>
-            <?php
-              $adminID=$_REQUEST['adminID'];
-              echo"<input type='hidden' name='adminID' value='$adminID'>";
-            ?>
-
             <div class="input_options">
               User Type: <input type="radio" name="userType" value="1" >
               <label >Admin</label>
@@ -34,17 +30,15 @@
               <label >User</label>
             </div>
             <button class="buttonAdd" type="submit" name="signUp">Add User</button>
-            <?php
-              $adminID=$_REQUEST['adminID'];
-              echo"<a class='button' href='displayUser.php?permission=1&adminID=$adminID'>Return to Users</a>";
-            ?>
+            <a class='button' href='displayUser.php'>Return to Users</a>
+
           </form>
         </div>
         <div class="push"></div>
       </div>
 
       <div class ="footer">
-       <span style="float:left;margin-top:2%"><img id="imageshape" src="../logo.png"/></span>
+       <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>
        <span style=" "><p style="padding-top:2%;">Contact us</p>
          <p>Phone number:(00233)34-456-00-99</p> <p>Email: info@ashesiclinic.com </p>
        </span>
