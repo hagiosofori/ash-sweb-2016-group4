@@ -48,8 +48,17 @@ include_once("adb.php");
 		}
 
 
-		function editUserName($username,$userID){
-			$strQuery= "update userinfo set username='$username' where userID='$userID' ";
+		function editName($type,$name,$userID){
+			$strQuery="";
+			if($type==1){
+				$strQuery= "update userinfo set username='$name' where userID='$userID' ";
+			}
+			else if($type==2){
+				$strQuery= "update userinfo set firstname='$name' where userID='$userID' ";
+			}
+			else{
+				$strQuery= "update userinfo set lastname='$name' where userID='$userID' ";
+			}
 			return $this->query($strQuery);
 		}
 
