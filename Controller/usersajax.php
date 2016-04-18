@@ -106,7 +106,7 @@
 	  }
 
 		function addNewUser(){
-		
+			include("../Model/users.php");
 			$user=new users();
 			if(!isset($_REQUEST['username'])){
 				echo "User info not given";
@@ -120,7 +120,12 @@
 			$email=$_REQUEST['email'];
 			$type=$_REQUEST['type'];
 
-			$user->addNewUser($username,$firstname,$lastname,$password,$email,$type);
-
+			$verify=$user->addNewUser($username,$firstname,$lastname,$password,$email,$type);
+			if($verify==false){
+				echo'{"result":0}';
+			}
+			else{
+				echo'{"result":1}';
+			}
 		}
 ?>
