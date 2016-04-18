@@ -82,12 +82,21 @@ function addUser(){
   var lastname=$("#lastname").val();
   var password=$("#password").val();
   var email=$("#email").val();
-  var type=$("#userType").val();
-  var theUrl="../Controller/usersajax.php?cmd=5"+id+"&username="+username+
+  var type;
+
+  if ($('#Admin').is(':checked')){
+    type=1;
+  }
+  else if ($('#User').is(':checked')){
+    type=0;
+  }
+
+  var theUrl="../Controller/usersajax.php?cmd=5&username="+username+
   "&firstname="+firstname+"&lastname="+lastname+"&email="
   +email+"&password="+password+"&type="+type;
+  alert(type);
 
-  $.ajax(ajaxPageUrl,
+  $.ajax(theUrl,
     {async:true,
       complete:addUserComplete	});
 }
