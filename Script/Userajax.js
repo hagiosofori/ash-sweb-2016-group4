@@ -72,8 +72,14 @@ function deleteUser(object,id){
   currentObject=object;
 }
 
-function addUserComplete(){
-
+function addUserComplete(xhr,status){
+  var obj = $.parseJSON(xhr.responseText);
+  if(obj.result==0){
+      alert("Could not add user information");
+  }
+  else{
+    window.location="../View/displayUser.php";
+  }
 }
 
 function addUser(){
@@ -94,7 +100,6 @@ function addUser(){
   var theUrl="../Controller/usersajax.php?cmd=5&username="+username+
   "&firstname="+firstname+"&lastname="+lastname+"&email="
   +email+"&password="+password+"&type="+type;
-  alert(type);
 
   $.ajax(theUrl,
     {async:true,
