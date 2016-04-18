@@ -1,10 +1,6 @@
 
 var currentObject = null;
 
-function editNameComplete(xhr,status){
-
-}
-
 function saveUserName(id){
   currentObject.innerHTML=$("#UserName").val();
   var username=currentObject.innerHTML;
@@ -74,4 +70,24 @@ function deleteUser(object,id){
     {async:true,
       complete:deleteUserComplete	});
   currentObject=object;
+}
+
+function addUserComplete(){
+
+}
+
+function addUser(){
+  var firstname = $("#firstname").val();
+  var username=$("#username").val();
+  var lastname=$("#lastname").val();
+  var password=$("#password").val();
+  var email=$("#email").val();
+  var type=$("#userType").val();
+  var theUrl="../Controller/usersajax.php?cmd=5"+id+"&username="+username+
+  "&firstname="+firstname+"&lastname="+lastname+"&email="
+  +email+"&password="+password+"&type="+type;
+
+  $.ajax(ajaxPageUrl,
+    {async:true,
+      complete:addUserComplete	});
 }
