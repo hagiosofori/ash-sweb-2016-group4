@@ -21,6 +21,7 @@
 		  break;
 		case 5:
 			addNewUser();
+			break;
 		default:
 			echo "wrong cmd";	//change to json message
 			break;
@@ -105,6 +106,7 @@
 	  }
 
 		function addNewUser(){
+		
 			$user=new users();
 			if(!isset($_REQUEST['username'])){
 				echo "User info not given";
@@ -116,7 +118,7 @@
 			$lastname=$_REQUEST['lastname'];
 			$password=$_REQUEST['password'];
 			$email=$_REQUEST['email'];
-			$type=$_REQUEST['userType'];
+			$type=$_REQUEST['type'];
 
 			$user->addNewUser($username,$firstname,$lastname,$password,$email,$type);
 
