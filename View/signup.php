@@ -1,11 +1,17 @@
 <html>
   <head>
+    <?php
+      session_start();
+      if(!isset($_SESSION['user'])){
+        header('Location:../index.php');
+        exit();
+      }
+    ?>
     <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript" src="../Script/jquery-1.12.1.js"></script>
     <script type="text/javascript" src="../Script/Userajax.js"></script>
-    <?php session_start(); ?>
   </head>
 
   <body class="formpage">
