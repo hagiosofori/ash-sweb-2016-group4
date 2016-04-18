@@ -19,6 +19,8 @@
 		case 4:
 		  deleteUser();
 		  break;
+		case 5:
+			addNewUser();
 		default:
 			echo "wrong cmd";	//change to json message
 			break;
@@ -101,3 +103,22 @@
 	      echo "User was not deleted.";
 	    }
 	  }
+
+		function addNewUser(){
+			$user=new users();
+			if(!isset($_REQUEST['username'])){
+				echo "User info not given";
+				exit();
+			}
+
+			$username=$_REQUEST['username'];
+			$firstname=$_REQUEST['firstname'];
+			$lastname=$_REQUEST['lastname'];
+			$password=$_REQUEST['password'];
+			$email=$_REQUEST['email'];
+			$type=$_REQUEST['userType'];
+
+			$user->addNewUser($username,$firstname,$lastname,$password,$email,$type);
+
+		}
+?>
