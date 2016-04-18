@@ -1,0 +1,5 @@
+Structure for the ajax implementation
+For your ajax files they are contained in the Controller folder.
+You then have an external javascript folder containing your script functions and the jquery js
+Remember to link each page in at the header of your page. 
+This keeps structure in the work.
