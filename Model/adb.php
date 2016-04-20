@@ -16,7 +16,7 @@ class adb{
 	function connect(){
 
 		//connect
-		$this->db=new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
+		$this->db=new mysqli('localhost', 'root', '', 'clinic_project');//DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
 		if($this->db->connect_errno){
 			//no connection, exit
 			return false;

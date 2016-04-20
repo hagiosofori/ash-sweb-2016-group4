@@ -1,10 +1,5 @@
-<html>
-<!--INCOMPLETE-->
-	<head>
-		<title>Home Page | Ashesi Clinic App</title>
-	</head>
 
-	<body>
+	<?php /**
 		<!-- this is the navigation bar at the top. comprising the ashesi logo, home button, and any other actions you want the user to easily reach-->
 		<div id = "nav"><img src = ""/><a>Home</a></div>
 		<form action = "homepage.php" method = "GET">
@@ -178,6 +173,135 @@
 			<a href="../index.php">Log Out</a>
 
 			</form>
-	</body>
-
-</html>
+			?>  */
+			
+			if(isset($_REQUEST['cmd'])){
+				$cmd = $_REQUEST['cmd'];
+				
+				  switch($cmd){
+				       case 1:
+					       getDrugs();
+						   break;
+						case 2:
+						    getTools();
+							break;
+						case 3:
+						      getSuppliers();
+							  break;
+						case 4:
+							searchDrugs();
+							break;
+						case 5:
+							searchTools();
+							break;
+						case 6:
+							searchSuppliers();
+							break;
+						default:
+						  echo "nothing selected";
+					      
+				
+				
+			}
+			}
+			
+			function searchSuppliers(){
+				include_once("../Model/suppliers.php");
+				$filter = $_REQUEST['searchtxt'];
+				$supp = new suppliers();
+				$supp->connect();
+				$result=$supp->searchSuppliers($filter);
+				$row=$supp->fetch();
+				$data = array();
+				
+				while ($row!=false){
+					$data[]=$row;
+					$row=$supp->fetch();
+				}
+				echo json_encode($data);
+			}
+			
+			function searchTools(){
+				include_once("../Model/tools.php");
+				$filter = $_REQUEST['searchtxt'];
+				$tool = new tools();
+				$tool->connect();
+				$result=$tool->searchTools($filter);
+				$row=$tool->fetch();
+				$data = array();
+				
+				while ($row!=false){
+					$data[]=$row;
+					$row=$tool->fetch();
+				}
+				echo json_encode($data);
+			}
+			
+			function searchDrugs(){
+				include_once("../Model/drugs.php");
+				$filter = $_REQUEST['searchtxt'];
+				$drug = new drugs();
+				$drug->connect();
+				$result=$drug->searchDrugs($filter);
+				$row=$drug->fetch();
+				$data = array();
+				
+				while ($row!=false){
+					$data[]=$row;
+					$row=$drug->fetch();
+				}
+				echo json_encode($data);
+			}
+			
+			function getDrugs(){
+				include_once("../Model/drugs.php");
+				$drug = new drugs();
+				$drug->connect();
+				$result= $drug->getDrugs();
+				$row = $drug->fetch();
+				$data = array();
+				while($row!=false){
+					
+					$data[]=$row; 
+					$row=$drug->fetch();
+				}
+				echo json_encode($data);
+				
+			}
+			
+			function getTools(){
+				include_once("../Model/tools.php");
+				$tool = new Tools();
+				$tool->connect();
+				$result= $tool->getTools();
+				$row = $tool->fetch();
+				$data = array();
+				while($row!=false){
+					
+					$data[]=$row; 
+					$row=$tool->fetch();
+				}
+				echo json_encode($data);
+				
+			}
+			
+			function getSuppliers(){
+				include_once("../Model/suppliers.php");
+				$supplier = new Suppliers();
+				$supplier->connect();
+				$result= $supplier->getSuppliers();
+				$row = $supplier->fetch();
+				$data = array();
+				while($row!=false){
+					
+					$data[]=$row; 
+					$row=$supplier->fetch();
+				}
+				echo json_encode($data);
+				
+			}
+			?>
+			
+			
+			
+	

@@ -23,7 +23,7 @@
     <div id="backrectangle"></div>
     <div id="rectangle"></div>
 
-    <a href="">
+    <a href="../View/homepage.php">
       <div id="view_inventory"></div>
     </a>
 
