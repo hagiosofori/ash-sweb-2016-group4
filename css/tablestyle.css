@@ -88,7 +88,9 @@ div.flat button.active {
 .footerB {
   margin-top: 1400px;
   top: 1300px;
-  background-color: #4C4C4C;
+  /*background-color: #000000;*/
+  /*opacity: 0.0;*/
   height: 11em;
   bottom:0%;
+  color: white;
 }

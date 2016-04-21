@@ -19,6 +19,12 @@
 		case 4:
 		  deleteUser();
 		  break;
+		case 5:
+			addNewUser();
+			break;
+		case 6:
+			login();
+			break;
 		default:
 			echo "wrong cmd";	//change to json message
 			break;
@@ -101,3 +107,56 @@
 	      echo "User was not deleted.";
 	    }
 	  }
+
+		function addNewUser(){
+			include("../Model/users.php");
+			$user=new users();
+			if(!isset($_REQUEST['username'])){
+				echo "User info not given";
+				exit();
+			}
+
+			$username=$_REQUEST['username'];
+			$firstname=$_REQUEST['firstname'];
+			$lastname=$_REQUEST['lastname'];
+			$password=$_REQUEST['password'];
+			$email=$_REQUEST['email'];
+			$type=$_REQUEST['type'];
+
+			$verify=$user->addNewUser($username,$firstname,$lastname,$password,$email,$type);
+			if($verify==false){
+				echo'{"result":0,"message":"User not added"}';
+			}
+			else{
+				echo'{"result":1,"message":"User added"}';
+			}
+		}
+
+		function login(){
+			include("../Model/users.php");
+			$username=$_REQUEST['username'];
+			$password=$_REQUEST['password'];
+			$user = new users();
+
+			$verify = $user->login($username,$password);
+
+			if($verify==false){
+				$ans= $user->getEmail($username);
+				$ans=$user->fetch();
+				if($ans!=false){
+					$array = array('result'=>0,'message'=>'Please enter the right password','email'=>$ans["email"]);
+					echo json_encode($array);
+				}
+				else{
+					echo '{"result":0,"message":"Wrong User information"}';
+				}
+
+			}
+			else{
+				session_start();
+				$_SESSION['user']=$verify;
+				echo'{"result":1,"message":"Welcome to the AIS"}';
+			}
+
+		}
+?>
