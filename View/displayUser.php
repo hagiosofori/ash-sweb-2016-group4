@@ -111,6 +111,9 @@
 
             ?>
         </div>
+        <div id="edit_info">
+          <p>Double click <br>to edit name information</p>
+        </div>
         <div class="push"></div>
       </div>
       <div class ="footer">

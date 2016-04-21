@@ -15,6 +15,7 @@
 
   <body class="checkered">
     <div id='logo'>
+      <a href="logout.php">logout</a>
       <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
     </div>
 
@@ -88,7 +89,7 @@
           &copy; 2016 Copyright Clinic Tool</span>
           <span style="color:#fffff;padding-left:2%;">All rights reserved<span>
       </div>
-      <!--<a href="logout.php">logout</a>-->
+
     </footer>
   </body>
 </html>

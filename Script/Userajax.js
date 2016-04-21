@@ -141,3 +141,12 @@ function addUser(){
     {async:true,
       complete:addUserComplete	});
 }
+
+//Tool tip for editing information
+$(function() {
+  $('.content').hover(function() {
+    $('#edit_info').css('display', 'block');
+  }, function() {
+    $('#edit_info').css('display', 'none');
+  });
+});
