@@ -1,5 +1,35 @@
 
 var currentObject = null;
+function email(){
+  alert("An email has been sent to the admin to reset your password");
+}
+function LoginComplete(xhr,status){
+  var obj = $.parseJSON(xhr.responseText);
+  if(obj.result==1){
+    window.location="View/hm.php";
+  }
+  else{
+    if(obj.email==null){
+      alert(obj.message);
+    }
+    else{
+      pwordForgot.innerHTML="Forgot your password?";
+      $("#pwordForgot").attr("href", "Controller/email.php?email="+obj.email);
+      alert(obj.message);
+    }
+  }
+
+}
+
+function LoginUser(){
+  var username=$("#Username").val();
+  var password=$("#Password").val();
+  var theUrl="Controller/usersajax.php?cmd=6&username="+username+"&password="+password;
+  $.ajax(theUrl,{
+    async:true,
+    complete:LoginComplete
+  });
+}
 
 function saveUserName(id){
   currentObject.innerHTML=$("#UserName").val();
@@ -9,6 +39,10 @@ function saveUserName(id){
   {async:true,
    complete:editNameComplete}
  );
+}
+
+function editNameComplete(xhr,status){
+  alert(xhr.responseText);
 }
 
 function editUserName(obj,id){
@@ -61,6 +95,7 @@ function deleteUserComplete(xhr,status){
     } else {
         alert("Could not delete user");
     }
+  alert(xhr.responseText);
 
 }
 
@@ -75,11 +110,12 @@ function deleteUser(object,id){
 function addUserComplete(xhr,status){
   var obj = $.parseJSON(xhr.responseText);
   if(obj.result==0){
-      alert("Could not add user information");
+      alert(obj.message);
   }
   else{
     window.location="../View/displayUser.php";
   }
+  alert(obj.message);
 }
 
 function addUser(){

@@ -8,7 +8,6 @@
       }
     ?>
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript" src="../Script/jquery-1.12.1.js"></script>
     <script type="text/javascript" src="../Script/Userajax.js"></script>
@@ -38,9 +37,10 @@
               <input id="User" type="radio" name="userType" >
               <label >User</label>
             </div>
+            <input type="button" ondblclick="addUser()" id="buttonAdd" name="signUp" value="Add User">
+            <a class='button' href='displayUser.php'>Return to Users</a>
           </form>
-          <button ondblclick="addUser()" class="buttonAdd" name="signUp">Add User</button>
-          <a class='button' href='displayUser.php'>Return to Users</a>
+
         </div>
         <div class="push"></div>
       </div>

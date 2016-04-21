@@ -1,7 +1,13 @@
 <html>
   <head>
+    <?php
+      session_start();
+      if(!isset($_SESSION['user'])){
+        header('Location:../index.php');
+        exit();
+      }
+    ?>
     <title>Users</title>
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript" src="../Script/jquery-1.12.1.js"></script>
     <script type="text/javascript" src="../Script/Userajax.js"></script>
@@ -9,18 +15,30 @@
 
   <body class="formpage">
     <div id="wrapper">
-			     <div id='logo'><a href='#logo'><img src='../img/logo.png'/></a></div>
-			        <ul>
+			     <div id='logo'>
+             <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
+           </div>
+
+              <ul>
+                <div id="links">
 				        <li><a href='#'>Home</a></li>
 				        <li><a href='#'>Person</a></li>
 				        <li><a href='#'>People</a></li>
+              </div>
+                <?php
+                 $firstname=$_SESSION["user"]["firstname"];
+                 $lastname=$_SESSION["user"]["lastname"];
+                  echo "<li id='name' style='float:right'>";
+                  echo  "Welcome: ".$firstname." ".$lastname;
+                  echo "</li>";
+                ?>
 			        </ul>
+
 
 
         <div class="form_backV3">
           <?php
 
-          session_start();
           $Admin ="";
 
           if ($_SESSION['user']['userType']==1){

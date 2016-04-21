@@ -1,13 +1,4 @@
-
-/*This is used to create a grid layout*/
-.grid-container *{
-  box-sizing: border-box;
-}
-.grid-container {
-  width:100%;
-  max-width : 1200px;
-}
-
+/*Styling of the footer*/
 .footer{
 background-color:grey;
 color:#D3D3D3;
@@ -17,38 +8,8 @@ text-align:bottom;
 bottom:0%;
 }
 
-.push {
-height: 8em;
-}
 
-.row:before,
-.row:after{
-  content:"";
-  display:table;
-  clear:both;
-}
-
-[class*='col-']{
-  float:left;
-  min-height:1px;
-  width:8.33%;
-  padding: ;
-}
-
-.col-3 {width: 25%;}
-
-[class*='col-offset-']:{
-  float:left;
-  min-height:1px;
-  margin-left:8.33%;
-  padding: 12px;
-}
-
-
-.col-offset-6{ margin-left: 50.00%; }
-
-/*Styling of the page*/
-
+/*Styling of the text boxes*/
 input[type="text"],input[type="password"] {
     width: 100%;
     padding: 12px 20px;
@@ -57,6 +18,8 @@ input[type="text"],input[type="password"] {
     margin-right:5%;
     margin-top: 30px;
 }
+
+/*Styling of login page*/
 .login{
   font-family: 'Open Sans Condensed', arial, sans;
   padding: 30px;
@@ -67,6 +30,13 @@ input[type="text"],input[type="password"] {
   box-shadow: 4px 4px  #888889;
 }
 
+.welcome{
+background-image: url("../img/Scope.jpg");
+background-size: 100% 100%;
+background-repeat: no-repeat;
+}
+
+/*Styling of homepage*/
 .information{
   margin-top: 5%;
   width:100%;
@@ -93,6 +63,8 @@ input[type="text"],input[type="password"] {
   height:40%;
 }
 body{margin:0;padding:0;}
+
+/*Styling of forms*/
 .form_back{
   background: #FFFFFF;
   width:60%;
@@ -110,17 +82,19 @@ body{margin:0;padding:0;}
   width:80%;
   margin-left: 10%;
 }
+.instruction{
+  text-align: center;
+  font-family:calibri light;
+  font-size:40px;
+  text-shadow: 1px 1px 3px #666666;}
 
-.Home{
-background-image: url("../img/Scope.jpg");
-background-size: 100% 100%;
-background-repeat: no-repeat;
-}
 
 .formpage{
-  background-image: url("../img/standardbackground2.png");
+  background-image: url("../img/clinicbackground.png");
 }
-button,.button{
+
+/*Styling of buttons*/
+button,#buttonAdd,.button{
   background-color: white;
   border: 2px solid #4C4C4C;
   color: black;
@@ -134,7 +108,7 @@ button,.button{
 
 }
 
-button:hover,.button:hover{
+button:hover,#buttonAdd:hover,.button:hover{
     box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     background-color: #4C4C4C;
     color: white;
@@ -167,9 +141,11 @@ button:hover,.button:hover{
   height:10%;
 }
 
-.buttonAdd{
+#buttonAdd{
   margin-left:26%;
 }
+
+/*Table Styling*/
 table{
   width:100%;
   border:none;
@@ -187,6 +163,7 @@ td{
   padding:15px;
   border-bottom:1px solid #ddd;
 }
+
 .head{
   height:50px;
   padding:15px;
@@ -194,17 +171,6 @@ td{
   border-bottom:1px solid #ddd;
   background-color: #4C4C4C;
   color:white;
-}
-.instruction{
-  text-align: center;
-  font-family:calibri light;
-  font-size:40px;
-  text-shadow: 1px 1px 3px #666666;}
-
-.header{
-  background-color:#4C4C4C;
-  height:25%;
-   width:100%;
 }
 
 #imageshape{
@@ -217,3 +183,301 @@ td{
 	 padding-top: 0%;
 	 padding-left: 55%
 }
+
+/*Styling for loading circle*/
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes spinner {
+    to {-webkit-transform: rotate(360deg);}
+}
+
+.spinner {
+    min-width: 30px;
+    min-height: 30px;
+}
+.spinner:before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 43%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 10px solid transparent;
+    border-top-color: #03ade0;
+    border-bottom-color: #03ade0;
+    animation: spinner .9s ease infinite;
+    -webkit-animation: spinner .8s ease infinite;
+}
+
+/*Styling of header*/
+li{
+  display: inline-block;
+  float: left;
+  width: 12%;
+  height: 24%;
+  margin-top: 0%;
+  padding-top: 1%;
+  font-family: helvetica;
+}
+
+li a{
+  display: block;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+
+}
+#name{
+  color:white;
+  text-decoration: none;
+  padding-left: 5%;
+  width:20%;
+
+}
+
+#name no-hover{
+    background-color: transparent;
+}
+
+ul{
+  background-color: #333333;
+  height: 19%;
+  width: 97%;
+}
+
+#links li:hover{
+  background-color: black;
+  li.a.color: white;
+  border-radius: 5px;
+}
+
+
+#logo{
+  float: left;
+  background-color: white;
+  height: 12%;
+  width: 100%;
+}
+
+
+.header{
+  background-color:white;
+  height:25%;
+   width:100%;
+}
+
+/*Home page Icons*/
+#view_inventory{
+  position: absolute;
+  background-image: url("../img/inventory.png");
+  top:300px;
+  left:350px;
+  width:300px;
+  height:300px;
+  /*background:black;*/
+  }
+#view_inventory:hover{
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#add_drug{
+  position: absolute;
+  background-image: url("../img/drug.png");
+  top:300px;
+  left:750px;
+  width:300px;
+  height:300px;
+  /*background:black;*/
+}
+
+#add_drug:hover{
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#add_tool{
+  position: absolute;
+  background-image: url("../img/tool.png");
+  top:680px;
+  left:750px;
+  width:300px;
+  height:300px;
+  /*background:black;*/
+}
+
+#add_tool:hover{
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#add_supplier{
+  position: absolute;
+  background-image: url("../img/supplier.png");
+  top:680px;
+  left:350px;
+  width:300px;
+  height:300px;
+/*background:black;*/
+}
+
+#add_supplier:hover{
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#nurse_info{
+  position: absolute;
+  background-image: url("../img/NurseButton.png");
+  top:1070px;
+  left:200px;
+  width:300px;
+  height:200px;
+  /*background:black;*/
+}
+
+#nurse_info:hover{
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#report{
+  position: absolute;
+  background-image: url("../img/ReportButton.png");
+  top:1070px;
+  left:550px;
+  width:300px;
+  height:200px;
+  /*background:black;*/
+}
+
+#report:hover{
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#feedback{
+  position: absolute;
+  background-image: url("../img/feeback.png");
+  top:1070px;
+  left:900px;
+  width:300px;
+  height:200px;
+  /*background:black;*/
+}
+
+#feedback:hover{
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+#nurseinfoback{
+  position: absolute;
+  background-color: white;
+  border-style: solid;
+  border-color: grey;
+  top:1070px;
+  left:200px;
+  width:295px;
+  height:300px;
+  /*background:black;*/
+  /*opacity: 0.9;*/
+}
+
+#reportback{
+  position: absolute;
+  background-color: white;
+  border-style: solid;
+  border-color: grey;
+  top:1070px;
+  left:550px;
+  width:292px;
+  height:300px;
+  /*background:black;*/
+  /*opacity: 0.9;*/
+}
+
+#feedbackback{
+  position: absolute;
+  background-color: white;
+  border-style: solid;
+  border-color: grey;
+
+  top:1070px;
+  left:900px;
+  width:21.5%;
+  height:300px;
+  /*background:black;*/
+  /*opacity: 0.9;*/
+}
+
+
+
+#backrectangle{
+  position: absolute;
+  /*background-image: url("../img/smallerbackground.png");*/
+  background-color: #ffffff;
+  /*background-size: 50%;*/
+  top:35%;
+
+  left:20%;
+  /*right:100%;*/
+
+  width:65%;
+  height:800px;
+  /*background:white;*/
+  /*border-radius: 40px;*/
+  opacity: 0.7;
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#secondback{
+  position: absolute;
+  /*background-image: url("../img/smallerbackground.png");*/
+  background-color: #ffffff;
+  /*background-size: 50%;*/
+  top:1050px;
+  left:2%;
+  /*right:70%;*/
+  width:96%;
+  height:55%;
+  /*background:white;*/
+  /*border-radius: 20px;*/
+  opacity: 0.7;
+  box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.checkered {
+  background-image: url("../img/clinicbackground.png");
+  /*background-color: #dddddd;*/
+  background-size: 200%;
+  background-repeat: no-repeat;
+  /*background-color: #E7F0F5;*/
+}
+
+
+/*Misc*/
+.push {
+height: 8em;
+}
+.row:before,
+.row:after{
+  content:"";
+  display:table;
+  clear:both;
+}
+
+[class*='col-']{
+  float:left;
+  min-height:1px;
+  width:8.33%;
+  padding: ;
+}
+
+.col-3 {width: 25%;}
+
+[class*='col-offset-']:{
+  float:left;
+  min-height:1px;
+  margin-left:8.33%;
+  padding: 12px;
+}
+
+.col-offset-6{ margin-left: 50.00%; }

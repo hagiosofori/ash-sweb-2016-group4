@@ -40,7 +40,7 @@
 			<input style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
 			<input style='width:60%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
 			<input style='width:20%'type=\"text\" name=\"drugType\" placeholder=\"Drug Type\" value = $drugType >
-			<button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Drug</button>
+			<button type=\"submit\" name=\"submit\" id=\"buttonAdd\">Add Drug</button>
 				<a class='button' href='hm.php'>Return to homepage</a>";
 			//proceeds to  add new item in the database when the button is clicked
 
