@@ -1,6 +1,7 @@
 <html>
   <head>
     <?php
+    //Session started
       session_start();
       if(!isset($_SESSION['user'])){
         header('Location:../index.php');
@@ -15,6 +16,7 @@
 
   <body class="formpage">
       <div id="wrapper">
+        <!--Navbar-->
   			<div id='logo'><a href='#logo'><img src='../img/logo.png'/></a></div>
   			<ul>
   				<li><a href='#'>Home</a></li>
@@ -45,6 +47,7 @@
         <div class="push"></div>
       </div>
 
+      <!--Footer-->
       <div class ="footer">
        <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>
        <span style=" "><p style="padding-top:2%;">Contact us</p>
