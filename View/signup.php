@@ -37,7 +37,7 @@
               <input id="User" type="radio" name="userType" >
               <label >User</label>
             </div>
-            <input type="button" ondblclick="addUser()" id="buttonAdd" name="signUp" value="Add User">
+            <input type="button" ondblclick="addUser();" id="buttonAdd" name="signUp" value="Add User">
             <a class='button' href='displayUser.php'>Return to Users</a>
           </form>
 

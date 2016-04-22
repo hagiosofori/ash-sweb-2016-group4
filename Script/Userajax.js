@@ -159,10 +159,10 @@ function addDrug(){
   var drugsupplier=$("#drugsupplier").val();
   var drugtype=$("#drugtype").val();
 
-
+alert(drugname);
   var theUrl="../Controller/usersajax.php?cmd=7&drugname="+drugname+
-  "&drugquantity="+drugquantity+"&drugtype="+drugtype;
-
+  "&drugquantity="+drugquantity+"&drugsupplier="+drugsupplier+"&drugtype="+drugtype;
+alert("I reach here too");
   $.ajax(theUrl,
     {async:true,
       complete:addDrugComplete	});
@@ -205,6 +205,7 @@ function addSupplierComplete(xhr,status){
   }
   alert(obj.message);
 }
+
 
 function addSupplier(){
   var suppliername = $("#suppliername").val();

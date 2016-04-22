@@ -1,8 +1,10 @@
 <html>
 	<head>
 		<title>Add drug</title>
-		<link rel="stylesheet" type="text/css" href="../css/header.css">
+		<!-- <link rel="stylesheet" type="text/css" href="../css/header.css"> -->
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<script type="text/javascript" src="../Script/jquery-1.12.1.js"></script>
+		<script type="text/javascript" src="../Script/Userajax.js"></script>
 	</head>
 	<body class="formpage">
 		<div id="wrapper">
@@ -40,22 +42,19 @@
 			<input id=\"drugquantity\" style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
 			<input id=\"drugsupplier\" style='width:60%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
 			<input id=\"drugtype\" style='width:20%'type=\"text\" name=\"drugType\" placeholder=\"Drug Type\" value = $drugType >
-			<button type=\"submit\" name=\"submit\" id=\"buttonAdd\" onclick=\"addDrug()\">Add Drug</button>
-				<a class='button' href='hm.php'>Return to homepage</a>";
+			<input type=\"button\" name=\"submit\" id=\"buttonAdd\" onclick=\"addDrug();\" value=\"Add Drug\">
+			<a class='button' href='hm.php'>Return to homepage</a>";
 			//proceeds to  add new item in the database when the button is clicked
 
-			if(isset($_REQUEST['submit'])){
-				addDrug();
-				
-
-				//  $drugname = $_REQUEST['drugName'];
-				//  $drugQuantity = $_REQUEST['quantity'];
-				//  $drugSupplier=$_REQUEST['supplierId'];
-				//  $drugType = $_REQUEST['drugType'];
-				//  include "../Model/drugs.php";
-				//  $drug= new drugs();
-				// $drug->addDrug($drugname,$drugQuantity,$drugSupplier,$drugType,"Drugs");
-			 }
+			// if(isset($_REQUEST['submit'])){
+			// 	 $drugname = $_REQUEST['drugName'];
+			// 	 $drugQuantity = $_REQUEST['quantity'];
+			// 	 $drugSupplier=$_REQUEST['supplierId'];
+			// 	 $drugType = $_REQUEST['drugType'];
+			// 	 include "../Model/drugs.php";
+			// 	 $drug= new drugs();
+			// 	$drug->addDrug($drugname,$drugQuantity,$drugSupplier,$drugType,"Drugs");
+			//  }
 
 			?>
 	</div>
