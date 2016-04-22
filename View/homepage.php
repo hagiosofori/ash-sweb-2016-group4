@@ -1,183 +1,211 @@
-<html>
-<!--INCOMPLETE-->
-	<head>
-		<title>Home Page | Ashesi Clinic App</title>
-	</head>
 
-	<body>
-		<!-- this is the navigation bar at the top. comprising the ashesi logo, home button, and any other actions you want the user to easily reach-->
-		<div id = "nav"><img src = ""/><a>Home</a></div>
-		<form action = "homepage.php" method = "GET">
-		<!-- search box, and search button-->
-
-		<input type= "text" name = "txtSearch" value = "<?php if(isset($_REQUEST['txtSearch'])){echo $_REQUEST['txtSearch'];}else{echo "";}?>"><input type ="submit" name= "search" value = "Search"> <br><br>
-
-	<!--	<input type= "text" name = "txtSearch" value = "<?php if(isset($_REQUEST['txtSearch'])){echo $_REQUEST['txtSearch'];}else{echo "Type search term here";}?>"><input type ="submit" name= "search" value = "Search"> <br><br>-->
-
-			<br><a href ='verifyInterface.php'>All Users</a></br>
-			<br><a href = "adddrug_interface.php">Add New Inventory for drugs</a></br>
-			<br><a href = "addtool_interface.php">Add New Inventory for tools</a></br>
-			<br><a href = "addsupplier_interface.php">Add New suppliers</a></br>
-			<br><a href = "../Controller/generatereport.php?preference=1">Drugs Report</a></br>
-			<br><a href = "../Controller/generatereport.php?preference=2">Tools Report</a></br>
-			<br><a href = "../Controller/generatereport.php?preference=3">Nurse Availability</a></br>
-
-			<?php
-			include_once("../Model/drugs.php");
-
-
-			$drugs = new drugs();
-
-
-			//checking if search term has been entered. this determines if the data to be returned will be filtered or not.
-			//if(isset($_REQUEST['txtSearch'])){
-				//echo "There's a search term <br><br>";
-				//echo  $_REQUEST['txtSearch'];echo "<br>";
-
-
-			if(isset($_REQUEST['txtSearch'])){
-				echo "There's a search term <br><br>";
-				echo  $_REQUEST['txtSearch'];echo "<br>";
-
-				$str = $_REQUEST['txtSearch'];
-				$result = $drugs->searchDrugs($str);
-			}else{
-				$result = $drugs->getDrugs();
+	<?php 
+	  //  class Operations{
+			if(isset($_REQUEST['cmd'])){
+				$cmd = $_REQUEST['cmd'];
+				
+				  switch($cmd){
+				       case 1:
+					       getDrugs();
+						   break;
+						case 2:
+						    getTools();
+							break;
+						case 3:
+						      getSuppliers();
+							  break;
+						case 5:
+						      editDrugName();
+							  break;
+					    case 6:
+						      editDrugQuantity();
+							  break;
+						case  7:
+						      editToolName();
+						case  8:
+						      editToolQuantity();
+						case  9:
+						      editSupplierName();
+						case  10:
+						      editSupplierLocation();
+						default:
+						  echo "nothing selected";
+					      
+				
+				
 			}
-
-			//displaying returned rows in a tabular format
-			//for drugs
-
-
-			$row = $drugs->fetch();
-				if($row!=false){
-				echo "Drugs<br><br>
-
-				<table>
-					<tr>
-						<td>DRUG ID</td>
-						<td>DRUG NAME</td>
-						<td> QUANTITY</td>
-						<td> SUPPLIER</td>
-						<td> DRUG TYPE</td>
-						<td> EDIT</td>
-						<td> DELETE</td>
-					</tr>";
-				}else{
-					echo "No drugs match your search";
-				}
-				while($row!=false){
-
-					echo "<tr>
-							<td>{$row['drugId']}</td>
-							<td>{$row['drugName']}</td>
-							<td>{$row['quantity']}</td>
-							<td>{$row['supplierName']}</td>
-							<td>{$row['drugType']}</td>
-							<td> <a href = 'editdrug_interface.php?id={$row['drugId']}'> Edit</a></td>
-							<td><a href = '../Controller/delete.php?id={$row['drugId']}&item=drug'> Delete</a></td>
-						</tr>";
-
-					$row = $drugs->fetch();
-				}
-
-				echo "</table><br><br>";
-
-			?>
-
-			<?php
-
-			//for tools
-			include_once("../Model/tools.php");
-
-			$tools = new Tools();
-
-
-			if(isset($_REQUEST['txtSearch'])){
-				$filter = $_REQUEST['txtSearch'];
-				$tools->searchTools($filter);
-			}else{
-				$tools->getTools();
 			}
-			$row = $tools->fetch();
-				if($row!=false){
-				echo "Tools<br><br>";
-				echo "
-				<table>
-					<tr>
-						<td>TOOL ID</td>
-						<td>TOOL NAME</td>
-						<td> QUANTITY</td>
-						<td> SUPPLIER</td>
-						<td> EDIT</td>
-						<td> DELETE</td>
-					</tr>";
+			
+			 function editSupplierLocation(){
+				 include_once("../Model/suppliers.php");
+				$supplier = new Suppliers();
+				$suppliercode = $_REQUEST['sc'];
+				$supplierLocation = $_REQUEST['SupplierLocation'];
+				$query="update suppliers set supplierLocation='$supplierLocation' where suppliersId=$suppliercode";
+				$result=$supplier->query($query);
+				
+				echo '{"result":"success","message":"it is done"}';
+				echo $query;
+				if($result){echo " query success";
+				return true;
 				}else{
-					echo "No tools match your search";
+					return false;
 				}
-				while($row!=false){
-
-					echo "<tr>
-							<td>{$row['toolId']}</td>
-							<td>{$row['toolName']}</td>
-							<td>{$row['quantity']}</td>
-							<td>{$row['supplierName']}</td>
-
-							<td> <a href = 'edittool_interface.php?id={$row['toolId']}'> Edit</a></td>
-				<td><a href = '../Controller/delete.php?id={$row['toolId']}&item=tool'> Delete</a></td>
-						</tr>";
-
-						$row = $tools->fetch();
+				
+				 
+			 }
+			
+			
+			
+			 function editSupplierName(){
+				 include_once("../Model/suppliers.php");
+				$supplier = new Suppliers();
+				$suppliercode = $_REQUEST['sc'];
+				$supplierName = $_REQUEST['SupplierName'];
+				$query="update suppliers set supplierName='$supplierName' where suppliersId=$suppliercode";
+				$result=$supplier->query($query);
+				
+				echo '{"result":"success","message":"it is done"}';
+				echo $query;
+				if($result){echo " query success";
+				return true;
+				}else{
+					return false;
 				}
-				echo "</table><br><br>";
-
-			?>
-
-			<?php
-
-			//for suppliers
-			include_once("../Model/suppliers.php");
-
-			$suppliers = new Suppliers();
-			if(isset($_REQUEST['txtSearch'])){
-				$str = $_REQUEST['txtSearch'];
-				$result = $suppliers->searchSuppliers($str);
-			}else{
-				$suppliers->getSuppliers();
+				
+				 
+			 }
+			
+			function editToolQuantity(){
+				include_once("../Model/tools.php");
+				$tool = new Tools();
+				$toolcode = $_REQUEST['tc'];
+				$toolQuantity = $_REQUEST['Toolquantity'];
+				$query="update tools set Quantity='$toolQuantity' where toolId=$toolcode";
+				$result=$tool->query($query);
+				
+				echo '{"result":"success","message":"it is done"}';
+				echo $query;
+				if($result){echo " query success";
+				return true;
+				}else{
+					return false;
+				}
 			}
-			$row = $suppliers->fetch();
-				if($row!=false){
-				echo "Suppliers<br><br>";
-				echo "
-				<table>
-					<tr>
-						<td>SUPPLIER ID</td>
-						<td>SUPPLIER NAME</td>
-						<td> LOCATION</td>
-						<td> EDIT</td>
-						<td> DELETE</td>
-					</tr>";
+			function  editToolName(){
+				include_once("../Model/tools.php");
+				$tool = new Tools();
+				$toolcode = $_REQUEST['tc'];
+				$toolName = $_REQUEST['Toolname'];
+				$query="update tools set toolName='$toolName' where toolId=$toolcode";
+				$result=$tool->query($query);
+				
+				echo '{"result":"success","message":"it is done"}';
+				echo $query;
+				if($result){echo " query success";
+				return true;
 				}else{
-					echo "No suppliers match your search";
+					return false;
 				}
+				
+				
+			}
+			function editDrugName(){
+				include_once("../Model/drugs.php");
+				$drug = new drugs();
+				$drugcode = $_REQUEST['dc'];
+				$drugName = $_REQUEST['Drugname'];
+				$query="update drugs set drugName='$drugName' where drugId=$drugcode";
+				$result=$drug->query($query);
+				
+				echo '{"result":"success","message":"it is done"}';
+				echo $query;
+			if($result){echo " query success";
+				return true;
+				}else{
+					return false;
+				}
+			}
+			
+			function editDrugQuantity(){
+				include_once("../Model/drugs.php");
+				$drug = new drugs();
+				$drugcode = $_REQUEST['dc'];
+				$drugQuantity = $_REQUEST['DrugQuantity'];
+				$query="update drugs set Quantity='$drugQuantity' where drugId=$drugcode";
+				$result=$drug->query($query);
+				
+				echo '{"result":"success","message":"it is done"}';
+				echo $query;
+				if($result){echo " query success";
+				return true;
+				}else{
+					return false;
+				}
+			}
+			function getDrugs(){
+				$success="";
+				include_once("../Model/drugs.php");
+				$drug = new drugs();
+				$drug->connect();
+				$result= $drug->getDrugs();
+				$row = $drug->fetch();
+				$data = array();
 				while($row!=false){
-					//print_r($row);
-					echo "<tr>
-							<td>{$row['suppliersId']}</td>
-							<td>{$row['supplierName']}</td>
-							<td>{$row['supplierLocation']}</td>
-							<td> <a href = 'editsupplier_interface.php?id={$row['suppliersId']}'> Edit</a></td>
-							<td><a href = '../Controller/delete.php?id={$row['suppliersId']}&item=supplier'> Delete</a></td>
-						</tr>";
-
-					$row= $suppliers->fetch();
+					$success=true;
+					$data[]=$row; 
+					$row=$drug->fetch();
 				}
-
-				echo "</table>";
+				echo json_encode($data);
+				return true;
+			}
+			
+			function getTools(){
+				$success="";
+				include_once("../Model/tools.php");
+				$tool = new Tools();
+				$tool->connect();
+				$result= $tool->getTools();
+				$row = $tool->fetch();
+				$data = array();
+				while($row!=false){
+					$success=true;
+					$data[]=$row; 
+					$row=$tool->fetch();
+				}
+				echo json_encode($data);
+				return $success;
+			}
+			
+			function getSuppliers(){
+				$success="";
+				include_once("../Model/suppliers.php");
+				$supplier = new Suppliers();
+				$supplier->connect();
+				$result= $supplier->getSuppliers();
+				$row = $supplier->fetch();
+				$data = array();
+				while($row!=false){
+					$success=true;
+					$data[]=$row; 
+					$row=$supplier->fetch();
+				}
+				echo json_encode($data);
+				return $success;
+			}
+	//	}
+	
+	class UnitTest   {
+	
+	function testgest(){
+		getSuppliers();
+		
+	}
+	
+	
+}
 			?>
-			<a href="../index.php">Log Out</a>
-
-			</form>
-	</body>
-
-</html>
+			
+			
+			
+	

@@ -3,6 +3,18 @@
 		<title>Add drug</title>
 		<link rel="stylesheet" type="text/css" href="../css/header.css">
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<script>
+		function saveDrugName(id){
+  currentObject.innerHTML=$("#UserName").val();
+  var username=currentObject.innerHTML;
+  var theUrl="../Controller/usersajax.php?cmd=1&uc="+id+"&username="+username;
+  $.ajax(theUrl,
+  {async:true,
+   complete:editNameComplete}
+ );
+}
+		
+		</script>
 	</head>
 	<body class="formpage">
 		<div id="wrapper">
