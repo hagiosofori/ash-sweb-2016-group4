@@ -40,18 +40,21 @@
 			<input id=\"drugquantity\" style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
 			<input id=\"drugsupplier\" style='width:60%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
 			<input id=\"drugtype\" style='width:20%'type=\"text\" name=\"drugType\" placeholder=\"Drug Type\" value = $drugType >
-			<button type=\"submit\" name=\"submit\" id=\"buttonAdd\">Add Drug</button>
+			<button type=\"submit\" name=\"submit\" id=\"buttonAdd\" onclick=\"addDrug()\">Add Drug</button>
 				<a class='button' href='hm.php'>Return to homepage</a>";
 			//proceeds to  add new item in the database when the button is clicked
 
 			if(isset($_REQUEST['submit'])){
-				 $drugname = $_REQUEST['drugName'];
-				 $drugQuantity = $_REQUEST['quantity'];
-				 $drugSupplier=$_REQUEST['supplierId'];
-				 $drugType = $_REQUEST['drugType'];
-				 include "../Model/drugs.php";
-				 $drug= new drugs();
-				$drug->addDrug($drugname,$drugQuantity,$drugSupplier,$drugType,"Drugs");
+				addDrug();
+				
+
+				//  $drugname = $_REQUEST['drugName'];
+				//  $drugQuantity = $_REQUEST['quantity'];
+				//  $drugSupplier=$_REQUEST['supplierId'];
+				//  $drugType = $_REQUEST['drugType'];
+				//  include "../Model/drugs.php";
+				//  $drug= new drugs();
+				// $drug->addDrug($drugname,$drugQuantity,$drugSupplier,$drugType,"Drugs");
 			 }
 
 			?>

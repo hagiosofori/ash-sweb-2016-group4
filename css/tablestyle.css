@@ -49,6 +49,7 @@ button {
   left: 120px;
   top: 80px;
   margin-top: 80px;
+  border-style: dotted;
 }
 
 .wrapper {
@@ -94,3 +95,7 @@ div.flat button.active {
        bottom:0%;
        color: white;
      }
+
+body {
+  background-image: url("../img/clinicbackground.png");
+}
