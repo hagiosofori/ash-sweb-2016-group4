@@ -1,6 +1,7 @@
 <html>
   <head>
     <?php
+    //Session Started
       session_start();
       if(!isset($_SESSION['user'])){
         header('Location:../index.php');
@@ -111,11 +112,13 @@
 
             ?>
         </div>
+        <!--Tool tip for editing user-->
         <div id="edit_info">
           <p>Double click <br>to edit name information</p>
         </div>
         <div class="push"></div>
       </div>
+      <!--Footer -->
       <div class ="footer">
          <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>
          <span style=" "><p style="padding-top:2%;">Contact us</p>
