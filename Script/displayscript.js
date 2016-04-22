@@ -126,7 +126,7 @@ notprinted_supplier=true;
 
 
 	function getAllTools(){
-	var ajaxurl="../ash-sweb-2016-group4/View/homepage.php?cmd=2";
+	var ajaxurl="../Controller/homeAjax.php?cmd=2";
 	document.getElementById('button').innerText = "Add Tools";
 	document.getElementById('addlink').href="../View/addtool_interface.php";
 	$.ajax(ajaxurl,
@@ -171,7 +171,7 @@ notprinted_supplier=true;
 	}
 
 	function getAllSuppliers(){
-	var ajaxurl="../ash-sweb-2016-group4/View/homepage.php?cmd=3";
+	var ajaxurl="../Controller/homeAjax.php?cmd=3";
 	document.getElementById('button').innerText = "Add Suppliers";
 	document.getElementById('addlink').href="../View/addsupplier_interface.php";
 	$.ajax(ajaxurl,
@@ -199,10 +199,8 @@ notprinted_supplier=true;
         var $tr = $('<tr>').append($('<td id='+index+'>').prepend("<span class='clickspot' >"+item.supplierName+"</span>").dblclick({object:this,supplier:item.suppliersId},editSupplierName),
 		    $('<td id='+index+'>').prepend("<span class='clickspot' >"+item.supplierLocation+"</span>").dblclick({object:this,supplier:item.suppliersId},editSupplierLocation),
 
-
-
-			$('<td>').prepend("<a href=\"?id="+index+"\">do something</a>"),
-			$('<td>').prepend("<span class='clickspot' onclick=\"displaySupplierform(this)\">do something</span>")
+			$('<td>').prepend("<a href=\"?id="+index+"\"></a>"),
+			$('<td>').prepend("<span class='clickspot' onclick=\"displaySupplierform(this)\"></span>")
 
         ).appendTo('#results_table');
         //console.log($tr.wrap('<p>').html());
