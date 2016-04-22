@@ -182,7 +182,7 @@
 			$drugsupplier=$_REQUEST['supplierId'];
 			$drugtype=$_REQUEST['drugType'];
 
-			$verify=$user->addDrug($drugname,$drugquantity,$drugsupplier,$drugtype);
+			$verify=$drug->addDrug($drugname,$drugquantity,$drugsupplier,$drugtype);
 			if($verify==false){
 				echo'{"result":0,"message":"Drug not added"}';
 			}
@@ -203,7 +203,7 @@
 			$toolquantity=$_REQUEST['quantity'];
 			$toolsupplier=$_REQUEST['supplierId'];
 
-			$verify=$user->addTool($toolname,$toolquantity,$toolsupplier);
+			$verify=$tool->addTool($toolname,$toolquantity,$toolsupplier);
 			if($verify==false){
 				echo'{"result":0,"message":"Tool not added"}';
 			}
@@ -215,16 +215,16 @@
 		function addNewSupplier(){
 			include("../Model/suppliers.php");
 			$suppliers=new suppliers();
-			if(!isset($_REQUEST['supplierName'])){
+			if(!isset($_REQUEST['suppliername'])){
 				echo "Supplier ID is not given";
 				exit();
 			}
 
-			$suppliername=$_REQUEST['supplierName'];
-			$supplierlocation=$_REQUEST['supplierLocation'];
+			$suppliername=$_REQUEST['suppliername'];
+			$supplierlocation=$_REQUEST['supplierlocation'];
 
 
-			$verify=$user->addSuppliers($suppliername,$supplierlocation);
+			$verify=$suppliers->addSuppliers($suppliername,$supplierlocation);
 			if($verify==false){
 				echo'{"result":0,"message":"Supplier not added"}';
 			}
