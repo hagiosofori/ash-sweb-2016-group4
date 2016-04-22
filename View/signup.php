@@ -1,5 +1,6 @@
 <html>
   <head>
+
     <?php
     //Session started
       session_start();
@@ -16,7 +17,9 @@
 
   <body class="formpage">
       <div id="wrapper">
+
         <!--Navbar-->
+
   			<div id='logo'><a href='#logo'><img src='../img/logo.png'/></a></div>
   			<ul>
   				<li><a href='#'>Home</a></li>
@@ -26,6 +29,7 @@
 
         <div class="form_back">
           <!-- Form used to collect information about the user-->
+
           <form class="information"  action="" method="POST" onsubmit='validate()'>
             <input id="username" style="width:56%" type="text" name="username" placeholder="Username"/>
             <input id="firstname" style="width:45%" type="text" name="firstname" placeholder="Firstname"/>
@@ -42,12 +46,13 @@
             <input type="button" ondblclick="addUser()" id="buttonAdd" name="signUp" value="Add User">
             <a class='button' href='displayUser.php'>Return to Users</a>
           </form>
-
         </div>
         <div class="push"></div>
       </div>
 
+
       <!--Footer-->
+
       <div class ="footer">
        <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>
        <span style=" "><p style="padding-top:2%;">Contact us</p>

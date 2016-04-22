@@ -5,6 +5,7 @@
 		exit();
 	}
 	/*get command*/
+
 	//A method is called based on the command
 	$cmd=$_REQUEST['cmd'];
 	switch($cmd){
@@ -31,7 +32,9 @@
 			break;
 	}
 
+
 //Edits user's first name
+
   function editUserName(){
     include_once("../Model/users.php");
 
@@ -52,7 +55,9 @@
 		}
   }
 
+
 //Edits user's firstname
+
 	function editFirstName(){
     include_once("../Model/users.php");
 
@@ -73,7 +78,9 @@
 		}
   }
 
+
 //Edits user's lastname
+
 	function editLastName(){
 		include_once("../Model/users.php");
 
@@ -94,7 +101,9 @@
 		}
 	}
 
+
 //Deletes User
+
 	  function deleteUser(){
 	    if(!isset($_REQUEST['uc'])){
 	      echo "usercode is not given";
@@ -111,6 +120,7 @@
 	      echo "User was not deleted.";
 	    }
 	  }
+
 
 //Adds new User
 		function addNewUser(){

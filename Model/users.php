@@ -54,6 +54,7 @@ include_once("adb.php");
 		* @return boolean representing success or failure
 		*/
 
+
 		function editName($type,$name,$userID){
 			$strQuery="";
 			if($type==1){

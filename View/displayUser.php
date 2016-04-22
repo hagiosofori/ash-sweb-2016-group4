@@ -1,5 +1,6 @@
 <html>
   <head>
+
     <?php
     //Session Started
       session_start();
@@ -9,6 +10,7 @@
       }
     ?>
     <title>Users</title>
+
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript" src="../Script/jquery-1.12.1.js"></script>
     <script type="text/javascript" src="../Script/Userajax.js"></script>
@@ -16,6 +18,7 @@
 
   <body class="formpage">
     <div id="wrapper">
+
 			     <div id='logo'>
              <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
            </div>
@@ -119,6 +122,7 @@
         <div class="push"></div>
       </div>
       <!--Footer -->
+
       <div class ="footer">
          <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>
          <span style=" "><p style="padding-top:2%;">Contact us</p>
@@ -129,6 +133,5 @@
             <span style="color:#515151;padding-left:2%;">All rights reserved<span>
           </div>
         </div>
-
   </body>
 </html>

@@ -1,4 +1,5 @@
 <html>
+
     <?php
     //Session started
       session_start();
@@ -20,6 +21,7 @@
   <body class="formpage">
      <h1>Redirecting...</h1>
      <!--Spinner animation-->
+
      <div class="spinner"></div>
   </body>
 </html>

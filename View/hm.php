@@ -1,5 +1,6 @@
 <html>
   <head>
+
     <?php
       session_start();
       if(!isset($_SESSION['user'])){
@@ -37,7 +38,7 @@
     <div id="backrectangle"></div>
     <div id="rectangle"></div>
 
-    <a href="">
+    <a href="tablepage.html">
       <div id="view_inventory"></div>
     </a>
 
@@ -53,6 +54,7 @@
       <div id="add_supplier"></div>
     </a>
 
+
     <a href="#">
       <div id="secondback"></div>
     </a>
@@ -61,9 +63,11 @@
       <div id="nurseinfoback"><p style= "padding-top: 70%; text-align: center;">Check out which nurse is available!</p></div>
     <!-- </a> -->
 
+
     <a href="displayUser.php">
       <div id="nurse_info"></div>
     </a>'
+
 
     <!-- <a href="#"> -->
       <div id="reportback"><p style= "padding-top: 70%; text-align: center;">Generate reports for each inventory category!</p></div>
@@ -76,6 +80,7 @@
     <!-- <a href="#"> -->
       <div id="feedbackback"><p style= "padding-top: 70%; text-align: center;">Contact us and tell us how to improve the clinic application!</p></div>
     <!-- </a> -->
+
     <a href="">
       <div id="feedback"></div>
     </a>
@@ -87,8 +92,10 @@
        </span>
        <div id="footertext" style="padding-left:2% float:right;">
           &copy; 2016 Copyright Clinic Tool</span>
+
           <span style="color:#fffff;padding-left:2%;">All rights reserved<span>
       </div>
+
 
     </footer>
   </body>

@@ -1,6 +1,5 @@
 
 var currentObject = null;
-
 //Displays email alert message
 function email(){
   alert("An email has been sent to the admin to reset your password");
@@ -28,7 +27,7 @@ function LoginComplete(xhr,status){
 }
 
 //Passes the users information to be logged in
-function LoginUser(){
+function LoginU(){
   var username=$("#Username").val();
   var password=$("#Password").val();
   var theUrl="Controller/usersajax.php?cmd=6&username="+username+"&password="+password;
@@ -42,6 +41,7 @@ function LoginUser(){
 *@param id of the user
 *Saves the edited username
 **/
+
 function saveUserName(id){
   currentObject.innerHTML=$("#UserName").val();
   var username=currentObject.innerHTML;
@@ -51,6 +51,7 @@ function saveUserName(id){
    complete:editNameComplete}
  );
 }
+
 
 /**
 *@param server response, status
@@ -65,6 +66,7 @@ function editNameComplete(xhr,status){
 *@param table data object, id of the user
 *Allows the user to edit usernames
 **/
+
 function editUserName(obj,id){
   var currentName=obj.innerHTML;
   obj.innerHTML="<input id='UserName' type='text' > <button class='clickspot' onclick='saveUserName("+id+")' >save</button>";
@@ -73,10 +75,12 @@ function editUserName(obj,id){
 }
 
 
+
 /**
 *@param id of the user
 *Saves the edited firstname
 **/
+
 function saveFirstName(id){
   currentObject.innerHTML=$("#FirstName").val();
   var firstname=currentObject.innerHTML;
@@ -87,10 +91,12 @@ function saveFirstName(id){
  );
 }
 
+
 /**
 *@param table data object, id of the user
 *Allows the user to edit firstnames
 **/
+
 function editFirstName(obj,id){
   var currentName=obj.innerHTML;
   obj.innerHTML="<input id='FirstName' type='text' > <button class='clickspot' onclick='saveFirstName("+id+")' >save</button>";
@@ -98,10 +104,12 @@ function editFirstName(obj,id){
   currentObject=obj;
 }
 
+
 /**
 *@param id of the user
 *Saves the edited lastname
 **/
+
 function saveLastName(id){
   currentObject.innerHTML=$("#LastName").val();
   var lastname=currentObject.innerHTML;
@@ -116,6 +124,7 @@ function saveLastName(id){
 *@param table data object, id of the user
 *Allows the user to edit lastnames
 **/
+
 function editLastName(obj,id){
   var currentName=obj.innerHTML;
   obj.innerHTML="<input id='LastName' type='text' > <button class='clickspot' onclick='saveLastName("+id+")' >save</button>";
@@ -123,11 +132,13 @@ function editLastName(obj,id){
   currentObject=obj;
 }
 
+
 /**
 *@param server responses
 *Displays messages concerning
 *whether user was deleted
 **/
+
 function deleteUserComplete(xhr,status){
   if(status!="success"){
     alert("Error whiles deleting user");
@@ -137,6 +148,7 @@ function deleteUserComplete(xhr,status){
     } else {
         alert("Could not delete user");
     }
+
   alert(xhr.responseText);
 
 }
@@ -152,6 +164,7 @@ function deleteUser(object,id){
       complete:deleteUserComplete	});
   currentObject=object;
 }
+
 
 /**
 *Displays message concerning whether user
