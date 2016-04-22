@@ -1,8 +1,15 @@
 
 var currentObject = null;
+
+//Displays email alert message
 function email(){
   alert("An email has been sent to the admin to reset your password");
 }
+
+/**
+*@param server response, status
+*Redirects to the home page after login
+**/
 function LoginComplete(xhr,status){
   var obj = $.parseJSON(xhr.responseText);
   if(obj.result==1){
@@ -18,9 +25,9 @@ function LoginComplete(xhr,status){
       alert(obj.message);
     }
   }
-
 }
 
+//Passes the users information to be logged in
 function LoginUser(){
   var username=$("#Username").val();
   var password=$("#Password").val();
@@ -31,6 +38,10 @@ function LoginUser(){
   });
 }
 
+/**
+*@param id of the user
+*Saves the edited username
+**/
 function saveUserName(id){
   currentObject.innerHTML=$("#UserName").val();
   var username=currentObject.innerHTML;
@@ -41,10 +52,19 @@ function saveUserName(id){
  );
 }
 
+/**
+*@param server response, status
+*Displays a popup of whether
+*the user information was updated
+**/
 function editNameComplete(xhr,status){
   alert(xhr.responseText);
 }
 
+/**
+*@param table data object, id of the user
+*Allows the user to edit usernames
+**/
 function editUserName(obj,id){
   var currentName=obj.innerHTML;
   obj.innerHTML="<input id='UserName' type='text' > <button class='clickspot' onclick='saveUserName("+id+")' >save</button>";
@@ -52,6 +72,11 @@ function editUserName(obj,id){
   currentObject=obj;
 }
 
+
+/**
+*@param id of the user
+*Saves the edited firstname
+**/
 function saveFirstName(id){
   currentObject.innerHTML=$("#FirstName").val();
   var firstname=currentObject.innerHTML;
@@ -62,6 +87,10 @@ function saveFirstName(id){
  );
 }
 
+/**
+*@param table data object, id of the user
+*Allows the user to edit firstnames
+**/
 function editFirstName(obj,id){
   var currentName=obj.innerHTML;
   obj.innerHTML="<input id='FirstName' type='text' > <button class='clickspot' onclick='saveFirstName("+id+")' >save</button>";
@@ -69,6 +98,10 @@ function editFirstName(obj,id){
   currentObject=obj;
 }
 
+/**
+*@param id of the user
+*Saves the edited lastname
+**/
 function saveLastName(id){
   currentObject.innerHTML=$("#LastName").val();
   var lastname=currentObject.innerHTML;
@@ -79,6 +112,10 @@ function saveLastName(id){
  );
 }
 
+/**
+*@param table data object, id of the user
+*Allows the user to edit lastnames
+**/
 function editLastName(obj,id){
   var currentName=obj.innerHTML;
   obj.innerHTML="<input id='LastName' type='text' > <button class='clickspot' onclick='saveLastName("+id+")' >save</button>";
@@ -86,6 +123,11 @@ function editLastName(obj,id){
   currentObject=obj;
 }
 
+/**
+*@param server responses
+*Displays messages concerning
+*whether user was deleted
+**/
 function deleteUserComplete(xhr,status){
   if(status!="success"){
     alert("Error whiles deleting user");
@@ -99,6 +141,10 @@ function deleteUserComplete(xhr,status){
 
 }
 
+/**
+*@param table data object, id of the user
+*Allows the an Admin to delete a user
+**/
 function deleteUser(object,id){
   var ajaxPageUrl="../Controller/usersajax.php?cmd=4&uc="+id;
   $.ajax(ajaxPageUrl,
@@ -107,6 +153,10 @@ function deleteUser(object,id){
   currentObject=object;
 }
 
+/**
+*Displays message concerning whether user
+* was added or not
+**/
 function addUserComplete(xhr,status){
   var obj = $.parseJSON(xhr.responseText);
   if(obj.result==0){
@@ -118,6 +168,9 @@ function addUserComplete(xhr,status){
   alert(obj.message);
 }
 
+/**
+*Allows the admin to add users
+**/
 function addUser(){
   var firstname = $("#firstname").val();
   var username=$("#username").val();
