@@ -34,7 +34,7 @@
 					<input id=\"suppliername\" style='width:50%' type=\"text\" name=\"supplierName\" placeholder=\"Supplier Name\" value = $supplierName >
 					<input id=\"supplierlocation\" style='width:50%' type=\"text\" name=\"supplierLocation\" placeholder=\"Location\" value = $supplierLocation  >
 					<input type=\"button\" name=\"submit\" id=\"buttonAdd\" onclick=\"addSupplier();\" value=\"Add Supplier\">
-					
+
 						<a class='button' href='hm.php'>Return to homepage</a>";
 					//proceeds to  add new item in the database when the button is clicked
 // <button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Supplier</button>
