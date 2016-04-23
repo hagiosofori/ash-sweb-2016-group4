@@ -105,9 +105,9 @@
                   }
                   echo"</table>";
                   if($Admin==true){
-                    echo"<a class='button' href='signup.php'style='margin-left:35%'>Add new user</a>";
+                    echo"<button  id='myBtn' name='signUp' style='margin-left:37%'>Add User</button>";
                   }
-                  echo"<a class='button' href='hm.php'>Return to homepage</a>";
+                  echo"<a class='button' href='hm.php' style='margin-left:1%'>Return to homepage</a>";
 
 
             ?>
@@ -118,6 +118,48 @@
         </div>
         <div class="push"></div>
       </div>
+
+      <div id="myModal" class="modal">
+        <div class="form_back">
+
+          <!-- Form used to collect information about the user-->
+          <form class="information"  action="" method="POST" onsubmit='validate()'>
+            <input id="username" style="width:56%" type="text" name="username" placeholder="Username"/>
+            <input id="firstname" style="width:45%" type="text" name="firstname" placeholder="Firstname"/>
+            <input id= "lastname" style="width:40%" type="text" name="lastname" placeholder="Lastname"/>
+            <input id="password" style="width:48%" type="password" name="password" placeholder="Password"/>
+            <input id="email" style="width:48%" type="text" name="email" placeholder="Email"/>
+            <div class="input_options">
+              User Type:
+              <input id="Admin" type="radio" name="userType" >
+              <label >Admin</label>
+              <input id="User" type="radio" name="userType" >
+              <label >User</label>
+            </div>
+            <input type="button" ondblclick="addUser()" id="buttonAdd" name="signUp" value="Add User">
+            <a class='button' href='displayUser.php'>Return to Users</a>
+          </form>
+        </div>
+      </div>
+      <script>
+
+      var modal = document.getElementById('myModal');
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+      // When the user clicks on the button, open the modal
+      btn.onclick= function() {
+      modal.style.display = "block";
+      }
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if (event.target == modal) {
+      modal.style.display = "none";
+      }
+      }
+      </script>
+
+
+
       <!--Footer -->
       <div class ="footer">
          <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>
