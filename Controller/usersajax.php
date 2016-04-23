@@ -116,8 +116,8 @@
 		function addNewUser(){
 			include("../Model/users.php");
 			$user=new users();
-			if(!isset($_REQUEST['username'])){
-				echo "User info not given";
+			if($_REQUEST['username']==""){
+				echo'{"result":0,"message":"User info not given"}';
 				exit();
 			}
 

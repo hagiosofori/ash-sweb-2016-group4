@@ -163,9 +163,10 @@ function addUserComplete(xhr,status){
       alert(obj.message);
   }
   else{
+    alert(obj.message);
     window.location="../View/displayUser.php";
   }
-  alert(obj.message);
+
 }
 
 /**
