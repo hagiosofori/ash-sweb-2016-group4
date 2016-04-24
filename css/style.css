@@ -2,8 +2,8 @@
 /*Styling of the footer*/
 
 .footer{
-background-color:grey;
-color:#D3D3D3;
+
+color:white;
 height: 11em;
 font-weight: bold;
 text-align:bottom;
@@ -617,3 +617,13 @@ height: 8em;
 }
 
 .col-offset-6{ margin-left: 50.00%; }
+
+#logout{
+  position:absolute;
+  top:20px;
+  left:1200px;
+}
+@@font-face {
+  font-family:helvetica;
+  src:url(../Fonts/Helvetica.otf);
+}
