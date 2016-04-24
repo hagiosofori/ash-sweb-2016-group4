@@ -63,7 +63,7 @@
           $row = $user->getUser();
 
           //Displays all users
-  	         echo"<table border='0' class='usertable'>
+  	         echo"<table border='0' id='nurseTable' class='usertable'>
   				          <thead>
   					          <th id='head'>USERNAME</th>
   					          <th id='head'>FIRSTNAME</th>
@@ -108,7 +108,7 @@
                   }
                   echo"</table>";
                   if($Admin==true){
-                    echo"<a class='button' href='signup.php'style='margin-left:35%'>Add new user</a>";
+                    echo"<button  id='myBtn' name='signUp' style='margin-left:37%'>Add User</button>";
                   }
                   echo"<a class='button' href='hm.php'>Return to homepage</a>";
 

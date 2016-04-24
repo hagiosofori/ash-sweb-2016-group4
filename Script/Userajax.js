@@ -179,7 +179,7 @@ function addUserComplete(xhr,status){
             $('<td ondblclick="editUserName(this,userID)">').text(obj.lastname),
       $('<td>').text(obj.userType),
       $('<td>').text(obj.email),
-      $('<td>').text('Not Available'),
+      $('<td style="width:100px;padding:none;">').text('Not Available'),
       $('<button class="del" style="margin-left:16px;margin-top:35px;" onclick="deleteUser(this,userID)">').text("Delete")
     ).appendTo('#nurseTable');
 
