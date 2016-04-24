@@ -183,10 +183,8 @@ notprinted_supplier=true;
     $.each(response, function(i, item){
 	 var index= i;
         var $tr = $('<tr>').append($('<td id='+index+'>').prepend(item.supplierName).dblclick({object:this,supplier:item.suppliersId},editSupplierName),
-		    $('<td id='+index+'>').prepend(item.supplierLocation).dblclick({object:this,supplier:item.suppliersId},editSupplierLocation),
+		    $('<td id='+index+'>').prepend(item.supplierLocation).dblclick({object:this,supplier:item.suppliersId},editSupplierLocation)
 
-			$('<td>').prepend("<a href=\"?id="+index+"\"></a>"),
-			$('<td>').prepend("<span class='clickspot' onclick=\"displaySupplierform(this)\"></span>")
 
         ).appendTo('#results_table');
         //console.log($tr.wrap('<p>').html());
