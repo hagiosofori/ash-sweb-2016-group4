@@ -16,15 +16,15 @@
 
   <div style="background-color">
     <div id='logo'>
-      <a href="logout.php">logout</a>
       <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
+      <a id='logout' href="logout.php">logout</a>
     </div>
 
        <ul>
          <div id="links">
          <li><a href='hm.php'>Home</a></li>
-         <li><a href='#'>Person</a></li>
-         <li><a href='#'>People</a></li>
+         <li><a href='#'>About</a></li>
+         <li><a href='#'>Team</a></li>
        </div>
          <?php
           $firstname=$_SESSION["user"]["firstname"];
@@ -37,7 +37,7 @@
 
 <div id="update"></div>
 </head>
-<body style="background-image: url('../img/clinicbackground.png');">
+<body style="background-image: url('../img/clinicbackground.png');background-size: 200%;">
 <div id="rectangle"></div>
 
 <div class="flat wrapper">
