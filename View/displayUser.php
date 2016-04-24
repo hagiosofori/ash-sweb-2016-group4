@@ -19,15 +19,16 @@
   <body class="formpage">
     <div id="wrapper">
 
-			     <div id='logo'>
-             <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
-           </div>
+              <div id='logo'>
+                <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
+                <a id='logout' href="logout.php">logout</a>
+              </div>
 
               <ul>
                 <div id="links">
-				        <li><a href='#'>Home</a></li>
-				        <li><a href='#'>Person</a></li>
-				        <li><a href='#'>People</a></li>
+				        <li><a href='hm.php'>Home</a></li>
+				        <li><a href='#'>About</a></li>
+				        <li><a href='#'>Team</a></li>
               </div>
                 <?php
                  $firstname=$_SESSION["user"]["firstname"];
@@ -63,16 +64,16 @@
           $row = $user->getUser();
 
           //Displays all users
-  	         echo"<table border='0'>
-  				          <tr class='head'>
-  					          <td>USERNAME</td>
-  					          <td>FIRSTNAME</td>
-            					<td>LASTNAME</td>
-            					<td>USER TYPE</td>
-                      <td>EMAIL</td>
-                      <td>AVAILABILITY</td>
-                      <td>OPTIONS</td>
-            				</tr>";
+  	         echo"<table border='0' id='nurseTable' class='usertable'>
+  				          <thead>
+  					          <th id='head'>USERNAME</th>
+  					          <th id='head'>FIRSTNAME</th>
+            					<th id='head'>LASTNAME</th>
+            					<th id='head'>USER TYPE</th>
+                      <th id='head'>EMAIL</th>
+                      <th id='head'>AVAILABILITY</th>
+                      <th id='head'>OPTIONS</th>
+            				</thead>";
                 	while($row=$user->fetch()){
                     if($_SESSION['user']['userID']==$row['userID']){
                       $available="Available";
@@ -81,34 +82,34 @@
                       $available="Not Available";
                     }
                     if($Admin==true){
-                      echo"  <tr class='content'>
-                          <td ondblclick='editUserName(this,{$row['userID']})'>{$row['username']}</td>
-                          <td ondblclick='editFirstName(this,{$row['userID']})'>{$row['firstname']}</td>
-                          <td ondblclick='editLastName(this,{$row['userID']})'>{$row['lastname']}</td>
-                          <td>{$row['userType']}</td>
-                          <td>{$row['email']}</td>
-                          <td>$available</td>
-                          <td ><button class='del' onclick='deleteUser(this,{$row['userID']})'>
+                      echo" <tr class='content'>
+                          <td id='user'ondblclick='editUserName(this,{$row['userID']})'>{$row['username']}</td>
+                          <td id='user'ondblclick='editFirstName(this,{$row['userID']})'>{$row['firstname']}</td>
+                          <td id='user'ondblclick='editLastName(this,{$row['userID']})'>{$row['lastname']}</td>
+                          <td id='user'>{$row['userType']}</td>
+                          <td id='user'>{$row['email']}</td>
+                          <td id='user'>$available</td>
+                          <td id='user' ><button class='del' onclick='deleteUser(this,{$row['userID']})'>
                           Delete</button></td>
                       </tr>";
 
                     }
                     else{
                       echo"<tr class='content'>
-                          <td>{$row['username']}</td>
-                          <td>{$row['firstname']}</td>
-                          <td>{$row['lastname']}</td>
-                          <td>{$row['userType']}</td>
-                          <td>{$row['email']}</td>
-                          <td>$available</td>
-                          <td>Delete</td>
+                          <td id='user'>{$row['username']}</td>
+                          <td id='user'>{$row['firstname']}</td>
+                          <td id='user'>{$row['lastname']}</td>
+                          <td id='user'>{$row['userType']}</td>
+                          <td id='user'>{$row['email']}</td>
+                          <td id='user'>$available</td>
+                          <td id='user'>Delete</td>
                       </tr>";
                     }
 
                   }
                   echo"</table>";
                   if($Admin==true){
-                    echo"<a class='button' href='signup.php'style='margin-left:35%'>Add new user</a>";
+                    echo"<button  id='myBtn' name='signUp' style='margin-left:37%'>Add User</button>";
                   }
                   echo"<a class='button' href='hm.php'>Return to homepage</a>";
 
@@ -121,8 +122,49 @@
         </div>
         <div class="push"></div>
       </div>
-      <!--Footer -->
 
+      <div id="myModal" class="modal">
+        <div class="form_back">
+
+          <!-- Form used to collect information about the user-->
+          <form class="information"  action="" method="POST" onsubmit='validate()'>
+            <input id="username" style="width:56%" type="text" name="username" placeholder="Username"/>
+            <input id="firstname" style="width:45%" type="text" name="firstname" placeholder="Firstname"/>
+            <input id= "lastname" style="width:40%" type="text" name="lastname" placeholder="Lastname"/>
+            <input id="password" style="width:48%" type="password" name="password" placeholder="Password"/>
+            <input id="email" style="width:48%" type="text" name="email" placeholder="Email"/>
+            <div class="input_options">
+              User Type:
+              <input id="Admin" type="radio" name="userType" >
+              <label >Admin</label>
+              <input id="User" type="radio" name="userType" >
+              <label >User</label>
+            </div>
+            <input type="button" onclick="addUser()" id="buttonAdd" name="signUp" value="Add User">
+            <a class='button' href='displayUser.php'>Return to Users</a>
+          </form>
+        </div>
+      </div>
+      <script>
+
+      var modal = document.getElementById('myModal');
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+      // When the user clicks on the button, open the modal
+      btn.onclick= function() {
+      modal.style.display = "block";
+      }
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if (event.target == modal) {
+      modal.style.display = "none";
+      }
+      }
+      </script>
+
+
+
+      <!--Footer -->
       <div class ="footer">
          <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>
          <span style=" "><p style="padding-top:2%;">Contact us</p>
@@ -133,5 +175,6 @@
             <span style="color:#515151;padding-left:2%;">All rights reserved<span>
           </div>
         </div>
+
   </body>
 </html>

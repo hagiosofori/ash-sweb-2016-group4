@@ -151,7 +151,9 @@ include_once("adb.php");
 			return $this->query($strQuery);
 		}
 
-
-
+		function getID($userName){
+				$strQuery="Select userID from userinfo where username = '$userName'";
+				return $this->query($strQuery);
+			}
 	}
 ?>

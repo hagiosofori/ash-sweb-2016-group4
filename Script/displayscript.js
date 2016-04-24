@@ -67,18 +67,6 @@
 		var result_table = document.getElementById('results_table');
 		}
 
-		function getAllDrugs(){
-		var ajaxurl="../Controller/homeAjax.php?cmd=1";
-		$.ajax(ajaxurl,
-		{
-		async:true,
-		complete:fillTableDrugs
-
-		}
-		);
-		}
-
-
 
 		function testing(){
 			var update = document.getElementById('update');
@@ -104,11 +92,11 @@
   if(notprinted_drug==true)  {
    document.getElementById('results_table').innerHTML = "";
 	$(function(){
-	document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Drug Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th><th id='supplierid'>Drug Type</th></tr> </thead>";
+	document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Drug Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th><th id='drugType'>Drug Type</th></tr> </thead>";
     $.each(response, function(i, item){
 	    var index= i;
-        var $tr = $('<tr>').append($('<td id='+index+'>').prepend("<span class='clickspot' >"+item.drugName+"</span>").dblclick({object:this,drug:item.drugId},editDrugName),
-		    $('<td id='+index+'>').prepend("<span class='clickspot' >"+item.quantity+"</span>").dblclick({object:this,drug:item.drugId},editDrugQuantity),
+        var $tr = $('<tr>').append($('<td id='+index+'>').prepend(item.drugName).dblclick({object:this,drug:item.drugId},editDrugName),
+		    $('<td id='+index+'>').prepend(item.quantity).dblclick({object:this,drug:item.drugId},editDrugQuantity),
 			$('<td>').text(item.supplierName),
 			$('<td>').text(item.supplierID),
 			$('<td>').text(item.drugType)
@@ -150,8 +138,8 @@ notprinted_supplier=true;
 
     $.each(response, function(i, item){
         var index= i;
-        var $tr = $('<tr>').append($('<td id='+index+'>').prepend("<span class='clickspot' >"+item.toolName+"</span>").dblclick({object:this,tool:item.toolId},editToolName),
-		    $('<td id='+index+'>').prepend("<span class='clickspot' >"+item.quantity+"</span>").dblclick({object:this,tool:item.toolId},editToolQuantity),
+        var $tr = $('<tr>').append($('<td id='+index+'>').prepend(item.toolName).dblclick({object:this,tool:item.toolId},editToolName),
+		    $('<td id='+index+'>').prepend(item.quantity).dblclick({object:this,tool:item.toolId},editToolQuantity),
 
 
 			$('<td>').text(item.supplierName),
@@ -189,18 +177,14 @@ notprinted_supplier=true;
   if(notprinted_supplier==true)  {
   document.getElementById('results_table').innerHTML = "";
 	$(function(){
-	 document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Supplier Name</th><th id='quantity'>Location</th></tr> </thead>";
-
-
+	 document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Supplier Name</th><th id='quantity'>Location</th></tr></thead>";
 
 
     $.each(response, function(i, item){
 	 var index= i;
-        var $tr = $('<tr>').append($('<td id='+index+'>').prepend("<span class='clickspot' >"+item.supplierName+"</span>").dblclick({object:this,supplier:item.suppliersId},editSupplierName),
-		    $('<td id='+index+'>').prepend("<span class='clickspot' >"+item.supplierLocation+"</span>").dblclick({object:this,supplier:item.suppliersId},editSupplierLocation),
+        var $tr = $('<tr>').append($('<td id='+index+'>').prepend(item.supplierName).dblclick({object:this,supplier:item.suppliersId},editSupplierName),
+		    $('<td id='+index+'>').prepend(item.supplierLocation).dblclick({object:this,supplier:item.suppliersId},editSupplierLocation)
 
-			$('<td>').prepend("<a href=\"?id="+index+"\"></a>"),
-			$('<td>').prepend("<span class='clickspot' onclick=\"displaySupplierform(this)\"></span>")
 
         ).appendTo('#results_table');
         //console.log($tr.wrap('<p>').html());
@@ -226,12 +210,13 @@ notprinted_supplier=false;
 function saveDrugName(id){
   currentObject.innerHTML=$("#DrugName").val();
   var Drugname=currentObject.innerHTML;
-  var theUrl=".../Controller/homeAjax.php?cmd=5&dc="+id+"&Drugname="+Drugname;
+  var theUrl="../Controller/homeAjax.php?cmd=5&dc="+id+"&Drugname="+Drugname;
   $.ajax(theUrl,
   {async:true,
    complete:editNameComplete}
  );
 }
+
 function editNameComplete(){
 
 }
@@ -352,5 +337,118 @@ function saveSupplierLocation(id){
  );
 }
 function editSupplierLocationComplete(){
+
+}
+
+function sfillTableTools(xhr, status){
+var response = $.parseJSON(xhr.responseText);
+document.getElementById('update').innerHTML=xhr.responseText;
+if(!notprinted_tool)  {
+document.getElementById('results_table').innerHTML = "";
+$(function(){
+ document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Tool Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th></tr> </thead>";
+
+ //document.getElementById('editlink').innerHTML="<a href="">Edit</a>";
+
+
+	$.each(response, function(i, item){
+			var $tr = $('<tr>').append(
+
+					$('<td>').text(item.toolName),
+					$('<td>').text(item.quantity),
+		$('<td>').text(item.supplierName),
+		$('<td>').text(item.supplierId)
+
+
+			).appendTo('#results_table');
+			//console.log($tr.wrap('<p>').html());
+	});
+});
+notprinted_tool=false;
+notprinted_drug=true;
+notprinted_supplier=true;
+
+}
+
+}
+
+function sfillTableSuppliers(xhr, status){
+var response = $.parseJSON(xhr.responseText);
+document.getElementById('update').innerHTML=xhr.responseText;
+if(!notprinted_supplier)  {
+document.getElementById('results_table').innerHTML = "";
+$(function(){
+ document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Supplier Name</th><th id='quantity'>Location</th></tr> </thead>";
+
+
+
+
+	$.each(response, function(i, item){
+			var $tr = $('<tr>').append(
+
+
+		$('<td>').text(item.supplierName),
+		$('<td>').text(item.supplierLocation),
+		$('<td>').text("<a href=\"google.com\">do something</a>")
+
+			).appendTo('#results_table');
+			//console.log($tr.wrap('<p>').html());
+	});
+});
+notprinted_tool=true;
+notprinted_drug=true;
+notprinted_supplier=false;
+
+}
+
+}
+
+function sfillTableDrugs(xhr, status){
+	var response = $.parseJSON(xhr.responseText);
+	document.getElementById('update').innerHTML=xhr.responseText;
+	if(!notprinted_drug)  {
+document.getElementById('results_table').innerHTML = "";
+$(function(){
+document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Drug Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th><th id='supplierid'>Drug Type</th></tr> </thead>";
+	$.each(response, function(i, item){
+			var $tr = $('<tr>').append(
+
+					$('<td>').text(item.drugName),
+					$('<td>').text(item.quantity),
+		$('<td>').text(item.supplierName),
+		$('<td>').text(item.supplierID),
+		$('<td>').text(item.drugType)
+			).appendTo('#results_table');
+			//console.log($tr.wrap('<p>').html());
+	});
+});
+notprinted_drug=false;
+notprinted_tool=true;
+notprinted_supplier=true;
+
+}
+
+}
+
+function search(){
+	var search = document.getElementById('searchtxt').value;
+	document.getElementById('update').innerHTML='inside search';
+
+	if(!notprinted_tool){
+		document.getElementById('update').innerHTML='searching for tool '+search;
+		var ajaxurl = '../Controller/homeAjax.php?cmd=12&searchtxt='+search;
+		document.getElementById('update').innerHTML=ajaxurl+' in tools';
+		$.ajax(ajaxurl, {async:true, complete:sfillTableTools });
+	}else if(!notprinted_drug){
+		document.getElementById('update').innerHTML=search+' in drugs';
+		var ajaxurl = '../Controller/homeAjax.php?cmd=11&searchtxt='+search;
+		document.getElementById('update').innerHTML=ajaxurl;
+		$.ajax(ajaxurl, {async:true, complete:sfillTableDrugs } );
+	}else if(!notprinted_supplier){
+		document.getElementById('update').innerHTML==ajaxurl+' in suppliers';
+		var ajaxurl = '/Controller/homeAjax.php?cmd=13&searchtxt='+search;
+		$.ajax(ajaxurl, {async:true, complete:sfillTableSuppliers} );
+	}
+
 
 }

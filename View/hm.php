@@ -17,16 +17,17 @@
 
   <body class="checkered">
     <div id='logo'>
-      <a href="logout.php">logout</a>
       <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
+      <a id='logout' href="logout.php">logout</a>
     </div>
 
-       <ul>
-         <div id="links">
-         <li><a href='#'>Home</a></li>
-         <li><a href='#'>Person</a></li>
-         <li><a href='#'>People</a></li>
-       </div>
+
+      <ul>
+        <div id="links">
+          <li><a href='hm.php'>Home</a></li>
+          <li><a href='#'>About</a></li>
+          <li><a href='#'>Team</a></li>
+        </div>
          <?php
           $firstname=$_SESSION["user"]["firstname"];
           $lastname=$_SESSION["user"]["lastname"];
@@ -39,7 +40,7 @@
     <div id="backrectangle"></div>
     <div id="rectangle"></div>
 
-    <a href="tablepage.html">
+    <a href="tablepage.php">
       <div id="view_inventory"></div>
     </a>
 
@@ -78,11 +79,11 @@
     </a>
 
 
-    <!-- <a href="#"> -->
+    <!--<a href="#"> -->
       <div id="feedbackback"><p style= "padding-top: 70%; text-align: center;">Contact us and tell us how to improve the clinic application!</p></div>
     <!-- </a> -->
 
-    <a href="">
+    <a href="https://docs.google.com/forms/d/1U013BGsh0eMU1gmtE1CXGdm2LttBRz_smlvUW6sE2MY/viewform?embedded=true%22">
       <div id="feedback"></div>
     </a>
 

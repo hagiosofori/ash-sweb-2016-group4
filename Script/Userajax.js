@@ -173,13 +173,18 @@ function deleteUser(object,id){
 **/
 function addUserComplete(xhr,status){
   var obj = $.parseJSON(xhr.responseText);
-  if(obj.result==0){
-      alert(obj.message);
-  }
-  else{
-    window.location="../View/displayUser.php";
-  }
-  alert(obj.message);
+  userID=obj.userID;
+        var $tr = $('<tr class="content" style="height:75px;">').append(
+            $('<td ondblclick="editUserName(this,userID)">').text(obj.username),
+            $('<td ondblclick="editUserName(this,userID)">').text(obj.firstname),
+            $('<td ondblclick="editUserName(this,userID)">').text(obj.lastname),
+      $('<td>').text(obj.userType),
+      $('<td>').text(obj.email),
+      $('<td style="width:100px;padding:none;">').text('Not Available'),
+      $('<button class="del" style="margin-left:16px;margin-top:35px;" onclick="deleteUser(this,userID)">').text("Delete")
+    ).appendTo('#nurseTable');
+
+
 }
 
 /**

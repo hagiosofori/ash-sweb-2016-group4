@@ -20,14 +20,27 @@
 					    case 6:
 						      editDrugQuantity();
 							  break;
-						case  7:
+							case  7:
 						      editToolName();
-						case  8:
+									break;
+						  case  8:
 						      editToolQuantity();
+									break;
 						case  9:
 						      editSupplierName();
+									break;
 						case  10:
 						      editSupplierLocation();
+									break;
+						case 11:
+									searchDrugs();
+									break;
+						case 12:
+									searchTools();
+									break;
+						case 13:
+									searchSuppliers();
+									break;
 						default:
 						  echo "nothing selected";
 
@@ -119,7 +132,6 @@
 				$result=$drug->query($query);
 
 				echo '{"result":"success","message":"it is done"}';
-				echo $query;
 			if($result){echo " query success";
 				return true;
 				}else{
@@ -192,5 +204,53 @@
 				}
 				echo json_encode($data);
 				return $success;
+			}
+
+			function searchSuppliers(){
+				include_once("../Model/suppliers.php");
+				$filter = $_REQUEST['searchtxt'];
+				$supp = new suppliers();
+				$supp->connect();
+				$result=$supp->searchSuppliers($filter);
+				$row=$supp->fetch();
+				$data = array();
+
+				while ($row!=false){
+					$data[]=$row;
+					$row=$supp->fetch();
+				}
+				echo json_encode($data);
+			}
+
+			function searchTools(){
+				include_once("../Model/tools.php");
+				$filter = $_REQUEST['searchtxt'];
+				$tool = new tools();
+				$tool->connect();
+				$result=$tool->searchTools($filter);
+				$row=$tool->fetch();
+				$data = array();
+
+				while ($row!=false){
+					$data[]=$row;
+					$row=$tool->fetch();
+				}
+				echo json_encode($data);
+			}
+
+			function searchDrugs(){
+				include_once("../Model/drugs.php");
+				$filter = $_REQUEST['searchtxt'];
+				$drug = new drugs();
+				$drug->connect();
+				$result=$drug->searchDrugs($filter);
+				$row=$drug->fetch();
+				$data = array();
+
+				while ($row!=false){
+					$data[]=$row;
+					$row=$drug->fetch();
+				}
+				echo json_encode($data);
 			}
 			?>
