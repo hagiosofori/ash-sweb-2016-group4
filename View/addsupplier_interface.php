@@ -6,7 +6,7 @@
 	</head>
 	<body class="formpage">
 		<div id="wrapper">
-			<div id='logo'><a href='#logo'><img src='../img/logo.png'/></a></div>
+			<div id='logo'><a href='#logo'><img src='../logo.png'/></a></div>
 			<ul>
 				<li><a href='#'>Home</a></li>
 				<li><a href='#'>Person</a></li>
@@ -31,22 +31,20 @@
 
 
 					echo"<form class=\"information-supplier\"action=\"addsupplier_interface.php\" method=\"GET\">
-					<input id=\"suppliername\" style='width:50%' type=\"text\" name=\"supplierName\" placeholder=\"Supplier Name\" value = $supplierName >
-					<input id=\"supplierlocation\" style='width:50%' type=\"text\" name=\"supplierLocation\" placeholder=\"Location\" value = $supplierLocation  >
-					<input type=\"button\" name=\"submit\" id=\"buttonAdd\" onclick=\"addSupplier();\" value=\"Add Supplier\">
-
+					<input style='width:50%' type=\"text\" name=\"supplierName\" placeholder=\"Supplier Name\" value = $supplierName >
+					<input style='width:50%' type=\"text\" name=\"supplierLocation\" placeholder=\"Location\" value = $supplierLocation  >
+					<button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Supplier</button>
 						<a class='button' href='hm.php'>Return to homepage</a>";
 					//proceeds to  add new item in the database when the button is clicked
-// <button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Supplier</button>
-					//
-					// if(isset($_REQUEST['submit'])){
-					// 	 $supplierName = $_REQUEST['supplierName'];
-					// 	 $supplierLocation = $_REQUEST['supplierLocation'];
-					//
-					// 	 include "../Model/suppliers.php";
-					// 	 $supplier= new Suppliers();
-					// 	$supplier->addSuppliers($supplierName, $supplierLocation);
-					//  }
+
+					if(isset($_REQUEST['submit'])){
+						 $supplierName = $_REQUEST['supplierName'];
+						 $supplierLocation = $_REQUEST['supplierLocation'];
+
+						 include "../Model/suppliers.php";
+						 $supplier= new Suppliers();
+						$supplier->addSuppliers($supplierName, $supplierLocation);
+					 }
 
 				?>
 			</div>

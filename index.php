@@ -14,7 +14,7 @@
               <img src="img/logo.png" style="margin-left:8%;">
               <input type="text" name="username" id="Username" placeholder="Username"/>
               <input type="password" name="password" id="Password" placeholder="Password"/>
-              <input id="buttonAdd" type="button" onclick="LoginU()"  name="Login" value="Log In">
+              <input id="buttonAdd" type="button" onclick="LoginUser()"  name="Login" value="Log In">
               <br><a style="margin-left:20%;" id="pwordForgot" href="" onclick="email()"></a>
               </form>
             </div>

@@ -6,7 +6,7 @@
 	</head>
 	<body class="formpage">
 		<div id="wrapper">
-			<div id='logo'><a href='#logo'><img src='../img/logo.png'/></a></div>
+			<div id='logo'><a href='#logo'><img src='../logo.png'/></a></div>
 			<ul>
 				<li><a href='#'>Home</a></li>
 				<li><a href='#'>Person</a></li>
@@ -33,27 +33,24 @@
 
 
 				echo"<form class=\"information-tools\"action=\"addtool_interface.php\" method=\"GET\">
-				  <input id=\"toolname\" style='width:50%' type=\"text\" name=\"toolName\" placeholder=\"Tool Name\" value = $toolName >
-				  <input id=\"toolquantity\" style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
-				  <input id=\"toolsupplier\" style='width:55%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
-					<input type=\"button\" name=\"submit\" id=\"buttonAdd\" onclick=\"addTool();\" value=\"Add Tool\">
-
-
+				  <input style='width:50%' type=\"text\" name=\"toolName\" placeholder=\"Tool Name\" value = $toolName >
+				  <input style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
+				  <input style='width:55%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
+				  <button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Tool</button>
 				  	<a class='button' href='hm.php'>Return to homepage</a>";
-						// <button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Tool</button>
 				//proceeds to  add new item in the database when the button is clicked
 
-				//  if(isset($_REQUEST['submit'])){
-				 //
-				// 	 $toolname = $_REQUEST['toolName'];
-				// 	 $toolQuantity = $_REQUEST['quantity'];
-				// 	 $toolSupplier=$_REQUEST['supplierId'];
-				 //
-				// 	 include "../Model/tools.php";
-				// 	 $tool = new tools();
-				// 	$tool->addTool($toolname,$toolQuantity,$toolSupplier," ","Tools");
-				 //
-				//  }
+				 if(isset($_REQUEST['submit'])){
+
+					 $toolname = $_REQUEST['toolName'];
+					 $toolQuantity = $_REQUEST['quantity'];
+					 $toolSupplier=$_REQUEST['supplierId'];
+
+					 include "../Model/tools.php";
+					 $tool = new tools();
+					$tool->addTool($toolname,$toolQuantity,$toolSupplier," ","Tools");
+
+				 }
 
 				?>
 			</div>
