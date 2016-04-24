@@ -63,16 +63,16 @@
           $row = $user->getUser();
 
           //Displays all users
-  	         echo"<table border='0'>
-  				          <tr class='head'>
-  					          <td>USERNAME</td>
-  					          <td>FIRSTNAME</td>
-            					<td>LASTNAME</td>
-            					<td>USER TYPE</td>
-                      <td>EMAIL</td>
-                      <td>AVAILABILITY</td>
-                      <td>OPTIONS</td>
-            				</tr>";
+  	         echo"<table border='0' class='usertable'>
+  				          <thead>
+  					          <th id='head'>USERNAME</td>
+  					          <th id='head'>FIRSTNAME</td>
+            					<th id='head'>LASTNAME</td>
+            					<th id='head'>USER TYPE</td>
+                      <th id='head'>EMAIL</td>
+                      <th id='head'>AVAILABILITY</td>
+                      <th id='head'>OPTIONS</td>
+            				</th>";
                 	while($row=$user->fetch()){
                     if($_SESSION['user']['userID']==$row['userID']){
                       $available="Available";
@@ -81,27 +81,27 @@
                       $available="Not Available";
                     }
                     if($Admin==true){
-                      echo"  <tr class='content'>
-                          <td ondblclick='editUserName(this,{$row['userID']})'>{$row['username']}</td>
-                          <td ondblclick='editFirstName(this,{$row['userID']})'>{$row['firstname']}</td>
-                          <td ondblclick='editLastName(this,{$row['userID']})'>{$row['lastname']}</td>
-                          <td>{$row['userType']}</td>
-                          <td>{$row['email']}</td>
-                          <td>$available</td>
-                          <td ><button class='del' onclick='deleteUser(this,{$row['userID']})'>
+                      echo" <tr class='content'>
+                          <td id='user'ondblclick='editUserName(this,{$row['userID']})'>{$row['username']}</td>
+                          <td id='user'ondblclick='editFirstName(this,{$row['userID']})'>{$row['firstname']}</td>
+                          <td id='user'ondblclick='editLastName(this,{$row['userID']})'>{$row['lastname']}</td>
+                          <td id='user'>{$row['userType']}</td>
+                          <td id='user'>{$row['email']}</td>
+                          <td id='user'>$available</td>
+                          <td id='user' ><button class='del' onclick='deleteUser(this,{$row['userID']})'>
                           Delete</button></td>
                       </tr>";
 
                     }
                     else{
                       echo"<tr class='content'>
-                          <td>{$row['username']}</td>
-                          <td>{$row['firstname']}</td>
-                          <td>{$row['lastname']}</td>
-                          <td>{$row['userType']}</td>
-                          <td>{$row['email']}</td>
-                          <td>$available</td>
-                          <td>Delete</td>
+                          <td id='user'>{$row['username']}</td>
+                          <td id='user'>{$row['firstname']}</td>
+                          <td id='user'>{$row['lastname']}</td>
+                          <td id='user'>{$row['userType']}</td>
+                          <td id='user'>{$row['email']}</td>
+                          <td id='user'>$available</td>
+                          <td id='user'>Delete</td>
                       </tr>";
                     }
 

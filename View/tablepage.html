@@ -16,39 +16,14 @@
       <li><a href='#'>People</a></li>
     </ul>
   </div>
-  <style>
-
-#backrectangle{
-  position: absolute;
-  background-image: url("../img/smallerbackground.png");
-  top:300px;
-  left:200px;
-  width:1000px;
-  height:900px;
-  /*background:white;*/
-  border-radius: 10px;
-}
-
-#rectangle1{
-    width:25%;
-    height:100%;
-    background:black;
-}
-
-body {
-  background-image: url("../img/clinicbackground.png");
-  /*background-color: #E7F0F5;*/
-}
-  </style>
-
 
 <div id="update"></div>
 </head>
-<body>
+<body style="background-image: url('../img/clinicbackground.png');">
 <div id="rectangle"></div>
 
 <div class="flat wrapper">
-  <span onclick="getAllDrugs()"><button>Drugs</button></span>
+  <span onclick="getAllDrugs()"><button >Drugs</button></span>
 <span onclick="getAllTools()"><button>Tools</button></span>
  <span onclick="getAllSuppliers()"><button>Supplier</button></span>
 </div>
@@ -59,39 +34,34 @@ body {
  </div>
 
 
-  <div id="backrectangle">
+  <div id="invrectangle">
     <div class = "wrapper">
   <a id="addlink"> <button id="button">Add New Inventory Item</button> </a>
 
  </div>
 
   <table id="results_table">
-
-
-    <thead>
-      <tr id='header'>
+    <thead id="inv-header">
+      <tr id='inv_head'>
         <th id='name'>Drug Name</th>
         <th id='quantity'>Quantity</th>
         <th id='supplier'>Supplier Name</th>
-		<th id='supplierid'>Supplier Id</th>
+		    <th id='supplierid'>Supplier Id</th>
         <th id='type'>DrugType</th>
-
       </tr>
     </thead>
+
     <tbody>
       <tr>
-
+        <td><td>
       </tr>
       <tr>
-
       </tr>
       <tr>
-
       </tr>
     </tbody>
   </table>
 <div><form action="tablepage.html" id="displayform"></form></div>
-
   </div>
   <footer class = "footerB">
      <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>

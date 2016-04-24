@@ -67,18 +67,6 @@
 		var result_table = document.getElementById('results_table');
 		}
 
-		function getAllDrugs(){
-		var ajaxurl="../Controller/homeAjax.php?cmd=1";
-		$.ajax(ajaxurl,
-		{
-		async:true,
-		complete:fillTableDrugs
-
-		}
-		);
-		}
-
-
 
 		function testing(){
 			var update = document.getElementById('update');
@@ -104,11 +92,11 @@
   if(notprinted_drug==true)  {
    document.getElementById('results_table').innerHTML = "";
 	$(function(){
-	document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Drug Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th><th id='supplierid'>Drug Type</th></tr> </thead>";
+	document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Drug Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th><th id='drugType'>Drug Type</th></tr> </thead>";
     $.each(response, function(i, item){
 	    var index= i;
-        var $tr = $('<tr>').append($('<td id='+index+'>').prepend("<span class='clickspot' >"+item.drugName+"</span>").dblclick({object:this,drug:item.drugId},editDrugName),
-		    $('<td id='+index+'>').prepend("<span class='clickspot' >"+item.quantity+"</span>").dblclick({object:this,drug:item.drugId},editDrugQuantity),
+        var $tr = $('<tr>').append($('<td id='+index+'>').prepend(item.drugName).dblclick({object:this,drug:item.drugId},editDrugName),
+		    $('<td id='+index+'>').prepend(item.quantity).dblclick({object:this,drug:item.drugId},editDrugQuantity),
 			$('<td>').text(item.supplierName),
 			$('<td>').text(item.supplierID),
 			$('<td>').text(item.drugType)
@@ -150,8 +138,8 @@ notprinted_supplier=true;
 
     $.each(response, function(i, item){
         var index= i;
-        var $tr = $('<tr>').append($('<td id='+index+'>').prepend("<span class='clickspot' >"+item.toolName+"</span>").dblclick({object:this,tool:item.toolId},editToolName),
-		    $('<td id='+index+'>').prepend("<span class='clickspot' >"+item.quantity+"</span>").dblclick({object:this,tool:item.toolId},editToolQuantity),
+        var $tr = $('<tr>').append($('<td id='+index+'>').prepend(item.toolName).dblclick({object:this,tool:item.toolId},editToolName),
+		    $('<td id='+index+'>').prepend(item.quantity).dblclick({object:this,tool:item.toolId},editToolQuantity),
 
 
 			$('<td>').text(item.supplierName),
@@ -189,15 +177,13 @@ notprinted_supplier=true;
   if(notprinted_supplier==true)  {
   document.getElementById('results_table').innerHTML = "";
 	$(function(){
-	 document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Supplier Name</th><th id='quantity'>Location</th></tr> </thead>";
-
-
+	 document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Supplier Name</th><th id='quantity'>Location</th></tr></thead>";
 
 
     $.each(response, function(i, item){
 	 var index= i;
-        var $tr = $('<tr>').append($('<td id='+index+'>').prepend("<span class='clickspot' >"+item.supplierName+"</span>").dblclick({object:this,supplier:item.suppliersId},editSupplierName),
-		    $('<td id='+index+'>').prepend("<span class='clickspot' >"+item.supplierLocation+"</span>").dblclick({object:this,supplier:item.suppliersId},editSupplierLocation),
+        var $tr = $('<tr>').append($('<td id='+index+'>').prepend(item.supplierName).dblclick({object:this,supplier:item.suppliersId},editSupplierName),
+		    $('<td id='+index+'>').prepend(item.supplierLocation).dblclick({object:this,supplier:item.suppliersId},editSupplierLocation),
 
 			$('<td>').prepend("<a href=\"?id="+index+"\"></a>"),
 			$('<td>').prepend("<span class='clickspot' onclick=\"displaySupplierform(this)\"></span>")
