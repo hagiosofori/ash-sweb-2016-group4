@@ -1,21 +1,39 @@
-    <html>
+<html>
 <head>
+  <?php
+    session_start();
+    if(!isset($_SESSION['user'])){
+      header('Location:../index.php');
+      exit();
+    }
+  ?>
 <title>Welcome
 
 </title>
-  <link rel="stylesheet" type="text/css" href="../css/tablestyle.css"/>
   <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <script type="text/javascript" src="../Script/jquery-1.12.1.js" > </script>
     <script type="text/javascript" src="../Script/displayscript.js"></script>
 
   <div style="background-color">
-    <div id='logo'><a href='#logo'><img src='../img/logo.png'/></a></div>
-    <ul>
-      <li><a href='#'>Home</a></li>
-      <li><a href='#'>Person</a></li>
-      <li><a href='#'>People</a></li>
-    </ul>
-  </div>
+    <div id='logo'>
+      <a href="logout.php">logout</a>
+      <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
+    </div>
+
+       <ul>
+         <div id="links">
+         <li><a href='hm.php'>Home</a></li>
+         <li><a href='#'>Person</a></li>
+         <li><a href='#'>People</a></li>
+       </div>
+         <?php
+          $firstname=$_SESSION["user"]["firstname"];
+          $lastname=$_SESSION["user"]["lastname"];
+           echo "<li id='name' style='float:right'>";
+           echo  "Welcome: ".$firstname." ".$lastname;
+           echo "</li>";
+         ?>
+       </ul>
 
 <div id="update"></div>
 </head>
@@ -41,7 +59,7 @@
  </div>
 
   <table id="results_table">
-    <thead id="inv-header">
+    <thead >
       <tr id='inv_head'>
         <th id='name'>Drug Name</th>
         <th id='quantity'>Quantity</th>

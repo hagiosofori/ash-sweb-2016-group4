@@ -132,7 +132,6 @@
 				$result=$drug->query($query);
 
 				echo '{"result":"success","message":"it is done"}';
-				echo $query;
 			if($result){echo " query success";
 				return true;
 				}else{

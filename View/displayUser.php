@@ -25,7 +25,7 @@
 
               <ul>
                 <div id="links">
-				        <li><a href='#'>Home</a></li>
+				        <li><a href='hm.php'>Home</a></li>
 				        <li><a href='#'>Person</a></li>
 				        <li><a href='#'>People</a></li>
               </div>
@@ -65,14 +65,14 @@
           //Displays all users
   	         echo"<table border='0' class='usertable'>
   				          <thead>
-  					          <th id='head'>USERNAME</td>
-  					          <th id='head'>FIRSTNAME</td>
-            					<th id='head'>LASTNAME</td>
-            					<th id='head'>USER TYPE</td>
-                      <th id='head'>EMAIL</td>
-                      <th id='head'>AVAILABILITY</td>
-                      <th id='head'>OPTIONS</td>
-            				</th>";
+  					          <th id='head'>USERNAME</th>
+  					          <th id='head'>FIRSTNAME</th>
+            					<th id='head'>LASTNAME</th>
+            					<th id='head'>USER TYPE</th>
+                      <th id='head'>EMAIL</th>
+                      <th id='head'>AVAILABILITY</th>
+                      <th id='head'>OPTIONS</th>
+            				</thead>";
                 	while($row=$user->fetch()){
                     if($_SESSION['user']['userID']==$row['userID']){
                       $available="Available";

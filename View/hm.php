@@ -22,7 +22,7 @@
 
        <ul>
          <div id="links">
-         <li><a href='#'>Home</a></li>
+         <li><a href='hm.php'>Home</a></li>
          <li><a href='#'>Person</a></li>
          <li><a href='#'>People</a></li>
        </div>
@@ -38,7 +38,7 @@
     <div id="backrectangle"></div>
     <div id="rectangle"></div>
 
-    <a href="tablepage.html">
+    <a href="tablepage.php">
       <div id="view_inventory"></div>
     </a>
 

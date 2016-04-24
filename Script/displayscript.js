@@ -218,6 +218,7 @@ function saveDrugName(id){
    complete:editNameComplete}
  );
 }
+
 function editNameComplete(){
 
 }
