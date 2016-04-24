@@ -78,11 +78,11 @@
     </a>
 
 
-    <!-- <a href="#"> -->
+    <!--<a href="#"> -->
       <div id="feedbackback"><p style= "padding-top: 70%; text-align: center;">Contact us and tell us how to improve the clinic application!</p></div>
     <!-- </a> -->
 
-    <a href="">
+    <a href="https://docs.google.com/forms/d/1U013BGsh0eMU1gmtE1CXGdm2LttBRz_smlvUW6sE2MY/viewform?embedded=true%22">
       <div id="feedback"></div>
     </a>
 
