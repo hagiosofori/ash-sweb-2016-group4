@@ -60,7 +60,7 @@
           $row = $user->getUser();
 
           //Displays all users
-  	         echo"<table border='0'>
+  	         echo"<table border='0' id='nurseTable'>
   				          <tr class='head'>
   					          <td>USERNAME</td>
   					          <td>FIRSTNAME</td>
@@ -136,7 +136,7 @@
               <input id="User" type="radio" name="userType" >
               <label >User</label>
             </div>
-            <input type="button" ondblclick="addUser()" id="buttonAdd" name="signUp" value="Add User">
+            <input type="button" onclick="addUser()" id="buttonAdd" name="signUp" value="Add User">
             <a class='button' href='displayUser.php'>Return to Users</a>
           </form>
         </div>
