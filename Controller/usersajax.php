@@ -133,7 +133,12 @@
 				echo'{"result":0,"message":"User not added"}';
 			}
 			else{
-				echo'{"result":1,"message":"User added"}';
+				$id=$user->getID($username);
+				$id=$user->fetch();
+				$array=array('result'=>1,'message'=>'User added',
+				'username'=>$username,'firstname'=>$firstname,'lastname'=>$lastname
+			,'password'=>$password,'email'=>$email, 'userType'=>$type,'userID'=>$id["userID"]);
+				echo json_encode($array);
 			}
 		}
 
