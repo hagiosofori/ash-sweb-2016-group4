@@ -54,31 +54,17 @@
 
   <div id="invrectangle">
     <div class = "wrapper">
-  <a id="addlink"> <button id="button">Add New Inventory Item</button> </a>
+  <a id="addlink"> <button id="button">Please select an option above to proceed</button> </a>
 
  </div>
 
   <table id="results_table">
     <thead >
-      <tr id='inv_head'>
-        <th id='name'>Drug Name</th>
-        <th id='quantity'>Quantity</th>
-        <th id='supplier'>Supplier Name</th>
-		    <th id='supplierid'>Supplier Id</th>
-        <th id='type'>DrugType</th>
-      </tr>
     </thead>
-
-    <tbody>
-      <tr>
-        <td><td>
-      </tr>
-      <tr>
-      </tr>
-      <tr>
-      </tr>
-    </tbody>
   </table>
+
+  
+
 <div><form action="tablepage.html" id="displayform"></form></div>
   </div>
   <footer class = "footerB">
