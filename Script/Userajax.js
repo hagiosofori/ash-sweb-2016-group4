@@ -1,5 +1,6 @@
 
 var currentObject = null;
+var userID;
 
 //Displays email alert message
 function email(){
@@ -159,13 +160,17 @@ function deleteUser(object,id){
 **/
 function addUserComplete(xhr,status){
   var obj = $.parseJSON(xhr.responseText);
-  if(obj.result==0){
-      alert(obj.message);
-  }
-  else{
-    alert(obj.message);
-    window.location="../View/displayUser.php";
-  }
+  userID=obj.userID;
+        var $tr = $('<tr class="content" style="height:75px;">').append(
+            $('<td ondblclick="editUserName(this,userID)">').text(obj.username),
+            $('<td ondblclick="editUserName(this,userID)">').text(obj.firstname),
+            $('<td ondblclick="editUserName(this,userID)">').text(obj.lastname),
+      $('<td>').text(obj.userType),
+      $('<td>').text(obj.email),
+      $('<td>').text('Not Available'),
+      $('<button class="del" style="margin-left:16px;margin-top:35px;" onclick="deleteUser(this,userID)">').text("Delete")
+    ).appendTo('#nurseTable');
+
 
 }
 
