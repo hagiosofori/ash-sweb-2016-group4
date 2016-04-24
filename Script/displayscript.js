@@ -212,7 +212,7 @@ notprinted_supplier=false;
 function saveDrugName(id){
   currentObject.innerHTML=$("#DrugName").val();
   var Drugname=currentObject.innerHTML;
-  var theUrl=".../Controller/homeAjax.php?cmd=5&dc="+id+"&Drugname="+Drugname;
+  var theUrl="../Controller/homeAjax.php?cmd=5&dc="+id+"&Drugname="+Drugname;
   $.ajax(theUrl,
   {async:true,
    complete:editNameComplete}
