@@ -37,7 +37,7 @@
 			if(isset($_REQUEST['drugType'])){
 			$drugType=$_REQUEST['drugType'];
 			}
-			echo"<form class=\"information-drug\" action=\"adddrug_interface.php\" method=\"GET\">
+			echo"<form class=\"information-drug\" action=\"adddrug_interface.php\" method=\"GET\" onsubmit=\"validate();\">
 			<input id=\"drugname\" style='width:60%' type=\"text\" name=\"drugName\" placeholder=\"Drug Name\" value = $drugName >
 			<input id=\"drugquantity\" style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
 			<input id=\"drugsupplier\" style='width:60%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
