@@ -210,24 +210,21 @@
 				}
 			}
 
-		function addNewSupplier(){
-			include("../Model/suppliers.php");
-			$suppliers=new suppliers();
-			if(!isset($_REQUEST['suppliername'])){
-				echo "Supplier ID is not given";
-				exit();
+			function addNewSupplier(){
+				include("../Model/suppliers.php");
+				$suppliers=new suppliers();
+				if(!isset($_REQUEST['suppliername'])){
+					echo "Supplier ID is not given";
+					exit();
+				}
+				$suppliername=$_REQUEST['suppliername'];
+				$supplierlocation=$_REQUEST['supplierlocation'];
+				$verify=$suppliers->addSuppliers($suppliername,$supplierlocation);
+				if($verify==false){
+					echo'{"result":0,"message":"Supplier not added"}';
+				}
+				else{
+					echo'{"result":1,"message":"Supplier added"}';
+				}
 			}
-
-			$suppliername=$_REQUEST['suppliername'];
-			$supplierlocation=$_REQUEST['supplierlocation'];
-
-
-			$verify=$suppliers->addSuppliers($suppliername,$supplierlocation);
-			if($verify==false){
-				echo'{"result":0,"message":"Supplier not added"}';
-			}
-			else{
-				echo'{"result":1,"message":"Supplier added"}';
-			}
-		}
 ?>
