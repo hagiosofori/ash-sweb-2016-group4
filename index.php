@@ -2,6 +2,7 @@
 <!--Author: Kwabena Boohene-->
   <head>
     <title>Login</title>
+    <!--Resources loaded-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="Script/jquery-1.12.1.js"></script>
     <script type="text/javascript" src="Script/Userajax.js"></script>

@@ -9,33 +9,34 @@
       }
     ?>
     <title>Users</title>
+    <!--Imported the needed resources-->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script type="text/javascript" src="../Script/jquery-1.12.1.js"></script>
     <script type="text/javascript" src="../Script/Userajax.js"></script>
   </head>
 
+<!--Body of the page-->
   <body class="formpage">
     <div id="wrapper">
-			     <div id='logo'>
-             <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
-           </div>
-
-              <ul>
-                <div id="links">
-				        <li><a href='#'>Home</a></li>
-				        <li><a href='#'>Person</a></li>
-				        <li><a href='#'>People</a></li>
-              </div>
-                <?php
-                 $firstname=$_SESSION["user"]["firstname"];
-                 $lastname=$_SESSION["user"]["lastname"];
-                  echo "<li id='name' style='float:right'>";
-                  echo  "Welcome: ".$firstname." ".$lastname;
-                  echo "</li>";
-                ?>
-			        </ul>
-
-
+			<div id='logo'>
+       <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
+      </div>
+      <!--Navbar-->
+      <ul>
+        <div id="links">
+  				  <li><a href='#'>Home</a></li>
+  				  <li><a href='#'>Person</a></li>
+  				  <li><a href='#'>People</a></li>
+        </div>
+        <!--Verification -->
+        <?php
+         $firstname=$_SESSION["user"]["firstname"];
+         $lastname=$_SESSION["user"]["lastname"];
+          echo "<li id='name' style='float:right'>";
+          echo  "Welcome: ".$firstname." ".$lastname;
+          echo "</li>";
+          ?>
+			</ul>
 
         <div class="form_backV3">
           <?php
@@ -141,25 +142,21 @@
           </form>
         </div>
       </div>
+
+      <!--Popup box to pick user information-->
       <script>
 
-      var modal = document.getElementById('myModal');
-      // Get the button that opens the modal
+      var popup = document.getElementById('myModal');
       var btn = document.getElementById("myBtn");
-      // When the user clicks on the button, open the modal
       btn.onclick= function() {
-      modal.style.display = "block";
+      popup.style.display = "block";
       }
-      // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
-      if (event.target == modal) {
+      if (event.target == popup) {
       modal.style.display = "none";
       }
       }
       </script>
-
-
-
       <!--Footer -->
       <div class ="footer">
          <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>

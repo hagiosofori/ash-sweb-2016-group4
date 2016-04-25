@@ -53,6 +53,7 @@ function saveUserName(id){
  );
 }
 
+
 /**
 *@param server response, status
 *Displays a popup of whether
@@ -61,6 +62,7 @@ function saveUserName(id){
 function editNameComplete(xhr,status){
   alert(xhr.responseText);
 }
+
 
 /**
 *@param table data object, id of the user
