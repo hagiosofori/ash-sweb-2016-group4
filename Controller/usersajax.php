@@ -170,10 +170,10 @@
 		}
 
 		function addNewDrug(){
-			include("../Model/drug.php");
-			$drug=new drug();
+			include("../Model/drugs.php");
+			$drug=new drugs();
 			if(!isset($_REQUEST['drugname'])){
-				echo "drugId not given";
+				echo "drug name not given";
 				exit();
 			}
 
@@ -182,7 +182,7 @@
 			$drugsupplier=$_REQUEST['drugsupplier'];
 			$drugtype=$_REQUEST['drugType'];
 
-			$verify=$drug->addDrug($drugname,$drugquantity,$drugsupplier,$drugtype);
+			$verify=$drug->addDrug($drugname,$drugquantity,$drugsupplier,1,"Drug");
 			if($verify==false){
 				echo'{"result":0,"message":"Drug not added"}';
 			}
