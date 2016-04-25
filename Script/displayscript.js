@@ -380,13 +380,8 @@ document.getElementById('results_table').innerHTML = "";
 $(function(){
  document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Supplier Name</th><th id='quantity'>Location</th></tr> </thead>";
 
-
-
-
 	$.each(response, function(i, item){
 			var $tr = $('<tr>').append(
-
-
 		$('<td>').text(item.supplierName),
 		$('<td>').text(item.supplierLocation),
 		$('<td>').text("<a href=\"google.com\">do something</a>")

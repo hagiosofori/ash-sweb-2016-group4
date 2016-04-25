@@ -1,57 +1,58 @@
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-</head>
-<body>
-  <div id='logo'>
-    <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
-    <a id='logout' href="logout.php">logout</a>
-  </div>
-<div class = "inlineblock" style="margin-top:40px;">
+  <head>
+      <!--Resources-->
+      <link rel="stylesheet" type="text/css" href="../css/style.css">
+  </head>
+  <body>
+    <!--Ashesi Clinic Logo-->
+    <div id='logo'>
+      <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
+      <a id='logout' href="logout.php">logout</a>
+    </div>
+    <!--Background -->
+    <div class = "inlineblock" style="margin-top:40px;">
+      <!--Download report button-->
+      <div>
+        <h1>
+          DOWNLOAD REPORTS<br><br>
+        </h1>
+      </div>
 
+      <!--Report description-->
+      <div>
+        <h2>
+          The button below generates a report of the table of drug information exclusively.
+        </h2>
+      </div>
 
+      <!--Controller for report-->
+      <div class="flat">
+          <a href = "../Controller/generatereport.php?preference=1"><button>Drug Report</button></a>
+      </div>
 
-  <div>
-    <h1>
-      DOWNLOAD REPORTS<br><br>
-    </h1>
-  </div>
+      <!--Tool description-->
+      <div>
+        <h2>
+          The button below generates a report of the table of tools information exclusively.
+        </h2>
+      </div>
 
+      <!--Tool report description-->
+      <div class="flat">
+        <a href = "../Controller/generatereport.php?preference=2"><button>Tool Report</button></a>
+      </div>
 
-  <div>
-    <h2>
-      The button below generates a report of the table of drug information exclusively.
-    </h2>
-  </div>
+      <!--Availability report description-->
+      <div>
+        <h2>
+           The button below generates a report of the table nurses and their availability at the clinic exclusively.
+        </h2>
+      </div>
 
-
-  <div class="flat">
-      <a href = "../Controller/generatereport.php?preference=1"><button>Drug Report</button></a>
-  </div>
-
-  <div>
-    <h2>
-      The button below generates a report of the table of tools information exclusively.
-    </h2>
-  </div>
-
-
-
-  <div class="flat">
-    <a href = "../Controller/generatereport.php?preference=2"><button>Tool Report</button></a>
-  </div>
-
-  <div>
-    <h2>
-       The button below generates a report of the table nurses and their availability at the clinic exclusively.
-    </h2>
-  </div>
-
-
-  <div class="flat">
-      <a href = "../Controller/generatereport.php?preference=3"><button>Availability Report</button></a>
-  </div>
-
-</div>
-</body>
+      <!--Availability report button-->
+      <div class="flat">
+          <a href = "../Controller/generatereport.php?preference=3"><button>Availability Report</button></a>
+      </div>
+    </div>
+  </body>
 </html>

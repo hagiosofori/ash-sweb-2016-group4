@@ -40,27 +40,13 @@
 				$supplierName ='';
 					$supplierLocation='';
 					//checks the url to get values from it in order to let the values remain in the text fields
-					if(isset($_REQUEST['supplierName'])){
-					$supplierName=$_REQUEST['supplierName'];
-					}
-					if(isset($_REQUEST['supplierLocation'])){
-					$supplierLocation=$_REQUEST['supplierLocation'];}
+
 					echo"<form class=\"information-supplier\"action=\"addsupplier_interface.php\" method=\"GET\">
 					<input id=\"suppliername\" style='width:50%' type=\"text\" name=\"supplierName\" placeholder=\"Supplier Name\" value = $supplierName >
 					<input id=\"supplierlocation\" style='width:50%' type=\"text\" name=\"supplierLocation\" placeholder=\"Location\" value = $supplierLocation  >
 					<input type=\"button\" name=\"submit\" id=\"buttonAdd\" onclick=\"addSupplier();\" value=\"Add Supplier\">
 						<a class='button' href='hm.php'>Return to homepage</a>";
-					//proceeds to  add new item in the database when the button is clicked
-// <button type=\"submit\" name=\"submit\" class=\"buttonAdd\">Add Supplier</button>
-					//
-					// if(isset($_REQUEST['submit'])){
-					// 	 $supplierName = $_REQUEST['supplierName'];
-					// 	 $supplierLocation = $_REQUEST['supplierLocation'];
-					//
-					// 	 include "../Model/suppliers.php";
-					// 	 $supplier= new Suppliers();
-					// 	$supplier->addSuppliers($supplierName, $supplierLocation);
-					//  }
+				
 				?>
 			</div>
 	    	<div class="push"></div>

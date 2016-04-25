@@ -1,16 +1,15 @@
 <html>
-
-    <?php
-    //Session started
-      session_start();
-      if(!isset($_SESSION['user'])){
-        header('Location:../index.php');
-        exit();
-      } else{
-        //Session destroyed
-        session_destroy();
-      }
-    ?>
+  <?php
+  //Session started
+  session_start();
+  if(!isset($_SESSION['user'])){
+    header('Location:../index.php');
+    exit();
+  } else{
+  //Session destroyed
+  session_destroy();
+    }
+  ?>
   <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <!--redirects to the login page after 3 seconds-->
