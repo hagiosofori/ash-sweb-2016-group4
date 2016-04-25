@@ -29,6 +29,7 @@ if(regexp1.test($("#drugtype").val()) && regexp2.test($("#drugtype").val()) && r
 }
 
 
+
 /**
 * The function below validates that the supplier entered by the user containts ID"s as the textfield takes in ID values as relating to the ID's of the supplier.
 **/
