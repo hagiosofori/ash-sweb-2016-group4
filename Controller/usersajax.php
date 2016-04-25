@@ -128,6 +128,20 @@
 			$email=$_REQUEST['email'];
 			$type=$_REQUEST['type'];
 
+			//Checks the length and content of the password
+			$pwordCheck ="/[a-zA-Z0-9]{6,2O}/";
+			if(preg_match($pwordCheck,$password)===false){
+				echo'{"result":0,"message":"Password must contain letters and numbers \nLength must be greater than 6 characters"}';
+					exit();
+			}
+
+			//Checks Ashesi email
+			$emailCheck="/@ashesi.edu.gh/";
+			if(preg_match($emailCheck,$email)===0){
+				echo'{"result":0,"message":"Email must contain Ashesi address"}';
+				exit();
+			}
+
 			$verify=$user->addNewUser($username,$firstname,$lastname,$password,$email,$type);
 			if($verify==false){
 				echo'{"result":0,"message":"User not added"}';
