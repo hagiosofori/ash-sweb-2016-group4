@@ -22,19 +22,20 @@
         <a href='hm.php'><img src='../img/logo.png' height="95%" style="margin-left:1%;"/></a>
         <a id='logout' href="logout.php">logout</a>
       </div>
-
+      <!--Navbar-->
       <ul>
         <div id="links">
           <li><a href='hm.php'>Home</a></li>
           <li><a href='about.php'>About</a></li>
           <li><a href='#'>Team</a></li>
         </div>
+        <!--Session Information-->
         <?php
-        $firstname=$_SESSION["user"]["firstname"];
-        $lastname=$_SESSION["user"]["lastname"];
-        echo "<li id='name' style='float:right'>";
-        echo  "Welcome: ".$firstname." ".$lastname;
-        echo "</li>";
+          $firstname=$_SESSION["user"]["firstname"];
+          $lastname=$_SESSION["user"]["lastname"];
+          echo "<li id='name' style='float:right'>";
+          echo  "Welcome: ".$firstname." ".$lastname;
+          echo "</li>";
         ?>
       </ul>
 
@@ -112,7 +113,6 @@
         }
         echo"<a class='button' href='hm.php'>Return to homepage</a>";
 
-
         ?>
       </div>
       <!--Tool tip for editing user-->
@@ -144,27 +144,24 @@
         </form>
       </div>
     </div>
-    <script>
 
-    var modal = document.getElementById('myModal');
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-    // When the user clicks on the button, open the modal
-    btn.onclick= function() {
-      modal.style.display = "block";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+    <!--Script for popup-->
+    <script>
+      var popup = document.getElementById('myModal');
+      var btn = document.getElementById("myBtn");
+      btn.onclick= function() {
+        popup.style.display = "block";
       }
-    }
+      window.onclick = function(event) {
+        if (event.target == popup) {
+          popup.style.display = "none";
+        }
+      }
     </script>
     <!--Footer -->
     <div class ="footer">
       <span style="float:left;margin-top:2%; margin-right:5%;"><img id="imageshape" src="../img/logo.png"/></span>
       <div>
-
         <span style="padding-top:10%;">
           Contact us <img style="margin-left:1%; margin-right: 1%; width: 2%; height: 15%; padding-left:60%;" src="../img/fb-art.jpg"/><br>
           Phone number:(00233)34-456-00-99<img style="margin-left:1%; margin-right: 1%; width: 5%; height: 20%; padding-left:48%;" src="../img/NHIS.png" src= "../img/medx.jpg"/><br>
@@ -174,9 +171,8 @@
         <span><br></span>
       </div>
 
-        <div> <span style="padding-left:2%; padding-left:25%;"> &copy; 2016 Copyright Clinic Tool</span>
-          <span style="color:#fffff;padding-left:20%;">All rights reserved</span>
-        </div>
+      <div> <span style="padding-left:2%; padding-left:25%;"> &copy; 2016 Copyright Clinic Tool</span>
+        <span style="color:#fffff;padding-left:20%;">All rights reserved</span>
       </div>
     </div>
   </body>

@@ -17,7 +17,6 @@ function addDrug(){
   var drugquantity=$("#drugquantity").val();
   var drugsupplier=$("#drugsupplier").val();
   var drugtype=$("#drugtype").val();
-
   var theUrl="../Controller/homeAjax.php?cmd=14&drugname="+drugname+
   "&drugquantity="+drugquantity+"&drugsupplier="+drugsupplier+"&drugtype="+drugtype;
   $.ajax(theUrl,
@@ -42,8 +41,6 @@ function addTool(){
   var toolname = $("#toolname").val();
   var toolquantity=$("#toolquantity").val();
   var toolsupplier=$("#toolsupplier").val();
-
-
   var theUrl="../Controller/homeAjax.php?cmd=16&toolname="+toolname+
   "&toolquantity="+toolquantity+"&toolsupplier="+toolsupplier;
 
