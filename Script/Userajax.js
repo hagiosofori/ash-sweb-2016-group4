@@ -12,6 +12,21 @@ return false;
 window.location="../View/adddrug_interface.php";
 }
 
+/**
+* The function below validates that the drug type entered by the user containts Tablets or Syrups or Repositories in the textfield as they are the 3 types of drug administration.
+**/
+function validateDrugType()
+{
+var regexp1=new RegExp("[^Tablets]");
+var regexp2=new RegExp("[^Syrups]");
+var regexp2=new RegExp("[^Repositories]");
+
+if(regexp1.test($("#drugtype").val()) && regexp2.test($("#drugtype").val()) && regexp3.test($("#drugtype").val()) ){
+  alert("Drug types can only be Tablets or Syrups or Repositories");
+  window.location="../View/adddrug_interface.php";
+  return false;
+}
+}
 
 
 /**
