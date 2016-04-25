@@ -2,6 +2,7 @@
   <head>
     <?php
     //Session Started
+    error_reporting(0);
       session_start();
       if(!isset($_SESSION['user'])){
         header('Location:../index.php');
@@ -24,7 +25,7 @@
       <!--Navbar-->
       <ul>
         <div id="links">
-  				  <li><a href='#'>Home</a></li>
+  				  <li><a href='hm.php'>Home</a></li>
   				  <li><a href='#'>Person</a></li>
   				  <li><a href='#'>People</a></li>
         </div>
@@ -153,7 +154,7 @@
       }
       window.onclick = function(event) {
       if (event.target == popup) {
-      modal.style.display = "none";
+      popup.style.display = "none";
       }
       }
       </script>
