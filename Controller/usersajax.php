@@ -170,61 +170,60 @@
 		}
 
 		function addNewDrug(){
-			include("../Model/drugs.php");
-			$drug=new drugs();
-			if(!isset($_REQUEST['drugname'])){
-				echo "drug name not given";
+				include("../Model/drugs.php");
+				$drug=new drugs();
+				if(!isset($_REQUEST['drugname'])){
+					echo "drugId not given";
+					exit();
+				}
+				$drugname=$_REQUEST['drugname'];
+				$drugquantity=$_REQUEST['drugquantity'];
+				$drugsupplier=$_REQUEST['drugsupplier'];
+				$drugtype=$_REQUEST['drugtype'];
+				$verify=$drug->addDrug($drugname,$drugquantity,$drugsupplier,1,"Drugs");
+				if($verify==false){
+					echo'{"result":0,"message":"Drug not added"}';
+				}
+				else{
+					echo'{"result":1,"message":"Drug added"}';
+				}
+			}
+
+		function addNewTool(){
+			include("../Model/tools.php");
+			$tool=new tools();
+			if(!isset($_REQUEST['toolname'])){
+				echo "Tool ID is not given";
 				exit();
 			}
-
-			$drugname=$_REQUEST['drugname'];
-			$drugquantity=$_REQUEST['drugquantity'];
-			$drugsupplier=$_REQUEST['drugsupplier'];
-			$drugtype=$_REQUEST['drugType'];
-
-			$verify=$drug->addDrug($drugname,$drugquantity,$drugsupplier,1,"Drug");
+			$toolname=$_REQUEST['toolname'];
+			$toolquantity=$_REQUEST['toolquantity'];
+			$toolsupplier=$_REQUEST['toolsupplier'];
+			$verify=$tool->addTool($toolname,$toolquantity,$toolsupplier,"Tools","Tools");
 			if($verify==false){
-				echo'{"result":0,"message":"Drug not added"}';
+				echo'{"result":0,"message":"Tool not added"}';
 			}
 			else{
-				echo'{"result":1,"message":"Drug added"}';
+				echo'{"result":1,"message":"Tool added"}';
 			}
 		}
 
-		function addNewTool(){
-				include("../Model/tools.php");
-				$tool=new tools();
-				if(!isset($_REQUEST['toolname'])){
-					echo "Tool ID is not given";
-					exit();
-				}
-				$toolname=$_REQUEST['toolname'];
-				$toolquantity=$_REQUEST['toolquantity'];
-				$toolsupplier=$_REQUEST['toolsupplier'];
-				$verify=$tool->addTool($toolname,$toolquantity,$toolsupplier,"Tools","Tools");
-				if($verify==false){
-					echo'{"result":0,"message":"Tool not added"}';
-				}
-				else{
-					echo'{"result":1,"message":"Tool added"}';
-				}
-			}
 
-			function addNewSupplier(){
-				include("../Model/suppliers.php");
-				$suppliers=new suppliers();
-				if(!isset($_REQUEST['suppliername'])){
-					echo "Supplier ID is not given";
-					exit();
-				}
-				$suppliername=$_REQUEST['suppliername'];
-				$supplierlocation=$_REQUEST['supplierlocation'];
-				$verify=$suppliers->addSuppliers($suppliername,$supplierlocation);
-				if($verify==false){
-					echo'{"result":0,"message":"Supplier not added"}';
-				}
-				else{
-					echo'{"result":1,"message":"Supplier added"}';
-				}
+		function addNewSupplier(){
+			include("../Model/suppliers.php");
+			$suppliers=new suppliers();
+			if(!isset($_REQUEST['suppliername'])){
+				echo "Supplier ID is not given";
+				exit();
 			}
+			$suppliername=$_REQUEST['suppliername'];
+			$supplierlocation=$_REQUEST['supplierlocation'];
+			$verify=$suppliers->addSuppliers($suppliername,$supplierlocation);
+			if($verify==false){
+				echo'{"result":0,"message":"Supplier not added"}';
+			}
+			else{
+				echo'{"result":1,"message":"Supplier added"}';
+			}
+		}
 ?>

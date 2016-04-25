@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>Add Supplier</title>
-		<link rel="stylesheet" type="text/css" href="../css/header.css">
+		<!-- <link rel="stylesheet" type="text/css" href="../css/header.css"> -->
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
 	<body class="formpage">
