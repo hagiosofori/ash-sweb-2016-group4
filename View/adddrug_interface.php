@@ -76,14 +76,23 @@
 	    <div class="push"></div>
 	</div>
 
+	<!--Footer -->
 	<div class ="footer">
-	 <span style="float:left;margin-top:2%"><img id="imageshape" src="../img/logo.png"/></span>
-	 <span style=" "><p style="padding-top:2%;">Contact us</p>
-		 <p>Phone number:(00233)34-456-00-99</p> <p>Email: info@ashesiclinic.com </p>
-	 </span>
-	 <div id="footertext" style="padding-left:2% float:right;">
-				&copy; 2016 Copyright Clinic Tool</span>
-			<span style="color:#515151;padding-left:2%;">All rights reserved<span>
+		<span style="float:left;margin-top:2%; margin-right:5%;"><img id="imageshape" src="../img/logo.png"/></span>
+ <div>
+
+	 <span style="padding-top:10%;">
+		 Contact us <img style="margin-left:1%; margin-right: 1%; width: 2%; height: 15%; padding-left:60%;" src="../img/fb-art.jpg"/><br>
+		 Phone number:(00233)34-456-00-99<img style="margin-left:1%; margin-right: 1%; width: 5%; height: 20%; padding-left:48%;" src="../img/NHIS.png" src= "../img/medx.jpg"/><br>
+		 Email: info@ashesiclinic.com<img style="margin-left:1%; margin-right: 1%; width: 5%; height: 20%; padding-left:52%;" src="../img/medx.jpg"/> <br> </span>
+
+		<span><br></span>
+		<span><br></span>
+ </div>
+
+		<div> <span style="padding-left:2%; padding-left:25%;"> &copy; 2016 Copyright Clinic Tool</span>
+			 <span style="color:#fffff;padding-left:20%;">All rights reserved</span>
+			 </div>
 	 </div>
 	</div>
 

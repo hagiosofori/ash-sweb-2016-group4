@@ -150,7 +150,7 @@ include_once("adb.php");
 				$strQuery ="Select email from userinfo where username = '$userName' ";
 			return $this->query($strQuery);
 		}
-
+		
 		function getID($userName){
 				$strQuery="Select userID from userinfo where username = '$userName'";
 				return $this->query($strQuery);
