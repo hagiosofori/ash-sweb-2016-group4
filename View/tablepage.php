@@ -46,9 +46,9 @@
  <span onclick="getAllSuppliers()"><button>Supplier</button></span>
 </div>
 
-<div style=' width: 50%; padding-left: 40%;float: right;'>
+<div style=' width: 50%; padding-left: 40%;'>
   <input type='text' id= 'searchtxt' style='width: 25%; ' >
-  <input type='submit' value = 'Search' name='searchbtn' onclick='search()'>
+  <input type='submit' id='SearchButton' value = 'Search' name='searchbtn' onclick='search()'>
  </div>
 
 
@@ -63,7 +63,7 @@
     </thead>
   </table>
 
-  
+
 
 <div><form action="tablepage.html" id="displayform"></form></div>
   </div>
