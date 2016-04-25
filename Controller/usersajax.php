@@ -192,25 +192,23 @@
 		}
 
 		function addNewTool(){
-			include("../Model/tools.php");
-			$tool=new tool();
-			if(!isset($_REQUEST['toolName'])){
-				echo "Tool ID is not given";
-				exit();
+				include("../Model/tools.php");
+				$tool=new tools();
+				if(!isset($_REQUEST['toolname'])){
+					echo "Tool ID is not given";
+					exit();
+				}
+				$toolname=$_REQUEST['toolname'];
+				$toolquantity=$_REQUEST['toolquantity'];
+				$toolsupplier=$_REQUEST['toolsupplier'];
+				$verify=$tool->addTool($toolname,$toolquantity,$toolsupplier,"Tools","Tools");
+				if($verify==false){
+					echo'{"result":0,"message":"Tool not added"}';
+				}
+				else{
+					echo'{"result":1,"message":"Tool added"}';
+				}
 			}
-
-			$toolname=$_REQUEST['toolName'];
-			$toolquantity=$_REQUEST['quantity'];
-			$toolsupplier=$_REQUEST['supplierId'];
-
-			$verify=$tool->addTool($toolname,$toolquantity,$toolsupplier);
-			if($verify==false){
-				echo'{"result":0,"message":"Tool not added"}';
-			}
-			else{
-				echo'{"result":1,"message":"Tool added"}';
-			}
-		}
 
 		function addNewSupplier(){
 			include("../Model/suppliers.php");
