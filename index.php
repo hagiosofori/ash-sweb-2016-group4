@@ -12,7 +12,7 @@
       <div class="col-3 col-offset-6">
           <!--Form to collect information to login-->
             <form class="login" style="margin-top:30%;height:58%" action="" method="POST" onsubmit='validate()'>
-              <img src="img/logo.png" style="margin-left:30%;">
+              <img src="img/logo.png" style="margin-left:9%;">
               <input type="text" name="username" id="Username" placeholder="Username"/>
               <input type="password" name="password" id="Password" placeholder="Password"/>
               <input id="buttonAdd" type="button" onclick="LoginUser()"  name="Login" value="Log In">
