@@ -12,6 +12,7 @@ function email(){
 *Redirects to the home page after login
 **/
 function LoginComplete(xhr,status){
+
   var obj = $.parseJSON(xhr.responseText);
   if(obj.result==1){
     window.location="View/hm.php";
@@ -161,7 +162,9 @@ function deleteUser(object,id){
 * was added or not
 **/
 function addUserComplete(xhr,status){
+  console.log(xhr.responseText);
   var obj = $.parseJSON(xhr.responseText);
+  if(obj.result==1){
   userID=obj.userID;
         var $tr = $('<tr class="content" style="height:75px;">').append(
             $('<td ondblclick="editUserName(this,userID)">').text(obj.username),
@@ -173,6 +176,14 @@ function addUserComplete(xhr,status){
       $('<button class="del" style="margin-left:16px;margin-top:35px;" onclick="deleteUser(this,userID)">').text("Delete")
     ).appendTo('#nurseTable');
 
+    /*Fields emptied after adding User*/
+      $("#firstname").val("");
+      $("#username").val("");
+      $("#lastname").val("");
+      $("#password").val("");
+      $("#email").val("");
+  }
+  alert(obj.message);
 
 }
 
