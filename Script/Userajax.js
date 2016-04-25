@@ -30,6 +30,20 @@ if(regexp1.test($("#drugtype").val()) && regexp2.test($("#drugtype").val()) && r
 
 
 /**
+* The function below validates that the supplier entered by the user containts ID"s as the textfield takes in ID values as relating to the ID's of the supplier.
+**/
+function validateToolSupplier()
+{
+var regexp1=new RegExp("[^0-9]");
+if(regexp1.test($("#toolsupplier").val()))
+{
+alert("Only supplierID's that are numbers are allowed.");
+return false;
+}
+window.location="../View/addtool_interface.php";
+}
+
+/**
 * The function below validates entereed information and completes the addition of a drug.
 **/
 function addDrugComplete(xhr,status){
