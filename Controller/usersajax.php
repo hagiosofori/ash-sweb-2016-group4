@@ -1,4 +1,5 @@
 <?php
+	/*Author: Kwabena Boohene*/
 	//check command
 	if(!isset($_REQUEST['cmd'])){
 		echo "cmd is not provided";

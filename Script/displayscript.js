@@ -1,3 +1,9 @@
+/*
+*Javascript class for inventory display
+*Authors: Alvin Ofori and Ephraime Ayite
+*/
+
+/*Global variables Needed*/
 var currentObject = null;
 var notprinted_drug = true;
 var notprinted_tool = true;

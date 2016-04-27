@@ -1,3 +1,8 @@
+/*
+*Class to add and sear for inventory
+*
+*/
+
 /**
 * The function below validates the the supplier entered by the user contains
 * ID's as the textfield takes in ID values as relating to the ID's of the supplier

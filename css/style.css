@@ -1,6 +1,5 @@
 
 /*Styling of the footer*/
-
 .footer{
 
   color:white;
@@ -13,7 +12,6 @@
 
 
 /*Styling of the text boxes*/
-
 input[type="text"],input[type="password"] {
   width: 100%;
   padding: 12px 20px;
@@ -25,7 +23,6 @@ input[type="text"],input[type="password"] {
 
 
 /*Styling of login page*/
-
 .login{
   font-family: 'Open Sans Condensed', arial, sans;
   padding: 30px;
@@ -43,7 +40,6 @@ input[type="text"],input[type="password"] {
 }
 
 /*Styling of homepage*/
-
 .information{
   margin-top: 5%;
   width:100%;
@@ -98,7 +94,6 @@ body{margin:0;padding:0;}
   font-size:40px;
   text-shadow: 1px 1px 3px #666666;
 }
-
 
 .formpage{
   background-image: url("../img/clinicbackground.png");
@@ -191,7 +186,7 @@ button:hover,#buttonAdd:hover,.button:hover{
   margin-left:26%;
 }
 
-/*Table Styling*/
+/*Table Styling for user tables*/
 .usertable{
   width:100%;
   border-bottom:1px solid #ddd;
@@ -345,8 +340,8 @@ ul{
   left:350px;
   width:300px;
   height:300px;
-  /*background:black;*/
 }
+
 #view_inventory:hover{
   box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
@@ -358,7 +353,6 @@ ul{
   left:750px;
   width:300px;
   height:300px;
-  /*background:black;*/
 }
 
 #add_drug:hover{
@@ -372,7 +366,6 @@ ul{
   left:750px;
   width:300px;
   height:300px;
-  /*background:black;*/
 }
 
 #add_tool:hover{
@@ -386,7 +379,6 @@ ul{
   left:350px;
   width:300px;
   height:300px;
-  /*background:black;*/
 }
 
 #add_supplier:hover{
@@ -400,7 +392,6 @@ ul{
   left:200px;
   width:300px;
   height:200px;
-  /*background:black;*/
 }
 
 #nurse_info:hover{
@@ -414,7 +405,6 @@ ul{
   left:550px;
   width:300px;
   height:200px;
-  /*background:black;*/
 }
 
 #report:hover{
@@ -427,7 +417,6 @@ ul{
   left:900px;
   width:300px;
   height:200px;
-  /*background:black;*/
 }
 
 #feedback:hover{
@@ -444,8 +433,6 @@ ul{
   left:200px;
   width:295px;
   height:300px;
-  /*background:black;*/
-  /*opacity: 0.9;*/
 }
 
 #reportback{
@@ -457,8 +444,6 @@ ul{
   left:550px;
   width:292px;
   height:300px;
-  /*background:black;*/
-  /*opacity: 0.9;*/
 }
 
 #feedbackback{
@@ -466,13 +451,10 @@ ul{
   background-color: white;
   border-style: solid;
   border-color: grey;
-
   top:1070px;
   left:900px;
   width:21.5%;
   height:300px;
-  /*background:black;*/
-  /*opacity: 0.9;*/
 }
 
 #backrectangle{
@@ -503,26 +485,19 @@ ul{
 
 #secondback{
   position: absolute;
-  /*background-image: url("../img/smallerbackground.png");*/
   background-color: #ffffff;
-  /*background-size: 50%;*/
   top:1050px;
   left:2%;
-  /*right:70%;*/
   width:96%;
   height:55%;
-  /*background:white;*/
-  /*border-radius: 20px;*/
   opacity: 0.7;
   box-shadow: 0 12px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .checkered {
   background-image: url("../img/clinicbackground.png");
-  /*background-color: #dddddd;*/
   background-size: 200%;
   background-repeat: no-repeat;
-  /*background-color: #E7F0F5;*/
 }
 
 /*Inventory tables*/
@@ -564,8 +539,8 @@ div.flat button.active {
 }
 
 .inlineblock {
-  top: 10%; /* IMPORTANT */
-  left: 10%; /* IMPORTANT */
+  top: 10%;
+  left: 10%;
   display: block;
   position: absolute;
   width: 750px;
@@ -576,8 +551,6 @@ div.flat button.active {
 .footerB {
   margin-top: 1280px;
   top: 1300px;
-  /*background-color: #000000;*/
-  /*opacity: 0.0;*/
   height: 11em;
   bottom:0%;
   color: white;
@@ -607,18 +580,19 @@ th {
   padding: 12px 35px;
   border-collapse: collapse;
 }
+
 /*Modal Implementation*/
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z‐index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z‐index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background‐color: rgb(0,0,0); /* Fallback color */
-  background‐color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background‐color: rgb(0,0,0);
+  background‐color: rgba(0,0,0,0.4);
   box-shadow:
   0px 0px 20px rgba(0,0,0,0.10),
   0px 10px 20px rgba(0,0,0,0.05),
@@ -686,7 +660,7 @@ th {
 
 .col-offset-6{ margin-left: 50.00%; }
 
-
+/*Installed Helvetica Font*/
 @@font-face {
   font-family:helvetica;
   src:url(../Fonts/Helvetica.otf);

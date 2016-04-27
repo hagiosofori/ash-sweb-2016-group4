@@ -1,4 +1,7 @@
 <?php
+/*
+*Authors: Alvin Ofori & Ephraime Ayite
+*/
 //  class Operations{
 if(isset($_REQUEST['cmd'])){
 	$cmd = $_REQUEST['cmd'];

@@ -1,3 +1,7 @@
+/*
+*Class concerning all Javascript functions
+*
+*/
 
 var currentObject = null;
 //Displays email alert message
