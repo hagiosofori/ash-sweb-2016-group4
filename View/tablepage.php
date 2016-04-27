@@ -26,7 +26,7 @@
         <div id="links">
           <li><a href='hm.php'>Home</a></li>
           <li><a href='about.php'>About</a></li>
-          <li><a href='#'>Team</a></li>
+          <li><a href='teampage.php'>Team</a></li>
         </div>
 
         <!--Session Information-->

@@ -49,13 +49,84 @@ if(isset($_REQUEST['cmd'])){
 		case 16:
 		addNewTool();
 		break;
+		case 17:
+		deleteTool();
+		break;
+		case 18:
+		deleteSupplier();
+		break;
+		case 19:
+		deleteDrug();
+		break;
 		default:
 		echo "nothing selected";
-
-
 	}
 }
 
+/**
+*method: Method to delete a specific tool
+*/
+
+function deleteTool(){
+	if(!isset($_REQUEST['uc'])){
+		echo "usercode is not given";
+		exit();
+	}
+
+	$Id=$_REQUEST['uc'];
+	include("../Model/tools.php");
+	$tool=new tools();
+	//delete the user
+	if($tool->deleteTool($Id)){
+		echo "Tool deleted";
+	}else{
+		echo "Tool not deleted ";
+	}
+}
+
+/**
+*method: A meethod to delete a specific supplier
+*
+*/
+function deleteSupplier(){
+	if(!isset($_REQUEST['uc'])){
+		echo "usercode is not given";
+		exit();
+	}
+
+	$Id=$_REQUEST['uc'];
+	include("../Model/suppliers.php");
+	$tool= new suppliers();
+	//delete the user
+	if($tool->deleteSupplier($Id)){
+		echo "Supplier deleted";
+	}else{
+		echo "Supplier not deleted ";
+	}
+}
+/**
+*method:A method to delete a specific drug
+*/
+function deleteDrug(){
+	if(!isset($_REQUEST['uc'])){
+		echo "usercode is not given";
+		exit();
+	}
+
+	$Id=$_REQUEST['uc'];
+	include("../Model/drugs.php");
+	$tool=new drugs();
+	//delete the user
+	if($tool->deleteDrug($Id)){
+		echo "Drug deleted";
+	}else{
+		echo "Drug not deleted ";
+	}
+}
+/**
+*method:  method to edit a specific supplier Location
+*@return:    boolean indicating the success or failure of the operation
+*/
 function editSupplierLocation(){
 	include_once("../Model/suppliers.php");
 	$supplier = new Suppliers();
@@ -72,10 +143,12 @@ function editSupplierLocation(){
 		return false;
 	}
 
-
 }
 
-
+/**
+*method:  method to edit a specific supplier name
+*@return:    boolean indicating the success or failure of the operation
+*/
 
 function editSupplierName(){
 	include_once("../Model/suppliers.php");
@@ -95,7 +168,10 @@ function editSupplierName(){
 
 
 }
-
+/**
+*method:  method to edit a specific tool quantity
+*@return:    boolean indicating the success or failure of the operation
+*/
 function editToolQuantity(){
 	include_once("../Model/tools.php");
 	$tool = new Tools();
@@ -112,6 +188,10 @@ function editToolQuantity(){
 		return false;
 	}
 }
+/**
+*method:  method to edit a specific tool name
+*@return:    boolean indicating the success or failure of the operation
+*/
 function  editToolName(){
 	include_once("../Model/tools.php");
 	$tool = new Tools();
@@ -130,6 +210,10 @@ function  editToolName(){
 
 
 }
+/**
+*method:  method to edit a specific drug name
+*@return:    boolean indicating the success or failure of the operation
+*/
 function editDrugName(){
 	include_once("../Model/drugs.php");
 	$drug = new drugs();
@@ -145,6 +229,10 @@ function editDrugName(){
 		return false;
 	}
 }
+/**
+*method:  method to edit a specific drug Quantity
+*@return:    boolean indicating the success or failure of the operation
+*/
 
 function editDrugQuantity(){
 	include_once("../Model/drugs.php");
@@ -162,6 +250,9 @@ function editDrugQuantity(){
 		return false;
 	}
 }
+/**
+*method:A method to get all the drugs
+*/
 function getDrugs(){
 	$success="";
 	include_once("../Model/drugs.php");
@@ -179,6 +270,9 @@ function getDrugs(){
 	return true;
 }
 
+/**
+*method:A method to get all tools
+*/
 function getTools(){
 	$success="";
 	include_once("../Model/tools.php");
@@ -196,6 +290,9 @@ function getTools(){
 	return $success;
 }
 
+/**
+*method:A method to get all the suppliers
+*/
 function getSuppliers(){
 	$success="";
 	include_once("../Model/suppliers.php");
@@ -213,6 +310,9 @@ function getSuppliers(){
 	return $success;
 }
 
+/**
+*method:A method to search for all the suppliers in the database
+*/
 function searchSuppliers(){
 	include_once("../Model/suppliers.php");
 	$filter = $_REQUEST['searchtxt'];
@@ -229,6 +329,9 @@ function searchSuppliers(){
 	echo json_encode($data);
 }
 
+/**
+*method:A method to search for all the tools in the database
+*/
 function searchTools(){
 	include_once("../Model/tools.php");
 	$filter = $_REQUEST['searchtxt'];
@@ -245,6 +348,9 @@ function searchTools(){
 	echo json_encode($data);
 }
 
+/**
+*method:A method to search for all the drugs in a database
+*/
 function searchDrugs(){
 	include_once("../Model/drugs.php");
 	$filter = $_REQUEST['searchtxt'];
@@ -261,6 +367,10 @@ function searchDrugs(){
 	echo json_encode($data);
 }
 
+/**
+* This function inserts the added drug through the AJAX page into the database and returns
+* and JSON string when success of fail occurs accordingly
+*/
 function addNewDrug(){
 	include("../Model/drugs.php");
 	$drug=new drugs();
@@ -271,8 +381,9 @@ function addNewDrug(){
 	$drugname=$_REQUEST['drugname'];
 	$drugquantity=$_REQUEST['drugquantity'];
 	$drugsupplier=$_REQUEST['drugsupplier'];
-	$drugtype=$_REQUEST['drugType'];
-	$verify=$drug->addDrug($drugname,$drugquantity,$drugsupplier,1,"Drugs");
+	$drugtype=$_REQUEST['drugtype'];
+
+	$verify=$drug->addDrug($drugname,$drugquantity,$drugsupplier,$drugtype,"Drugs");
 	if($verify==false){
 		echo'{"result":0,"message":"Drug not added"}';
 	}
@@ -281,6 +392,10 @@ function addNewDrug(){
 	}
 }
 
+/**
+* This function inserts the added tool through the AJAX page into the database and returns
+* and JSON string when success of fail occurs accordingly
+*/
 function addNewTool(){
 	include("../Model/tools.php");
 	$tool=new tools();
@@ -301,6 +416,10 @@ function addNewTool(){
 }
 
 
+/**
+* This function inserts the added supplier through the AJAX page into the database and returns
+* and JSON string when success of fail occurs accordingly
+*/
 function addNewSupplier(){
 	include("../Model/suppliers.php");
 	$suppliers=new suppliers();

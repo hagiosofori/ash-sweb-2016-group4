@@ -25,8 +25,8 @@
 			<ul>
 				<div id="links">
 					<li><a href='hm.php'>Home</a></li>
-					<li><a href='#'>About</a></li>
-					<li><a href='#'>Team</a></li>
+					<li><a href='about.php'>About</a></li>
+					<li><a href='teampage.php'>Team</a></li>
 				</div>
 				<!--Session information-->
 				<?php
@@ -51,7 +51,14 @@
 				<input id=\"drugname\" style='width:60%' type=\"text\" name=\"drugName\" placeholder=\"Drug Name\" value = $drugName >
 				<input id=\"drugquantity\" style='width:30%' type=\"text\" name=\"quantity\" placeholder=\"Qty\" value = $Quantity  >
 				<input id=\"drugsupplier\" style='width:60%'type=\"text\" name=\"supplierId\" placeholder=\"Supplier Id\" value = $supplierId>
-				<input id=\"drugtype\" style='width:20%'type=\"text\" name=\"drugType\" placeholder=\"Drug Type\" value = $drugType >
+
+
+				<select id=\"drugValues\" style='width:20%'type=\"text\" name=\"drugType\" placeholder=\"Drug Type\" onchange=\"getDrugType(this)\">
+				<option></option>
+				<option id=\"drugtype\" >Tablet</option>
+				<option id=\"drugSyrup\" >Syrup</option>
+				<option id=\"drugrepo\" >Repository</option>
+				</select>
 				<input type=\"button\" name=\"submit\" id=\"buttonAdd\" onclick=\"addDrug();\" value=\"Add Drug\">
 				<a class='button' href='hm.php'>Return to homepage</a>";
 

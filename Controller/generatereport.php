@@ -12,14 +12,22 @@
     * @author  Ryan Moujaled <ryjaled@gmail.com>
     */
 
-
+    /**
+    * This php script includes the report.php page which is the class of the script
+    */
     include_once("../Model/report.php");
     $obj = new report();
 
+    //request the necessary preference for the user report
     if(!isset($_REQUEST['preference'])){
       echo "You need to choose a preference";
     }
 
+    /**Preference delineation:
+    //1: report on drugs generation
+    //2: report on tools generation
+    //3: report on availability generation
+    */
     if($id = $_GET['preference']){
 
       if($id==1){
