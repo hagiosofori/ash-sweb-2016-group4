@@ -39,7 +39,6 @@
          ?>
       </ul>
 
-    <div id="update"></div>
   </head>
 
   <body style="background-image: url('../img/clinicbackground.png');background-size: 200%;">

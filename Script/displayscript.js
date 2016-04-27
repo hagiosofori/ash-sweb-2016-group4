@@ -12,14 +12,11 @@ var myList = null;
 
 function displayAllDrugs(xhr,status){
 	var result_table = document.getElementById('results_table');
-	if(!status=="success"){ document.getElementById("update").innerText="problem oh" ;}else{
-		document.getElementById("update").innerText="success";
+	if(!status=="success"){ //document.getElementById("update").innerText="problem oh" ;}else{
+		//document.getElementById("update").innerText="success";
 	}
 	var table = xhr.responseText;
-	if(table==null){document.getElementById("update").innerText="empty response";}else{
-		document.getElementById("update").innerText="there is something";
-	};
-	document.getElementById("update").innerText=xhr.responseText;
+
 	<!--$(document).open();->
 	myList=xhr.responseText;
 	buildHtmlTable(result_table);
@@ -54,13 +51,13 @@ function displayAllSupplier(){
 	var result_table = document.getElementById('results_table');
 }
 
-
+/*
 function testing(){
 	var update = document.getElementById('update');
 	update.innerHTML='working.........';
-}
+}*/
 /**
-*method to get all the drugs in the database 
+*method to get all the drugs in the database
 */
 function getAllDrugs(){
 	document.getElementById('button').innerText = "Add Drug";
@@ -359,23 +356,20 @@ function editSupplierLocationComplete(){
 
 function sfillTableTools(xhr, status){
 	var response = $.parseJSON(xhr.responseText);
-	document.getElementById('update').innerHTML=xhr.responseText;
+//	document.getElementById('update').innerHTML=xhr.responseText;
 	if(!notprinted_tool)  {
 		document.getElementById('results_table').innerHTML = "";
 		$(function(){
-			document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Tool Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th></tr> </thead>";
-
-			//document.getElementById('editlink').innerHTML="<a href="">Edit</a>";
-
+			document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Tool Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th><th>Option</th></tr> </thead>";
 
 			$.each(response, function(i, item){
+				toolItemId=item.toolId;
 				var $tr = $('<tr>').append(
-
 					$('<td>').text(item.toolName),
 					$('<td>').text(item.quantity),
 					$('<td>').text(item.supplierName),
-					$('<td>').text(item.supplierId)
-
+					$('<td>').text(item.supplierId),
+					$('<td>').append("<p onclick='delTool(this,toolItemId)'>Delete</p>")
 
 				).appendTo('#results_table');
 				//console.log($tr.wrap('<p>').html());
@@ -391,17 +385,18 @@ function sfillTableTools(xhr, status){
 
 function sfillTableSuppliers(xhr, status){
 	var response = $.parseJSON(xhr.responseText);
-	document.getElementById('update').innerHTML=xhr.responseText;
+	//document.getElementById('update').innerHTML=xhr.responseText;
 	if(!notprinted_supplier)  {
 		document.getElementById('results_table').innerHTML = "";
 		$(function(){
-			document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Supplier Name</th><th id='quantity'>Location</th></tr> </thead>";
+			document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Supplier Name</th><th id='quantity'>Location</th><th>Option</th></tr> </thead>";
 
 			$.each(response, function(i, item){
+				supplierItemId=item.suppliersId;
 				var $tr = $('<tr>').append(
 					$('<td>').text(item.supplierName),
 					$('<td>').text(item.supplierLocation),
-					$('<td>').text("<a href=\"google.com\">do something</a>")
+					$('<td>').append("<p onclick='delSupplier(this,supplierItemId)'>Delete</p>")
 
 				).appendTo('#results_table');
 				//console.log($tr.wrap('<p>').html());
@@ -417,19 +412,21 @@ function sfillTableSuppliers(xhr, status){
 
 function sfillTableDrugs(xhr, status){
 	var response = $.parseJSON(xhr.responseText);
-	document.getElementById('update').innerHTML=xhr.responseText;
+	//document.getElementById('update').innerHTML=xhr.responseText;
 	if(!notprinted_drug)  {
 		document.getElementById('results_table').innerHTML = "";
 		$(function(){
-			document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Drug Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th><th id='supplierid'>Drug Type</th></tr> </thead>";
+			document.getElementById('results_table').innerHTML = " <thead><tr id='header'><th id='name'>Drug Name</th><th id='quantity'>Quantity</th><th id='supplier'>Supplier Name</th><th id='supplierid'>Supplier Id</th><th id='supplierid'>Drug Type</th><th>Option</th></tr> </thead>";
 			$.each(response, function(i, item){
+				drugItemId=item.drugId;
 				var $tr = $('<tr>').append(
 
 					$('<td>').text(item.drugName),
 					$('<td>').text(item.quantity),
 					$('<td>').text(item.supplierName),
 					$('<td>').text(item.supplierID),
-					$('<td>').text(item.drugType)
+					$('<td>').text(item.drugType),
+					$('<td>').append("<p onclick='delDrug(this,drugItemId)'>Delete</p>")
 				).appendTo('#results_table');
 				//console.log($tr.wrap('<p>').html());
 			});
@@ -444,20 +441,20 @@ function sfillTableDrugs(xhr, status){
 
 function search(){
 	var search = document.getElementById('searchtxt').value;
-	document.getElementById('update').innerHTML='inside search';
+	//document.getElementById('update').innerHTML='inside search';
 
 	if(!notprinted_tool){
-		document.getElementById('update').innerHTML='searching for tool '+search;
+		//document.getElementById('update').innerHTML='searching for tool '+search;
 		var ajaxurl = '../Controller/homeAjax.php?cmd=12&searchtxt='+search;
-		document.getElementById('update').innerHTML=ajaxurl+' in tools';
+		//document.getElementById('update').innerHTML=ajaxurl+' in tools';
 		$.ajax(ajaxurl, {async:true, complete:sfillTableTools });
 	}else if(!notprinted_drug){
-		document.getElementById('update').innerHTML=search+' in drugs';
+		//document.getElementById('update').innerHTML=search+' in drugs';
 		var ajaxurl = '../Controller/homeAjax.php?cmd=11&searchtxt='+search;
-		document.getElementById('update').innerHTML=ajaxurl;
+		//document.getElementById('update').innerHTML=ajaxurl;
 		$.ajax(ajaxurl, {async:true, complete:sfillTableDrugs } );
 	}else if(!notprinted_supplier){
-		document.getElementById('update').innerHTML==ajaxurl+' in suppliers';
+		//document.getElementById('update').innerHTML==ajaxurl+' in suppliers';
 		var ajaxurl = '/Controller/homeAjax.php?cmd=13&searchtxt='+search;
 		$.ajax(ajaxurl, {async:true, complete:sfillTableSuppliers} );
 	}
